@@ -38,7 +38,7 @@
 
             <!-- HEADER LOGO -->
             <div class="header_logo">
-                <a href="#"><img src="{{ url('home/images/logo-header.png') }}" alt=""></a>
+                <a href="{{ url('/') }}"><img src="{{ url('home/images/logo-header.png') }}" alt=""></a>
             </div>
             <!-- END / HEADER LOGO -->
             <!-- HEADER MENU -->
