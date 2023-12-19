@@ -66,7 +66,9 @@
 
 /*===================== MAX-WIDTH: 991px =========================  */
 @media only screen and (max-width: 991px) {
-  
+  .accomd-modations-header{
+    margin-top: 220px !important;
+  }
   #header.header-v3 .header_top .header_left, #header.header-v3 .header_top .header_right {
     line-height: 40px; }
   #header.header-v3 #header_content.header_mobile .header_menu.active {
@@ -145,6 +147,9 @@
 
 /*===================== MAX-WIDTH: 767PX =========================  */
 @media only screen and (max-width: 767px) {
+  .accomd-modations-header{
+    margin-top: 280px !important;
+  }
   #header.header-v3 .header_top .logo-top {
     display: none; } 
   .ot-heading h2 {
@@ -240,6 +245,9 @@
 
 /*==================== MAX-WIDTH: 600PX ===============================*/
 @media only screen and (max-width: 600px) {
+  .accomd-modations-header{
+    margin-top: 280px !important;
+  }
   #header.header-v3 .header_top .logo-top {
     display: none; } 
   .section-video iframe {
@@ -247,6 +255,9 @@
 
 /*==================== MAX-WIDTH: 480PX ===============================*/
 @media only screen and (max-width: 480px) {
+  .accomd-modations-header{
+    margin-top: 230px !important;
+  }
   #header.header-v3 .header_top .logo-top {
     display: none; } 
   #header.header-v3.header-sticky {

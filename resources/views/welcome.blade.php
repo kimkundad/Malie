@@ -126,8 +126,16 @@
         <div class="container">
             <div class="home-about">
                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="accomd-modations-header">
+                            <h2 class="heading">ROOMS & RATES</h2>
+                            <img src="{{ url('home/images/icon-accmod.png') }}" alt="icon">
+                            <p>Semper ac dolor vitae accumsan. Cras interdum hendrerit lacinia. Phasellus accumsan urna vitae molestie interdum. Nam sed placerat libero, non eleifend dolor.</p>
+                        </div>
+                        <br>
+                    </div>
                     <div class="col-md-6">
-                        <div class="img">
+                        <div class="img about-mt-50">
                             <a href="#"><img src="{{ url('home/images/example/LINE_ALBUM2536.jpg') }}" alt=""></a>
                         </div>
                     </div>
