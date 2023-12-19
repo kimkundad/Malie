@@ -278,9 +278,9 @@
                                 <img class="img-full" src="{{ url('home/images/home-3/deals/deals-1.png') }}" alt="">
                             </div>
                             <div class="info">
-                                <a class="title bold f26 font-monserat upper" href="!#">Spa salon</a>
+                                <a class="title bold f26 font-monserat upper" href="{{ url('/') }}">Spa salon</a>
                                 <p class="sub font-monserat f12 f-600 upper mt10 mb20">package</p>
-                                <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12" href="!#">Click hear</a>
+                                <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12" href="{{ url('/') }}">Click hear</a>
                             </div>
                         </div>
                         <div class="item item-deal">
@@ -288,9 +288,9 @@
                                 <img class="img-full" src="{{ url('home/images/home-3/deals/deals-3.png') }}" alt="">
                             </div>
                             <div class="info">
-                                <a class="title bold f26 font-monserat upper" href="!#">weeding</a>
+                                <a class="title bold f26 font-monserat upper" href="{{ url('/') }}">weeding</a>
                                 <p class="sub font-monserat f12 f-600 upper mt10 mb20">event</p>
-                                <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12" href="!#">Read more</a>
+                                <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12" href="{{ url('/') }}">Read more</a>
                             </div>
                         </div>
                     </div>
@@ -321,9 +321,9 @@
                                 <p class="date f20">
                                     21 December, 2017
                                 </p>
-                                <a class="title font-monserat f20 mb20 block bold upper" href="!#">UPDATE MENU FOOD IN LOTUS
+                                <a class="title font-monserat f20 mb20 block bold upper" href="{{ url('/') }}">UPDATE MENU FOOD IN LOTUS
                                     HOTEL</a>
-                                <a class="more block f13" href="!#">[Read more]</a>
+                                <a class="more block f13" href="{{ url('/') }}">[Read more]</a>
                             </div>
                         </div>
                     </div>
@@ -336,9 +336,9 @@
                                 <p class="date f20">
                                     06 Octorber, 2017
                                 </p>
-                                <a class="title font-monserat f20 mb20 block bold upper" href="!#">WEDDING DAY
+                                <a class="title font-monserat f20 mb20 block bold upper" href="{{ url('/') }}">WEDDING DAY
                                     JONATHA & JESSICA</a>
-                                <a class="more block f13" href="!#">[Read more]</a>
+                                <a class="more block f13" href="{{ url('/') }}">[Read more]</a>
                             </div>
                         </div>
                     </div>
@@ -351,15 +351,15 @@
                                 <p class="date f20">
                                     18 March, 2017
                                 </p>
-                                <a class="title font-monserat f20 mb20 block bold upper" href="!#">Bryce Canyon A Stunning Us
+                                <a class="title font-monserat f20 mb20 block bold upper" href="{{ url('/') }}">Bryce Canyon A Stunning Us
                                     Travel Destination</a>
-                                <a class="more block f13" href="!#">[Read more]</a>
+                                <a class="more block f13" href="{{ url('/') }}">[Read more]</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="text-center">
-                    <a href="!#" class="awe-btn awe-btn-default font-hind f12 bold btn-medium mt15">View more</a>
+                    <a href="{{ url('/') }}" class="awe-btn awe-btn-default font-hind f12 bold btn-medium mt15">View more</a>
                 </div>
             </div>
         </div>
