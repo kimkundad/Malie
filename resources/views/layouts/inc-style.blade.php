@@ -13,14 +13,14 @@ type='text/css'>
 <link rel="stylesheet" type="text/css" href="{{ url('home/css/lib/settings.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url('home/css/lib/bootstrap-select.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url('home/css/helper.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url('home/css/custom.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url('home/css/responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url('home/css/custom.css') }}?v{{time()}}">
+<link rel="stylesheet" type="text/css" href="{{ url('home/css/responsive.css') }}?v{{time()}}">
 <link href= 
 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css' 
          rel='stylesheet'> 
 
 <!-- MAIN STYLE -->
-<link rel="stylesheet" type="text/css" href="{{ url('home/css/style.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url('home/css/style.css') }}?v{{time()}}">
 
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
