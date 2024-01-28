@@ -14,8 +14,10 @@ License: For each use you must have a valid license purchased only from above li
 	<!--begin::Head-->
 	<head>
 
-		@yield('title')
+		
 		<meta charset="utf-8" />
+		<title>ที่พักพูลวิลล่า Malie เกาะสมุย </title>
+		<meta name="description" content=" ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui) ">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
 		@include('admin.layouts.inc-style')

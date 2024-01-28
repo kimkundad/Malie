@@ -11,15 +11,7 @@ class ContactController extends Controller
     //
     public function index(){
 
-        $objs = DB::table('contacts')->select(
-            'contacts.*',
-            'contacts.id as id_q',
-            'contacts.name as names',
-            'contacts.status as status1',
-            'type_contacts.*',
-            'type_contacts.name as name1',
-            )
-            ->leftjoin('type_contacts', 'type_contacts.id',  'contacts.type')
+        $objs = DB::table('contacts')
             ->paginate(15);
 
             $objs->setPath('');

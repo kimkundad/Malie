@@ -65,8 +65,13 @@
                         <ul>
                             <li><a href="#">Guest Book</a></li>
                             <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Restaurant</a></li>
-                            <li><a href="#">Event</a></li>
+                            @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}">เข้าสู่ระบบ / Login</a></li>
+                            @else
+                            @if(Auth::user()->roles[0]->name == 'superadmin' || Auth::user()->roles[0]->name == 'admin')
+                            <li><a href="{{ url('/admin/dashboard') }}">เข้าสู่หลังบ้าน</a></li>
+                            @endif
+                            @endif
                         </ul>
                     </div>
                 </div>

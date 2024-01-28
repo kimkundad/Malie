@@ -298,13 +298,13 @@
             <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
                 <!--begin::Copyright-->
                 <div class="text-dark order-2 order-md-1">
-                    <span class="text-muted fw-semibold me-1">2022&copy;</span>
-                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">บริษัท วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด</a>
+                    <span class="text-muted fw-semibold me-1">2024&copy;</span>
+                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)</a>
                 </div>
                 <!--end::Copyright-->
                 <!--begin::Menu-->
                 <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
-                    <li class="menu-item">
+                    <!-- <li class="menu-item">
                         <a href="{{ url('about') }}" target="_blank" class="menu-link px-2">เกี่ยวกับวงษ์พาณิชย์</a>
                     </li>
                     <li class="menu-item">
@@ -312,7 +312,7 @@
                     </li>
                     <li class="menu-item">
                         <a href="{{ url('contact') }}" target="_blank" class="menu-link px-2">ติดต่อเรา</a>
-                    </li>
+                    </li> -->
                 </ul>
                 <!--end::Menu-->
             </div>
