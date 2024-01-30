@@ -21,7 +21,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            รูป slide show ทั้งหมด</h1>
+                            หมวดหมู่รูปภาพทั้งหมด</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -36,7 +36,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">รูป slide show </li>
+                            <li class="breadcrumb-item text-muted">หมวดหมู่รูปภาพ</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -44,7 +44,7 @@
                     <!--end::Page title-->
                     <!--begin::Actions-->
                     <div class="d-flex align-items-center gap-2 gap-lg-3">
-                        <a href="{{ url('admin/slide_show/create') }}" class="btn btn-sm fw-bold btn-primary" >
+                        <a href="{{ url('admin/category/create') }}" class="btn btn-sm fw-bold btn-primary" >
                             <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-01-26-051612/core/html/src/media/icons/duotune/arrows/arr017.svg-->
                             <span class="svg-icon svg-icon-muted svg-icon-1hx"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.3" d="M11 13H7C6.4 13 6 12.6 6 12C6 11.4 6.4 11 7 11H11V13ZM17 11H13V13H17C17.6 13 18 12.6 18 12C18 11.4 17.6 11 17 11Z" fill="currentColor"/>
@@ -68,7 +68,8 @@
                     <div class="card card-xl-stretch mb-5 mb-xl-8">
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">จำนวนรูป slide show {{ count($objs) }} รูป</span>
+                                <span class="card-label fw-bold fs-3 mb-1">หมวดหมู่ทั้งหมด</span>
+                                <span class="text-muted mt-1 fw-semibold fs-7"> หมวดหมู่ {{ count($objs) }}</span>
                             </h3>
                         </div>
                         <div class="card-body py-3">
@@ -79,27 +80,27 @@
                                     <!--begin::Table head-->
                                     <thead>
                                         <tr>
-                                            <th class="p-0 w-50px"></th>
                                             <th class="p-0 "></th>
+                                            <th class="p-0 ">จำนวนรูป</th>
                                             <th class="p-0 ">status</th>
                                             <th class="p-0 "></th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
+                                    
                                     <tbody>
                                         @isset($objs)
                                             @foreach ($objs as $item)
                                         
                                         <tr id="{{$item->id}}">
                                             <td>
-                                                <div class=" " >
-                                                    <img src="{{ url('images/malie/slide/'.$item->image) }}" style="height:75px">
-                                                </div>
+                                                <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $item->cat_name }}</a>
                                             </td>
                                             <td>
-                                                <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $item->title }}</a>
+                                                {{ $item->option }}
                                             </td>
+                                            
                                             <td>
                                                 <div class="form-check form-check-solid form-switch form-check-custom fv-row">
                                                     <input class="form-check-input w-45px h-30px" type="checkbox" id="allowmarketing" name="status" 
@@ -112,7 +113,7 @@
                                             </td>
                                             <td class="text-end">
                                                 <div class="d-flex justify-content-end flex-shrink-0">
-                                                    <a href="{{url('admin/slide_show/'.$item->id.'/edit')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                    <a href="{{url('admin/category/'.$item->id.'/edit')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,7 +123,7 @@
                                                         </span>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                    <a href="{{ url('api/del_slide/'.$item->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                    <a href="{{ url('api/del_cat/'.$item->id) }}"  onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                         <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -146,7 +147,6 @@
                                 </table>
                             </div>
                             @include('admin.pagination.default', ['paginator' => $objs])
-                      
                         </div>
                     </div>
                     
@@ -197,7 +197,7 @@
     
         $.ajax({
                 type:'POST',
-                url:'{{url('api/api_post_status_slide')}}',
+                url:'{{url('api/api_post_status_category')}}',
                 headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
                 data: { "user_id" : user_id },
                 success: function(data){

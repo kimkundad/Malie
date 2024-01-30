@@ -21,7 +21,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            สร้าง slide show</h1>
+                            สร้างรูปภาพ</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -36,7 +36,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">สร้าง slide show ใหม่</li>
+                            <li class="breadcrumb-item text-muted">สร้างรูปภาพใหม่</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -59,21 +59,21 @@
                             
                             <div class="card-body border-top p-9">
 
-                                
+                               
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูป slide show สินค้า</label>
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปภาพ</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8">
                                         <!--begin::Image input-->
-                                        <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('img/1676212425285.jpg') }}')">
+                                        <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('img/media-image-size.png') }}')">
                                             <!--begin::Preview existing avatar-->
-                                            <div class="image-input-wrapper " style="background-image: url({{ url('img/1676212425285.jpg') }}); width:380px; height:200px"></div>
+                                            <div class="image-input-wrapper " style="background-image: url({{ url('img/media-image-size.png') }}); width:380px; height:200px"></div>
                                             <!--end::Preview existing avatar-->
                                             <!--begin::Label-->
-                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูป slide show สินค้า">
+                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูปสินค้า">
                                                 <i class="bi bi-pencil-fill fs-7"></i>
                                                 <!--begin::Inputs-->
                                                 <input type="file" name="image" accept=".png, .jpg, .jpeg" />
@@ -82,22 +82,22 @@
                                             </label>
                                             <!--end::Label-->
                                             <!--begin::Cancel-->
-                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="ยกเลิก รูป slide show สินค้า">
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="ยกเลิก รูปสินค้า">
                                                 <i class="bi bi-x fs-2"></i>
                                             </span>
                                             <!--end::Cancel-->
                                             <!--begin::Remove-->
-                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="ลบ รูป slide show สินค้า">
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="ลบ รูปสินค้า">
                                                 <i class="bi bi-x fs-2"></i>
                                             </span>
                                             <!--end::Remove-->
                                         </div>
                                         <!--end::Image input-->
                                         <!--begin::Hint-->
-                                        <div class="form-text">Allowed file types: png, jpg, jpeg. (2560px X 1704px)</div>
+                                        <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
                                         @if ($errors->has('image'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณาเลือกรูป slide show สินค้า</div>
+                                                <div>กรุณาเลือกรูป</div>
                                             </div>
                                         @endif
                                         <!--end::Hint-->
@@ -107,109 +107,25 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">1. ข้อความแถวบนไทย</label>
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">เลือกหมวดหมู่รูปภาพ</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="title" class="form-control form-control-lg form-control-solid" placeholder="แต่ละโรงแรมคือ" value="{{old('title') ? old('title') : ''}}">
-                                    
-                                        @if ($errors->has('title'))
+                                        <select class="form-select" aria-label="Select example" name="cat_id">
+                                            @isset($objs)
+                                            @foreach($objs as $u)
+                                            <option value="{{$u->id}}">{{$u->cat_name}}</option>
+                                            @endforeach
+                                            @endisset
+                                        </select>
+                                        @if ($errors->has('cat_id'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอก ข้อความแถวบนไทย </div>
+                                                <div>กรุณาเลือกหมวดหมู่รูปภาพ</div>
                                             </div>
                                         @endif
                                     </div>
                                     <!--end::Col-->
                                 </div>
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">2. ข้อความแถวล่างไทย</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="sub_title" class="form-control form-control-lg form-control-solid" placeholder="ลดราคา 60 %" value="{{old('sub_title') ? old('sub_title') : ''}}">
-                                    
-                                        @if ($errors->has('sub_title'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอก ข้อความแถวล่างไทย </div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">1. ข้อความแถวบน Eng</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="title_en" class="form-control form-control-lg form-control-solid" placeholder="EACH HOTEL IS" value="{{old('title_en') ? old('title_en') : ''}}">
-                                    
-                                        @if ($errors->has('title_en'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอก ข้อความแถวบน Eng </div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">2. ข้อความแถวล่าง Eng</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="sub_title_en" class="form-control form-control-lg form-control-solid" placeholder="UNIQUE 60%" value="{{old('sub_title_en') ? old('sub_title_en') : ''}}">
-                                    
-                                        @if ($errors->has('sub_title_en'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอก ข้อความแถวล่าง Eng </div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-                                
-
-                    
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">4.1.1 Text ปุ่ม</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="g_btn_text" class="form-control form-control-lg form-control-solid" placeholder="ซื้อสินค้า" value="{{old('g_btn_text') ? old('g_btn_text') : ''}}">
-                                    
-                                      
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">4.1.2 URL ปุ่ม</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="g_btn_url" class="form-control form-control-lg form-control-solid" placeholder="https://example.com/url_test" value="{{old('g_btn_url') ? old('g_btn_url') : ''}}">
-                                    
-                                     
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-
-                                
-
-
 
                                 
 
@@ -274,22 +190,5 @@
 
 @section('scripts')
 
-<!--CKEditor Build Bundles:: Only include the relevant bundles accordingly-->
 
-<script src="{{ url('admin/assets/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
-
-<script>
-ClassicEditor
-    .create(document.querySelector('#kt_docs_ckeditor_classic'),{
-        ckfinder: {
-                    uploadUrl: '{{ url('api/upload_img').'?_token='.csrf_token()}}',
-        }
-    })
-    .then(editor => {
-        console.log(editor);
-    })
-    .catch(error => {
-        console.error(error);
-    });
-</script>
 @stop('scripts')

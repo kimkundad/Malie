@@ -59,11 +59,7 @@
                             
                             <div class="card-body border-top p-9">
 
-                                <div class="row mb-6">
-                                    <div class="col-12">
-                                        <img class="img-fluid" src="{{ url('img/example_slide.png') }}">
-                                    </div>
-                                </div>
+                               
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
@@ -74,7 +70,7 @@
                                         <!--begin::Image input-->
                                         <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('img/1676212425285.jpg') }}')">
                                             <!--begin::Preview existing avatar-->
-                                            <div class="image-input-wrapper " style="background-image: url({{ url('img/slide/'.$objs->image) }}); width:380px; height:200px"></div>
+                                            <div class="image-input-wrapper " style="background-image: url({{ url('images/malie/slide/'.$objs->image) }}); width:380px; height:200px"></div>
                                             <!--end::Preview existing avatar-->
                                             <!--begin::Label-->
                                             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูป slide show สินค้า">
@@ -111,15 +107,15 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">1. ชื่อ slide show</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">1. ข้อความแถวบนไทย</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="title" class="form-control form-control-lg form-control-solid" placeholder="วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด" value="{{ $objs->title }}">
+                                        <input type="text" name="title" class="form-control form-control-lg form-control-solid" placeholder="แต่ละโรงแรมคือ" value="{{ $objs->title }}">
                                     
                                         @if ($errors->has('title'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกชื่อ slide show </div>
+                                                <div>กรุณากรอก ข้อความแถวบนไทย </div>
                                             </div>
                                         @endif
                                     </div>
@@ -128,32 +124,15 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">2. ตัวอักษรตัวโต</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">2. ข้อความแถวล่างไทย</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="big_title" class="form-control form-control-lg form-control-solid" placeholder="รับซื้อ-ขาย" value="{{ $objs->big_title }}">
+                                        <input type="text" name="sub_title" class="form-control form-control-lg form-control-solid" placeholder="ลดราคา 60 %" value="{{ $objs->sub_title }}">
                                     
-                                        @if ($errors->has('big_title'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอก ตัวอักษรตัวโต slide show </div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">3. รายละเอียดแบบย่อ</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <textarea class="form-control form-control-lg form-control-solid" id="textareaAutosize" placeholder="จำหน่ายเครื่องจักร ทั้งมือหนึ่ง มือสอง รับเข้าประมูลงานต่างๆ อาทิ เหล็ก 
-                                        โครงสร้าง เศษเหล็ก สแตนเลส อลูมิเนียม อัลลอย..." rows="3" name="sub_title" >{{ $objs->sub_title }} </textarea>
                                         @if ($errors->has('sub_title'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกรายละเอียดแบบย่อ</div>
+                                                <div>กรุณากรอก ข้อความแถวล่างไทย </div>
                                             </div>
                                         @endif
                                     </div>
@@ -162,28 +141,41 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">4.1 ปุ่มเขียว</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">1. ข้อความแถวบน Eng</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <div class="form-check form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="1"
-                                            @if ($objs->g_btn == 1)
-                                            checked="checked"
-                                            @endif
-                                            name="g_btn" id="flexCheckDefault"/>
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                เปิดใช้งาน ปุ่มเขียว
-                                            </label>
-                                        </div>
-                                      
+                                        <input type="text" name="title_en" class="form-control form-control-lg form-control-solid" placeholder="EACH HOTEL IS" value="{{ $objs->title_en }}">
+                                    
+                                        @if ($errors->has('title_en'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>กรุณากรอก ข้อความแถวบน Eng </div>
+                                            </div>
+                                        @endif
                                     </div>
                                     <!--end::Col-->
                                 </div>
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">4.1.1 Text ปุ่มเขียว</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">2. ข้อความแถวล่าง Eng</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="sub_title_en" class="form-control form-control-lg form-control-solid" placeholder="UNIQUE 60%" value="{{ $objs->sub_title_en }}">
+                                    
+                                        @if ($errors->has('sub_title_en'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>กรุณากรอก ข้อความแถวล่าง Eng </div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">4.1.1 Text ปุ่ม</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
@@ -197,66 +189,13 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">4.1.2 URL ปุ่มเขียว</label>
+                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">4.1.2 URL ปุ่ม</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
                                         <input type="text" name="g_btn_url" class="form-control form-control-lg form-control-solid" placeholder="https://example.com/url_test" value="{{ $objs->g_btn_url }}">
                                     
                                      
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">4.1 ปุ่มขาว</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <div class="form-check form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="1"
-                                            
-                                            @if ($objs->w_btn == 1)
-                                            checked="checked"
-                                            @endif
-                                            
-                                            name="w_btn" id="flexCheckDefault"/>
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                เปิดใช้งาน ปุ่มขาว
-                                            </label>
-                                        </div>
-                                      
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">4.2.1 Text ปุ่มขาว</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="w_btn_text" class="form-control form-control-lg form-control-solid" placeholder="ซื้อสินค้า" value="{{ $objs->w_btn_text }}">
-                                    
-                                        
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-
-
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">4.2.2 URL ปุ่มขาว</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="w_btn_url" class="form-control form-control-lg form-control-solid" placeholder="https://example.com/url_test" value="{{ $objs->w_btn_url }}">
-                                    
-                        
                                     </div>
                                     <!--end::Col-->
                                 </div>

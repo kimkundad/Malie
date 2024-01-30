@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\setting;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -29,27 +30,15 @@ class SettingController extends Controller
           $filename = null;
           $id = 1;
           if($image){
-
-
-            if($img->facebook_image != null){
-
-              // if($img->facebook_image !== ''){
-
-              //   $file_path = 'media/'.$img->facebook_image;
-              //   unlink($file_path);
-
-              // }
                 
     
-                $path = 'media/';
-                $filename = time().'.'.$image->getClientOriginalExtension();
-                $image->move($path, $filename);
-    
-              }else{
-                $path = 'media/';
-                $filename = time().'.'.$image->getClientOriginalExtension();
-                $image->move($path, $filename);
-              }
+              $img = Image::make($image->getRealPath());
+              $img->resize(1200, 630, function ($constraint) {
+              $constraint->aspectRatio();
+              });
+              $img->stream();
+              Storage::disk('do_spaces')->put('malie/setting/'.$image->hashName(), $img, 'public');
+  
 
               $objs = setting::find($id);
             $objs->name_website = $request['name_website'];
@@ -57,13 +46,15 @@ class SettingController extends Controller
             $objs->facebook_url = $request['facebook_url'];
             $objs->facebook_title = $request['facebook_title'];
             $objs->facebook_detail = $request['facebook_detail'];
+            $objs->facebook_title_en = $request['facebook_title_en'];
+            $objs->facebook_detail_en = $request['facebook_detail_en'];
             $objs->line_oa = $request['line_oa'];
             $objs->line_oa_url = $request['line_oa_url'];
             $objs->phone = $request['phone'];
             $objs->email = $request['email'];
             $objs->banner_his = $request['fax'];
             $objs->banner_point = $request['phone2'];
-            $objs->facebook_image = $filename;
+            $objs->facebook_image = $image->hashName();
             $objs->youtube = $request['youtube'];
             $objs->save();
 
@@ -76,6 +67,8 @@ class SettingController extends Controller
             $objs->facebook_url = $request['facebook_url'];
             $objs->facebook_title = $request['facebook_title'];
             $objs->facebook_detail = $request['facebook_detail'];
+            $objs->facebook_title_en = $request['facebook_title_en'];
+            $objs->facebook_detail_en = $request['facebook_detail_en'];
             $objs->line_oa = $request['line_oa'];
             $objs->line_oa_url = $request['line_oa_url'];
             $objs->phone = $request['phone'];

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\slideshow;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class SlideController extends Controller
 {
@@ -68,16 +69,11 @@ class SlideController extends Controller
 
         $this->validate($request, [
             'title' => 'required',
-            'big_title' => 'required',
             'sub_title' => 'required',
+            'title_en' => 'required',
+            'sub_title_en' => 'required',
             'image' => 'required'
            ]);
-           
-           $image = $request->file('image');
-
-           $path = 'img/slide/';
-            $filename = time()."-".$image->getClientOriginalName();
-            $image->move($path, $filename);
 
         $status = 0;
         if(isset($request['status'])){
@@ -87,32 +83,23 @@ class SlideController extends Controller
         }
 
 
-        $g_btn = 0;
-        if(isset($request['g_btn'])){
-            if($request['g_btn'] == 1){
-                $g_btn = 1;
-            }
-        }
 
-
-        $w_btn = 0;
-        if(isset($request['w_btn'])){
-            if($request['w_btn'] == 1){
-                $w_btn = 1;
-            }
-        }
+        $image = $request->file('image');
+          $img = Image::make($image->getRealPath());
+          $img->resize(2560, 1704, function ($constraint) {
+          $constraint->aspectRatio();
+          });
+        $img->stream();
+        Storage::disk('do_spaces')->put('malie/slide/'.$image->hashName(), $img, 'public');
      
            $objs = new slideshow();
            $objs->title = $request['title'];
-           $objs->big_title = $request['big_title'];
            $objs->sub_title = $request['sub_title'];
-           $objs->g_btn = $g_btn;
+           $objs->title_en = $request['title_en'];
+           $objs->sub_title_en = $request['sub_title_en'];
            $objs->g_btn_text = $request['g_btn_text'];
            $objs->g_btn_url = $request['g_btn_url'];
-           $objs->w_btn = $w_btn;
-           $objs->w_btn_text = $request['w_btn_text'];
-           $objs->w_btn_url = $request['w_btn_url'];
-           $objs->image = $filename;
+           $objs->image = $image->hashName();
            $objs->status = $status;
            $objs->save();
 
@@ -159,8 +146,9 @@ class SlideController extends Controller
         
         $this->validate($request, [
             'title' => 'required',
-            'big_title' => 'required',
-            'sub_title' => 'required'
+            'sub_title' => 'required',
+            'title_en' => 'required',
+            'sub_title_en' => 'required',
            ]);
            
            $image = $request->file('image');
@@ -173,33 +161,16 @@ class SlideController extends Controller
             }
 
 
-            $g_btn = 0;
-            if(isset($request['g_btn'])){
-                if($request['g_btn'] == 1){
-                    $g_btn = 1;
-                }
-            }
-
-
-            $w_btn = 0;
-            if(isset($request['w_btn'])){
-                if($request['w_btn'] == 1){
-                    $w_btn = 1;
-                }
-            }
 
            if($image == NULL){
 
             $objs = slideshow::find($id);
             $objs->title = $request['title'];
-            $objs->big_title = $request['big_title'];
             $objs->sub_title = $request['sub_title'];
-            $objs->g_btn = $g_btn;
+            $objs->title_en = $request['title_en'];
+            $objs->sub_title_en = $request['sub_title_en'];
             $objs->g_btn_text = $request['g_btn_text'];
             $objs->g_btn_url = $request['g_btn_url'];
-            $objs->w_btn = $w_btn;
-            $objs->w_btn_text = $request['w_btn_text'];
-            $objs->w_btn_url = $request['w_btn_url'];
             $objs->status = $status;
             $objs->save();
 
@@ -209,24 +180,24 @@ class SlideController extends Controller
           ->where('id', $id)
           ->first();
 
-          $file_path = 'img/slide/'.$img->image;
-          unlink($file_path);
+          $storage = Storage::disk('do_spaces');
+          $storage->delete('malie/slide/' . $img->image, 'public');
 
-          $path = 'img/slide/';
-          $filename = time()."-".$image->getClientOriginalName();
-          $image->move($path, $filename);
+          $img = Image::make($image->getRealPath());
+          $img->resize(2560, 1704, function ($constraint) {
+          $constraint->aspectRatio();
+          });
+        $img->stream();
+        Storage::disk('do_spaces')->put('malie/slide/'.$image->hashName(), $img, 'public');
      
            $objs = slideshow::find($id);
            $objs->title = $request['title'];
-           $objs->big_title = $request['big_title'];
            $objs->sub_title = $request['sub_title'];
-           $objs->g_btn = $g_btn;
+           $objs->title_en = $request['title_en'];
+           $objs->sub_title_en = $request['sub_title_en'];
            $objs->g_btn_text = $request['g_btn_text'];
            $objs->g_btn_url = $request['g_btn_url'];
-           $objs->w_btn = $w_btn;
-           $objs->w_btn_text = $request['w_btn_text'];
-           $objs->w_btn_url = $request['w_btn_url'];
-           $objs->image = $filename;
+           $objs->image = $image->hashName();
            $objs->status = $status;
            $objs->save();
 
@@ -249,8 +220,8 @@ class SlideController extends Controller
             ->first();
 
             if(isset($objs->image)){
-              $file_path = 'img/slide/'.$objs->image;
-               unlink($file_path);
+                $storage = Storage::disk('do_spaces');
+                $storage->delete('malie/slide/' . $objs->image, 'public');
             }
 
         $obj = slideshow::find($id);

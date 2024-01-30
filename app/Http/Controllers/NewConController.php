@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\news;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class NewConController extends Controller
 {
@@ -39,12 +40,21 @@ class NewConController extends Controller
 
     public function upload_img(Request $request){
 
-        $image = $request->file('image');
-        $pathaa = 'img/all_image/';
-              $filename = time()."-".$image->getClientOriginalName();
-              $image->move($pathaa, $filename);
+        // $image = $request->file('image');
+        // $pathaa = 'img/all_image/';
+        //       $filename = time()."-".$image->getClientOriginalName();
+        //       $image->move($pathaa, $filename);
 
-        echo url('img/all_image/'.$filename);
+
+          $image = $request->file('image');
+          $img = Image::make($image->getRealPath());
+          $img->resize(1568, 1045, function ($constraint) {
+          $constraint->aspectRatio();
+          });
+            $img->stream();
+            Storage::disk('do_spaces')->put('malie/news/'.$image->hashName(), $img, 'public');
+
+        echo url('images/malie/news/'.$image->hashName());
       }
 
 
@@ -96,18 +106,20 @@ class NewConController extends Controller
             'title' => 'required',
             'sub_title' => 'required',
             'detail' => 'required',
+            'title_en' => 'required',
+            'sub_title_en' => 'required',
+            'detail_en' => 'required',
             'startdate' => 'required',
             'image' => 'required'
         ]);
 
         $image = $request->file('image');
-
-           $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-
           $img = Image::make($image->getRealPath());
           $img->resize(1568, 1045, function ($constraint) {
           $constraint->aspectRatio();
-        })->save('media/'.$input['imagename']);
+          });
+        $img->stream();
+        Storage::disk('do_spaces')->put('malie/news/'.$image->hashName(), $img, 'public');
 
         $status = 0;
         if(isset($request['status'])){
@@ -120,10 +132,12 @@ class NewConController extends Controller
            $objs->title = $request['title'];
            $objs->sub_title = $request['sub_title'];
            $objs->detail = $request['detail'];
+           $objs->title_en = $request['title_en'];
+           $objs->sub_title_en = $request['sub_title_en'];
+           $objs->detail_en = $request['detail_en'];
            $objs->type = $request['type'];
            $objs->startdate = $request['startdate'];
-           $objs->image = $input['imagename'];
-           $objs->type = 0;
+           $objs->image = $image->hashName();
            $objs->status = $status;
            $objs->save();
 
@@ -191,9 +205,11 @@ class NewConController extends Controller
            $objs->title = $request['title'];
            $objs->sub_title = $request['sub_title'];
            $objs->detail = $request['detail'];
+           $objs->title_en = $request['title_en'];
+           $objs->sub_title_en = $request['sub_title_en'];
+           $objs->detail_en = $request['detail_en'];
            $objs->type = $request['type'];
            $objs->startdate = $request['startdate'];
-           $objs->type = 0;
            $objs->status = $status;
            $objs->save();
 
@@ -203,24 +219,26 @@ class NewConController extends Controller
           ->where('id', $id)
           ->first();
 
-          $file_path = 'media/'.$img->image;
-          unlink($file_path);
-
-            $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+          $storage = Storage::disk('do_spaces');
+          $storage->delete('malie/slide/' . $img->image, 'public');
 
           $img = Image::make($image->getRealPath());
           $img->resize(1568, 1045, function ($constraint) {
           $constraint->aspectRatio();
-          })->save('media/'.$input['imagename']);
+          });
+        $img->stream();
+        Storage::disk('do_spaces')->put('malie/news/'.$image->hashName(), $img, 'public');
      
            $objs = news::find($id);
            $objs->title = $request['title'];
            $objs->sub_title = $request['sub_title'];
            $objs->detail = $request['detail'];
+           $objs->title_en = $request['title_en'];
+           $objs->sub_title_en = $request['sub_title_en'];
+           $objs->detail_en = $request['detail_en'];
            $objs->type = $request['type'];
-           $objs->image = $input['imagename'];
+           $objs->image = $image->hashName();
            $objs->startdate = $request['startdate'];
-           $objs->type = 0;
            $objs->status = $status;
            $objs->save();
 
@@ -243,8 +261,8 @@ class NewConController extends Controller
             ->first();
 
             if(isset($objs->image)){
-              $file_path = 'media/'.$objs->image;
-               unlink($file_path);
+                $storage = Storage::disk('do_spaces');
+                $storage->delete('malie/news/' . $objs->image, 'public');
             }
 
         $obj = news::find($id);

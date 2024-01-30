@@ -172,7 +172,7 @@
                                         <!--begin::Image input-->
                                         <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('img/1676212425285.jpg') }}')">
                                             <!--begin::Preview existing avatar-->
-                                            <div class="image-input-wrapper " style="background-image: url({{ url('media/'.$objs->facebook_image) }}); width:380px; height:200px"></div>
+                                            <div class="image-input-wrapper " style="background-image: url({{ url('images/malie/setting/'.$objs->facebook_image) }}); width:380px; height:200px"></div>
                                             <!--end::Preview existing avatar-->
                                             <!--begin::Label-->
                                             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูป facebook">
@@ -229,6 +229,33 @@
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
                                         <input type="text" name="facebook_detail" class="form-control form-control-lg form-control-solid" placeholder="จำหน่ายเครื่องจักร ทั้งมือหนึ่ง มือสอง รับเข้าประมูลงานต่างๆ อาทิ เหล็ก 
                                         โครงสร้าง เศษเหล็ก สแตนเลส อลูมิเนียม อัลลอย" value="{{ $objs->facebook_detail }}">
+                                
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">facebook title Eng</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="facebook_title_en" class="form-control form-control-lg form-control-solid" placeholder="วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด วัสดุรีไซเคิล-วัสดุไม่ใช้แล้ว" value="{{ $objs->facebook_title_en }}">
+                                
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">facebook detail Eng</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="facebook_detail_en" class="form-control form-control-lg form-control-solid" placeholder="จำหน่ายเครื่องจักร ทั้งมือหนึ่ง มือสอง รับเข้าประมูลงานต่างๆ อาทิ เหล็ก 
+                                        โครงสร้าง เศษเหล็ก สแตนเลส อลูมิเนียม อัลลอย" value="{{ $objs->facebook_detail_en }}">
                                 
                                     </div>
                                     <!--end::Col-->
