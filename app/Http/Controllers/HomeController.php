@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\contact;
 use Illuminate\Support\Facades\DB;
+use App\Models\news;
+use App\Models\slideshow;
+use App\Models\subscribe;
+use App\Models\review;
+use App\Models\category;
+use App\Models\images;
+use App\Models\order;
 
 class HomeController extends Controller
 {
@@ -15,7 +22,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+      //  $this->middleware('auth');
     }
 
     /**
@@ -23,11 +30,188 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
+
+    public function room(){
+
+      $gallery = images::where('cat_id', 3)->where('status', 1)->get();
+      $data['gallery'] = $gallery;
+
+      return view('room', $data);
     }
 
+    public function blog(){
+
+      $objs = news::where('status', 1)->where('type', 0)->whereDate('startdate', '<=', date("Y-m-d"))->orderby('id', 'desc')->paginate(15);
+        $objs->setPath('');
+        return view('blog', compact('objs'));
+
+    }
+
+    public function blog_detail($id){
+
+      $objs = news::find($id);
+      $data['u'] = $objs;
+
+      return view('blog_detail', $data);
+
+    }
+
+    public function gallery(){
+
+      $images = DB::table('images')->select(
+        'images.*',
+        'images.id as id_q',
+        'categories.*',
+        )
+        ->leftjoin('categories', 'categories.id',  'images.cat_id')
+        ->where('images.status', 1)
+        ->get();
+      $data['images'] = $images;
+
+      $category = category::whereNotIn('id', [3])->get();
+      $data['category'] = $category;
+
+      return view('gallery', $data);
+    }
+
+    public function add_myorders(Request $request){
+
+
+           $objs = new order();
+           $objs->first_name = $request['first_name'];
+           $objs->last_name = $request['last_name'];
+           $objs->phone = $request['phone'];
+           $objs->email = $request['email'];
+           $objs->note = $request['note'];
+           $objs->arrive = $request['arrive'];
+           $objs->departure = $request['departure'];
+           $objs->adults = $request['adults'];
+           $objs->save();
+
+           $message = "ลูกค้าติดต่อจองที่พัก ชื่อ : ". $request['first_name'] ." นามสกุล : ".$request['last_name'].", ".$request['email'].", ".$request['phone'].", ในวันที่ : ".$request['arrive'];
+          $lineapi = env('line_token');
+
+          $mms =  trim($message);
+          $chOne = curl_init();
+          curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
+          curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
+          curl_setopt($chOne, CURLOPT_SSL_VERIFYPEER, 0);
+          curl_setopt($chOne, CURLOPT_POST, 1);
+          curl_setopt($chOne, CURLOPT_POSTFIELDS, "message=$mms");
+          curl_setopt($chOne, CURLOPT_FOLLOWLOCATION, 1);
+          $headers = array('Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$lineapi.'',);
+          curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
+          curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
+          $result = curl_exec($chOne);
+          if(curl_error($chOne)){
+          echo 'error:' . curl_error($chOne);
+          }else{
+          $result_ = json_decode($result, true);
+          }
+          curl_close($chOne);
+
+
+           return response()->json([
+            'data' => [
+              'status' => 200,
+              'msg' => 'This user is verified by recaptcha.'
+            ]
+          ]);
+
+    }
+
+    public function check_out(Request $request){
+
+      $arrive = date("Y-m-d", strtotime($request->arrive));
+      $data['arrive'] = $arrive;
+      if($request->departure){
+        $departure = date("Y-m-d", strtotime($request->departure));
+      $data['departure'] = $departure;
+      }else{
+        $data['departure'] = null;
+      }
+      if($request->adults){
+      $data['adults'] = $request->adults;
+      }else{
+        $data['adults'] = null;
+      }
+
+      return view('check_out', $data);
+
+    }
+
+    public function index()
+    {
+
+      $blog = news::where('status', 1)->where('type', 0)->whereDate('startdate', '<=', date("Y-m-d"))->orderby('id', 'desc')->limit(3)->get();
+      $data['blog'] = $blog;
+      $pack = news::where('status', 1)->where('type', 1)->whereDate('startdate', '<=', date("Y-m-d"))->orderby('id', 'desc')->limit(2)->get();
+      $data['pack'] = $pack;
+      $slide = slideshow::where('status', 1)->get();
+      $data['slide'] = $slide;
+      $review = review::where('status', 1)->get();
+      $data['review'] = $review;
+      $category = category::whereNotIn('id', [3])->get();
+      $data['category'] = $category;
+
+      $images = DB::table('images')->select(
+        'images.*',
+        'images.id as id_q',
+        'categories.*',
+        )
+        ->leftjoin('categories', 'categories.id',  'images.cat_id')
+        ->limit(12)
+        ->get();
+      $data['images'] = $images;
+
+        return view('welcome', $data);
+    }
+
+    public function add_subscribe(Request $request){
+
+      $email = $request['email'];
+      $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+   
+
+      if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $check_mail = subscribe::where('email', $request['email'])->count();
+
+        if($check_mail == 0){
+
+          $objs = new subscribe();
+           $objs->email = $request['email'];
+           $objs->save();
+
+          return response()->json([
+            'data' => [
+              'status' => 200,
+              'msg' => 'The system has successfully sent the message.!'
+            ]
+          ]);
+
+        }else{
+
+          return response()->json([
+            'data' => [
+              'status' => 100,
+              'msg' => 'Your email is already in the system.'
+            ]
+          ]);
+
+        }
+
+      }else{
+
+        return response()->json([
+          'data' => [
+            'status' => 100,
+            'msg' => 'Your email format is incorrect.'
+          ]
+        ]);
+
+      }
+
+    }
 
     public function add_contact(Request $request){
         

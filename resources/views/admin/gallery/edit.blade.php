@@ -21,7 +21,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            แก้ไขหมวดหมู่รูปภาพ</h1>
+                            แก้ไขรูปภาพ</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -36,7 +36,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">แก้ไขหมวดหมู่รูปภาพใหม่</li>
+                            <li class="breadcrumb-item text-muted">แก้ไขรูปภาพใหม่</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -59,24 +59,109 @@
                             
                             <div class="card-body border-top p-9">
 
+                               
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ชื่อหมวดหมู่รูปภาพ</label>
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปภาพ</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8">
+                                        <!--begin::Image input-->
+                                        <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('img/media-image-size.png') }}')">
+                                            <!--begin::Preview existing avatar-->
+                                            <div class="image-input-wrapper " style="background-image: url({{ url('images/malie/gallery/'.$objs->image) }}); width:380px; height:200px"></div>
+                                            <!--end::Preview existing avatar-->
+                                            <!--begin::Label-->
+                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูปสินค้า">
+                                                <i class="bi bi-pencil-fill fs-7"></i>
+                                                <!--begin::Inputs-->
+                                                <input type="file" name="image" accept=".png, .jpg, .jpeg" />
+                                                <input type="hidden" name="avatar_remove" />
+                                                <!--end::Inputs-->
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Cancel-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="ยกเลิก รูปสินค้า">
+                                                <i class="bi bi-x fs-2"></i>
+                                            </span>
+                                            <!--end::Cancel-->
+                                            <!--begin::Remove-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="ลบ รูปสินค้า">
+                                                <i class="bi bi-x fs-2"></i>
+                                            </span>
+                                            <!--end::Remove-->
+                                        </div>
+                                        <!--end::Image input-->
+                                        <!--begin::Hint-->
+                                        <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                                        @if ($errors->has('image'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>กรุณาเลือกรูป</div>
+                                            </div>
+                                        @endif
+                                        <!--end::Hint-->
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">เลือกหมวดหมู่รูปภาพ</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="cat_name" class="form-control form-control-lg form-control-solid" placeholder="เศษเหล็ก อลูมิเนียม" value="{{ $objs->cat_name }}">
-                                    
-                                        @if ($errors->has('cat_name'))
+                                        <select class="form-select" aria-label="Select example" name="cat_id">
+                                            @isset($cat)
+                                            @foreach($cat as $u)
+                                            <option value="{{$u->id}}" @if( $objs->cat_id == $u->id)
+                                                selected='selected'
+                                                @endif>{{$u->cat_name}}</option>
+                                            @endforeach
+                                            @endisset
+                                        </select>
+                                        @if ($errors->has('cat_id'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกชื่อหมวดหมู่รูปภาพ</div>
+                                                <div>กรุณาเลือกหมวดหมู่รูปภาพ</div>
                                             </div>
                                         @endif
                                     </div>
                                     <!--end::Col-->
                                 </div>
 
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">คำอธิบายรูป TH</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <textarea class="form-control form-control-lg form-control-solid" id="textareaAutosize" placeholder="คำอธิบายรูป TH..." rows="3" name="detail" >{{ $objs->detail }} </textarea>
+                                        @if ($errors->has('detail'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>คำอธิบายรูป TH</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">คำอธิบายรูป Eng</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <textarea class="form-control form-control-lg form-control-solid" id="textareaAutosize" placeholder="คำอธิบายรูป Eng..." rows="3" name="detail_en" >{{ $objs->detail_en }} </textarea>
+                                        @if ($errors->has('detail_en'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>คำอธิบายรูป Eng</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                
 
                                 <div class="row mb-0">
                                     <!--begin::Label-->
@@ -85,11 +170,7 @@
                                     <!--begin::Label-->
                                     <div class="col-lg-8 d-flex align-items-center">
                                         <div class="form-check form-check-solid form-switch form-check-custom fv-row">
-                                            <input class="form-check-input w-45px h-30px" type="checkbox" id="allowmarketing" name="status" 
-                                                @if($objs->status == 1)
-                                                    checked="checked"
-                                                @endif
-                                             value="1"/>
+                                            <input class="form-check-input w-45px h-30px" type="checkbox" id="allowmarketing" name="status" checked="checked" value="1"/>
                                             <label class="form-check-label" for="allowmarketing"></label>
                                         </div>
                                     </div>
@@ -104,10 +185,6 @@
                             </div>
                         </div>
                     </form>
-
-
-                    
-                    
                 </div>
                 <!--end::Content container-->
             </div>
@@ -147,37 +224,5 @@
 
 @section('scripts')
 
-<script type="text/javascript">
-    $(document).ready(function(){
-      $("input:checkbox").change(function() {
-        var user_id = $(this).closest('tr').attr('id');
-    
-        $.ajax({
-                type:'POST',
-                url:'{{url('api/api_post_status_subcat')}}',
-                headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
-                data: { "user_id" : user_id },
-                success: function(data){
-                  if(data.data.success){
-    
-    
-                    Swal.fire({
-                        text: "ระบบได้ทำการอัพเดทข้อมูลสำเร็จ!",
-                        icon: "success",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn btn-primary"
-                        }
-                    });
-    
-    
-    
-                  }
-                }
-            });
-        });
-    });
-    </script>
 
 @stop('scripts')

@@ -12,16 +12,19 @@ class DashboardController extends Controller
 
     public function index(){
 
-        $view = news::sum('view');
+        $objs = DB::table('dateorders')->select(
+            'dateorders.*',
+            'dateorders.id as id_q',
+            'orders.*',
+            )
+            ->leftjoin('orders', 'orders.id',  'dateorders.order_id')
+            ->where('dateorders.date_status', 1)
+            ->get();
 
-        $objs = DB::table('contacts')
-            ->whereDate('contacts.created_at', date('Y-m-d'))
-            ->paginate(15);
-
-            $objs->setPath('');
+          //  dd($objs);
       
-        $data['sum'] = 1;
-        return view('admin.dashboard.index', compact('objs','view'	));
+      
+        return view('admin.dashboard.index', compact('objs'	));
     }
 
 

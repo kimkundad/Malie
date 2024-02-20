@@ -16,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
        \URL::forceScheme('https');
+        session()->put('locale', 'en');
         Schema::defaultStringLength(191);
 
     }

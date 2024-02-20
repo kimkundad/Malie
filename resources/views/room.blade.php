@@ -28,10 +28,17 @@
         <div class="awe-overlay"></div>
         <div class="sub-banner">
             <div class="container">
+                @if(session()->get('locale') == 'en')
                 <div class="text text-center">
-                    <h2>LUXURY ROOM</h2>
-                    <p>Lorem Ipsum is simply dummy text</p>
+                    <h2>Villa Malie</h2>
+                    <p>Villa Malie for parties or relaxation, we have all styles to choose from.</p>
                 </div>
+                @else
+                <div class="text text-center">
+                    <h2>Villa Malie</h2>
+                    <p>Villa Malie สำหรับ ปาร์ตี้ หรือ แนวพักผ่อน เรามีให้เลือกทุกแบบt</p>
+                </div>
+                @endif
             </div>
 
         </div>
@@ -46,70 +53,53 @@
             <!-- DETAIL -->
             <div class="room-detail">
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-12">
                         
                         <!-- LAGER IMGAE -->
                         <div class="room-detail_img">
-                            <div class="room_img-item">
-                                <img src="{{ url('home/images/example/room/out._w.webp') }}" alt="">    
-                                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h6>
-                            </div>
-                            <div class="room_img-item">
-                                <img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_7.jpg') }}" alt="">    
-                                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h6>
-                            </div>
-                            <div class="room_img-item">
-                                <img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_2.jpg') }}" alt="">    
-                                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h6>
-                            </div>
-                            <div class="room_img-item">
-                                <img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_3.jpg') }}" alt="">    
-                                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h6>
-                            </div>
-                            <div class="room_img-item">
-                                <img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_4.jpg') }}" alt="">    
-                                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h6>
-                            </div>
-                            <div class="room_img-item">
-                                <img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_5 (1).jpg') }}" alt="">    
-                                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h6>
-                            </div>
-                            <div class="room_img-item">
-                                <img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_6.jpg') }}" alt="">    
-                                <h6>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h6>
-                            </div>
+                            @if(isset($gallery))
+                                @foreach($gallery as $u)
+                                    <div class="room_img-item">
+                                        <img src="{{ url('images/malie/gallery/'.$u->image) }}" alt="@if(session()->get('locale') == 'en')
+                                        {{ $u->detail_en }}
+                                        @else
+                                        {{ $u->detail }}
+                                        @endif">    
+                                        <h6>
+                                            @if(session()->get('locale') == 'en')
+                                            {{ $u->detail_en }}
+                                            @else
+                                            {{ $u->detail }}
+                                            @endif
+                                        </h6>
+                                    </div>
+                                @endforeach
+                            @endif
                         </div>
                         <!-- END / LAGER IMGAE -->
                         
                         <!-- THUMBNAIL IMAGE -->
                         <div class="room-detail_thumbs">
-                            <a href="#"><img src="{{ url('home/images/example/room/out._w.webp') }}" alt=""></a>
-                            <a href="#"><img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_7.jpg') }}" alt=""></a>
-                            <a href="#"><img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_2.jpg') }}" alt=""></a>
-                            <a href="#"><img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_3.jpg') }}" alt=""></a>
-                            <a href="#"><img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_4.jpg') }}" alt=""></a>
-                            <a href="#"><img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_5 (1).jpg') }}" alt=""></a>
-                            <a href="#"><img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_6.jpg') }}" alt=""></a>
-                            <a href="#"><img src="{{ url('home/images/example/room/LINE_ALBUM_9766-_2_๒๓๐๗๐๙_8.jpg') }}" alt=""></a>
+                            @if(isset($gallery))
+                                @foreach($gallery as $u)
+                                    <a href="#"><img src="{{ url('images/malie/gallery/'.$u->image) }}" alt="
+                                        @if(session()->get('locale') == 'en')
+                                        {{ $u->detail_en }}
+                                        @else
+                                        {{ $u->detail }}
+                                        @endif"></a>
+                                @endforeach
+                            @endif
                         </div>
                         <!-- END / THUMBNAIL IMAGE -->
 
                     </div>
 
-                    <div class="col-lg-3">
+                    {{-- <div class="col-lg-3">
 
                         <!-- FORM BOOK -->
                         <div class="room-detail_book">
 
-                            <div class="room-detail_total">
-                                <img src="images/icon-logo.png" alt="" class="icon-logo">
-                                
-                                <h6>STARTING ROOM FROM</h6>
-                                
-                                <p class="price">
-                                    <span class="amout">$260</span>  /days
-                                </p>
-                            </div>
                             
                             <div class="room-detail_form">
                                 <label>Arrive</label>
@@ -136,7 +126,7 @@
                         </div>
                         <!-- END / FORM BOOK -->
 
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <!-- END / DETAIL -->
@@ -157,32 +147,179 @@
                             <!-- OVERVIEW -->
                             <div class="tab-pane fade active in" id="overview">
 
+                                @if(session()->get('locale') == 'en')
                                 <div class="room-detail_overview">
-                                    <h5 class='text-uppercase
-                                    '>de Finibus Bonorum et Malorum", written by Cicero in 45 BC</h5>
-                                    <p>Located in the heart of Aspen with a unique blend of contemporary luxury and historic heritage, deluxe accommodations, superb amenities, genuine hospitality and dedicated service for an elevated experience in the Rocky Mountains.</p>
+                                    <h5 class='text-uppercase'>The Bay Ridge (Villa 2)</h5>
+                                    <p>Welcome to Villa Malie, one of only eight exclusive villas in "The Bayridge" compound. As an Airbnb guest, you'll have the privilege of enjoying our luxurious three-bedroom, four-bathroom retreat nestled on a hill in Bangrak, just 8 minutes from Samui Airport. This villa offers the perfect blend of safety, accessibility, and luxury.</p>
 
                                     <div class="row">
-                                        <div class="col-xs-6 col-md-4">
-                                            <h6>SPECIAL ROOM</h6>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>รายละเอียดบ้าน</h6>
                                             <ul>
-                                                <li>Max: 4 Person(s)</li>
-                                                <li>Size: 35 m2 / 376 ft2</li>
-                                                <li>View: Ocen</li>
-                                                <li>Bed: King-size or twin beds</li>
+                                                <li>10 ห้องนอน </li>
+                                                <li>10 ห้องน้ำ</li>
+                                                <li>รับสัตว์เลี้ยงขนาดเล็กและขนาดกลาง ตัวละ 500 บาท/คืน</li>
+                                            </ul>
+                                            <p class="text-danger">กรุณาโทรแจ้งก่อนเช็คอิน-เช็คเอาท์ 30 นาที</p>
+                                            <br>
+                                            <h6>ฟังชั่นส์บ้านรายละเอียด มีดังนี้</h6>
+                                            <ul>
+                                                <li>สระว่ายน้ำส่วนตัว </li>
+                                                <li>ระบบคลอรีน</li>
+                                                <li>คาราโอเกะ</li>
+
+                                                <li>โต๊ะพูล </li>
+                                                <li>ห่วงยางแฟนซี</li>
+                                                <li>ไฟเธค</li>
+                                                <li>ที่นอนเสริมคนเกิน </li>
+                                                <li>สไลด์เดอร์</li>
+                                                <li>เตาปิ้งย่าง</li>
+                                                <li>อุปกรณ์ครัวครบ</li>
+                                                <li>Free Wifi</li>
                                             </ul>
                                         </div>
-                                        <div class="col-xs-6 col-md-4">
-                                            <h6>SERVICE ROOM</h6>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>โลเคชั่น</h6>
                                             <ul>
-                                                <li>Oversized work desk</li>
-                                                <li>Hairdryer</li>
-                                                <li>Iron/ironing board upon request</li>
+                                                <li>หาดบ้านอำเภอ</li>
+                                                <li>ติดทะเล</li>
                                             </ul>
                                         </div>
+                                       
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>ชั้น 1 มี ทั้งหมด 4 ห้องนอน</h6>
+                                            <ul>
+                                                <li>ห้องที่ 1 ชั้นล่าง เตียง 6 ฟุต 1 เตียง (ห้องน้ำในตัว) </li>
+                                                <li>ห้องที่ 2 ชั้นล่าง เตียง 6 ฟุต 1 เตียง(ห้องน้ำในตัว)</li>
+                                                <li>ห้องที่ 3 ชั้นล่าง เตียง 6 ฟุต 1 เตียง(ห้องน้ำในตัว)</li>
+                                                <li>ห้องที่ 4 ชั้นล่าง เตียง 5 ฟุต 2 เตียง(ห้องน้ำในตัว) </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>ชั้น 2 จะมี 5 ห้องนอน</h6>
+                                            <ul>
+                                                <li>ห้องที่ 5 ชั้น 2 เตียง 6 ฟุต 1 เตียง และ เตียง 3 ฟุต 1 เตียง (ห้องน้ำแยก ติดกับห้องนี้) </li>
+                                                <li>ห้องที่ 6 ชั้น 2 เตียง 6 ฟุต 1 เตียง(ห้องน้ำในตัว)</li>
+                                                <li>ห้องที่ 7 ชั้น 2 เตียง 5 ฟุต 1 เตียง(ห้องน้ำแยก ติดกับห้องนี้)</li>
+                                                <li>ห้องที่ 8 ชั้น 2 เตียง 6 ฟุต 1 เตียง(ห้องน้ำในตัว)</li>
+                                                <li>ห้องที่ 9 ชั้น 2 เตียง 6 ฟุต 1 เตียง และ 5 ฟุต 1 เตียง (ห้องน้ำในตัว)</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>สระว่ายน้ำ</h6>
+                                            <ul>
+                                                <li>สระว่ายน้ำ กว้าง 5 เมตร</li>
+                                                <li>ยาว 14 เมตร ลึก150 ซม.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>ที่จอดรถ</h6>
+                                            <ul>
+                                                <li>จอดรถในบ้าน2คัน</li>
+                                                <li>จอดหน้าบ้านได้ 10 – 15 คัน</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>“เงื่อนไขเข้าพักพูลวิลล่าพัทยา”</h6>
+                                            <ul>
+                                                <li>⏰ เช็คอิน : (บ่าย 2)</li>
+                                                <li>⏰ เช็คเอาท์ก่อน : (11:00)</li>
+                                                <li>คนเกินเสริมท่านละ 700 ฿</li>
+                                                <li>พักได้สูงสุด 40 ท่าน</li>
+                                                <li>ประกันความเสียหาย 10,000 ฿</li>
+                                            </ul>
+                                        </div>
+                                        
                                     </div>
 
                                 </div>
+                                @else
+                                <div class="room-detail_overview">
+                                    <h5 class='text-uppercase'>The Bay Ridge (Villa 2)</h5>
+                                    <p>Welcome to Villa Malie, one of only eight exclusive villas in "The Bayridge" compound. As an Airbnb guest, you'll have the privilege of enjoying our luxurious three-bedroom, four-bathroom retreat nestled on a hill in Bangrak, just 8 minutes from Samui Airport. This villa offers the perfect blend of safety, accessibility, and luxury.</p>
+
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>รายละเอียดบ้าน</h6>
+                                            <ul>
+                                                <li>10 ห้องนอน </li>
+                                                <li>10 ห้องน้ำ</li>
+                                                <li>รับสัตว์เลี้ยงขนาดเล็กและขนาดกลาง ตัวละ 500 บาท/คืน</li>
+                                            </ul>
+                                            <p class="text-danger">กรุณาโทรแจ้งก่อนเช็คอิน-เช็คเอาท์ 30 นาที</p>
+                                            <br>
+                                            <h6>ฟังชั่นส์บ้านรายละเอียด มีดังนี้</h6>
+                                            <ul>
+                                                <li>สระว่ายน้ำส่วนตัว </li>
+                                                <li>ระบบคลอรีน</li>
+                                                <li>คาราโอเกะ</li>
+
+                                                <li>โต๊ะพูล </li>
+                                                <li>ห่วงยางแฟนซี</li>
+                                                <li>ไฟเธค</li>
+                                                <li>ที่นอนเสริมคนเกิน </li>
+                                                <li>สไลด์เดอร์</li>
+                                                <li>เตาปิ้งย่าง</li>
+                                                <li>อุปกรณ์ครัวครบ</li>
+                                                <li>Free Wifi</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>โลเคชั่น</h6>
+                                            <ul>
+                                                <li>หาดบ้านอำเภอ</li>
+                                                <li>ติดทะเล</li>
+                                            </ul>
+                                        </div>
+                                       
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>ชั้น 1 มี ทั้งหมด 4 ห้องนอน</h6>
+                                            <ul>
+                                                <li>ห้องที่ 1 ชั้นล่าง เตียง 6 ฟุต 1 เตียง (ห้องน้ำในตัว) </li>
+                                                <li>ห้องที่ 2 ชั้นล่าง เตียง 6 ฟุต 1 เตียง(ห้องน้ำในตัว)</li>
+                                                <li>ห้องที่ 3 ชั้นล่าง เตียง 6 ฟุต 1 เตียง(ห้องน้ำในตัว)</li>
+                                                <li>ห้องที่ 4 ชั้นล่าง เตียง 5 ฟุต 2 เตียง(ห้องน้ำในตัว) </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>ชั้น 2 จะมี 5 ห้องนอน</h6>
+                                            <ul>
+                                                <li>ห้องที่ 5 ชั้น 2 เตียง 6 ฟุต 1 เตียง และ เตียง 3 ฟุต 1 เตียง (ห้องน้ำแยก ติดกับห้องนี้) </li>
+                                                <li>ห้องที่ 6 ชั้น 2 เตียง 6 ฟุต 1 เตียง(ห้องน้ำในตัว)</li>
+                                                <li>ห้องที่ 7 ชั้น 2 เตียง 5 ฟุต 1 เตียง(ห้องน้ำแยก ติดกับห้องนี้)</li>
+                                                <li>ห้องที่ 8 ชั้น 2 เตียง 6 ฟุต 1 เตียง(ห้องน้ำในตัว)</li>
+                                                <li>ห้องที่ 9 ชั้น 2 เตียง 6 ฟุต 1 เตียง และ 5 ฟุต 1 เตียง (ห้องน้ำในตัว)</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>สระว่ายน้ำ</h6>
+                                            <ul>
+                                                <li>สระว่ายน้ำ กว้าง 5 เมตร</li>
+                                                <li>ยาว 14 เมตร ลึก150 ซม.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>ที่จอดรถ</h6>
+                                            <ul>
+                                                <li>จอดรถในบ้าน2คัน</li>
+                                                <li>จอดหน้าบ้านได้ 10 – 15 คัน</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>“เงื่อนไขเข้าพักพูลวิลล่าพัทยา”</h6>
+                                            <ul>
+                                                <li>⏰ เช็คอิน : (บ่าย 2)</li>
+                                                <li>⏰ เช็คเอาท์ก่อน : (11:00)</li>
+                                                <li>คนเกินเสริมท่านละ 700 ฿</li>
+                                                <li>พักได้สูงสุด 40 ท่าน</li>
+                                                <li>ประกันความเสียหาย 10,000 ฿</li>
+                                            </ul>
+                                        </div>
+                                        
+                                    </div>
+
+                                </div>
+                                @endif
 
                             </div>
                             <!-- END / OVERVIEW -->

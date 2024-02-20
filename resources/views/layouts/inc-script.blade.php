@@ -19,5 +19,54 @@
     <script type="text/javascript" src="{{ url('home/js/lib/jquery.validate.min.js') }}"></script>
     <!-- Custom jQuery -->
     <script type="text/javascript" src="{{ url('home/js/scripts.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+
+        $(document).on('click','#get_subscribe',function (event) {
+              event.preventDefault();
+              
+              var form = $('#subscribeForm')[0];
+              var formData = new FormData(form);
+              var email = document.getElementById("subscribeForm_email").value;
+
+              if(email == ''){
+                swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
+                }else{
+
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="token"]').attr('value')
+                        }
+                    });
+                    $.ajax({
+          url: "{{url('/api/add_subscribe')}}",
+          headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+          data: formData,
+          processData: false,
+          contentType: false,
+          cache:false,
+          type: 'POST',
+          success: function (data) {
+          //  console.log(data.data.status)
+              if(data.data.status == 200){
+                swal("Good job!", "The system has successfully sent the message.!", "success");
+                $("#subscribeForm_email").val('');
+            
+              }else{
+                
+                swal(data.data.msg);
+              }
+          },
+          error: function () {
+          }
+      });
+
+                }
+
+        });
+
+
+            </script>
 
     

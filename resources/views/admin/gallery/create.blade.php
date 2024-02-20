@@ -127,6 +127,38 @@
                                     <!--end::Col-->
                                 </div>
 
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">คำอธิบายรูป TH</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <textarea class="form-control form-control-lg form-control-solid" id="textareaAutosize" placeholder="คำอธิบายรูป TH..." rows="3" name="detail" >{{old('detail') ? old('detail') : ''}} </textarea>
+                                        @if ($errors->has('detail'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>คำอธิบายรูป TH</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">คำอธิบายรูป Eng</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <textarea class="form-control form-control-lg form-control-solid" id="textareaAutosize" placeholder="คำอธิบายรูป Eng..." rows="3" name="detail_en" >{{old('detail_en') ? old('detail_en') : ''}} </textarea>
+                                        @if ($errors->has('detail_en'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>คำอธิบายรูป Eng</div>
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
                                 
 
                                 <div class="row mb-0">

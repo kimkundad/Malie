@@ -21,61 +21,35 @@
         <h1 class="element-invisible">Slider</h1>
         <div id="slider-revolution">
             <ul>
-                <li data-transition="fade">
-                    <img src="{{ url('home/images/example/out._w.webp') }}" data-bgposition="left center" data-duration="14000"
-                         data-bgpositionend="right center" alt="">
+                @isset($slide)
+                    @foreach ($slide as $item)
+                        <li data-transition="fade">
+                            <img src="{{ url('home/images/example/out._w.webp') }}" data-bgposition="left center" data-duration="14000"
+                                data-bgpositionend="right center" alt="">
 
-                    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240"
-                         data-speed="700" data-start="1500" data-easing="easeOutBack">
-                        WELCOME TO
-                    </div>
+                            <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240"
+                                data-speed="700" data-start="1500" data-easing="easeOutBack">
+                                @if(session()->get('locale') == 'en')
+                                {{ $item->title_en }}
+                                @else
+                                {{ $item->title }}
+                                @endif
+                            </div>
 
-                    <div class="tp-caption sfb fadeout slider-caption slider-caption-sub-1" data-x="center" data-y="280"
-                         data-speed="700" data-easing="easeOutBack" data-start="2000">THE LOTUS HOTEL
-                    </div>
+                            <div class="tp-caption sfb fadeout slider-caption slider-caption-sub-1" data-x="center" data-y="280"
+                                data-speed="700" data-easing="easeOutBack" data-start="2000">
+                                @if(session()->get('locale') == 'en')
+                                {{ $item->sub_title_en }}
+                                @else
+                                {{ $item->sub_title }}
+                                @endif
+                            </div>
 
-                    <a href="#" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center"
-                       data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">VIEW NOW</a>
-                </li>
-
-                <li data-transition="fade">
-                    <img src="{{ url('home/images/example/out.-2_w.webp') }}" data-bgposition="left center" data-duration="14000"
-                         data-bgpositionend="right center" alt="">
-
-
-                    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
-                         data-y="220" data-speed="700" data-start="1500" data-easing="easeOutBack">
-                        EACH HOTEL IS
-                    </div>
-
-                    <div class="tp-caption sfb fadeout slider-caption slider-caption-3" data-x="center" data-y="260"
-                         data-speed="700" data-easing="easeOutBack" data-start="2000">
-                        UNIQUE 60%
-                    </div>
-
-                    <div class="tp-caption sfb fadeout slider-caption-sub slider-caption-sub-3" data-x="center"
-                         data-y="365" data-easing="easeOutBack" data-speed="700" data-start="2200">JUST LIKE YOU
-                    </div>
-
-                </li>
-
-                <li data-transition="fade">
-                    <img src="{{ url('home/images/example/out.-5_w.webp') }}" data-bgposition="left center" data-duration="14000"
-                         data-bgpositionend="right center" alt="">
-
-                    <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240"
-                         data-speed="700" data-start="1500" data-easing="easeOutBack">
-                        WELCOME TO
-                    </div>
-
-                    <div class="tp-caption sfb fadeout slider-caption slider-caption-sub-1" data-x="center" data-y="280"
-                         data-speed="700" data-easing="easeOutBack" data-start="2000">THE LOTUS HOTEL
-                    </div>
-
-                    <a href="#" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center"
-                       data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">VIEW NOW</a>
-                </li>
-
+                            <a href="{{ $item->g_btn_url !== null ? $item->g_btn_url : "#" }}" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center"
+                            data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">{{ $item->g_btn_text }}</a>
+                        </li>
+                    @endforeach
+                @endisset
             </ul>
         </div>
 
@@ -91,7 +65,7 @@
                         <h2>CHECK AVAILABILITY</h2>
                     </div>
                     <div class="col-lg-9">
-                        <form id="ajax-form-search-room" action="search_step_2.php" method="post">
+                        <form id="ajax-form-search-room" action="{{ url('/check_out') }}" method="get">
                             <div class="availability-form">
                                 <input type="text" name="arrive" class="awe-calendar from" placeholder="Arrival Date">
                                 <input type="text" name="departure" class="awe-calendar to" placeholder="Departure Date">
@@ -101,15 +75,19 @@
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
                                 </select>
-                                <select class="awe-select" name="children">
-                                    <option>Children</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                </select>
+                                
                                 <div class="vailability-submit">
-                                    <button class="awe-btn awe-btn-13">FIND THE BEST RATE</button>
+                                    <button type="submit" class="awe-btn awe-btn-13">FIND THE BEST RATE</button>
                                 </div>
                             </div>
                         </form>
@@ -127,25 +105,43 @@
             <div class="home-about">
                 <div class="row">
                     <div class="col-md-12">
+                        @if(session()->get('locale') == 'en')
                         <div class="accomd-modations-header">
-                            <h2 class="heading">ROOMS & RATES</h2>
+                            <h2 class="heading">Welcome to Villa Malie</h2>
                             <img src="{{ url('home/images/icon-accmod.png') }}" alt="icon">
-                            <p>Semper ac dolor vitae accumsan. Cras interdum hendrerit lacinia. Phasellus accumsan urna vitae molestie interdum. Nam sed placerat libero, non eleifend dolor.</p>
+                            <p>Welcome to Villa Malie, one of only eight exclusive villas in "The Bayridge" compound. As an Airbnb guest, you'll have the privilege of enjoying our luxurious three-bedroom, four-bathroom retreat nestled on a hill in Bangrak, just 8 minutes from Samui Airport. This villa offers the perfect blend of safety, accessibility, and luxury.</p>
                         </div>
+                        @else
+                        <div class="accomd-modations-header">
+                            <h2 class="heading">ยินดีต้อนรับสู่ Villa Malie</h2>
+                            <img src="{{ url('home/images/icon-accmod.png') }}" alt="icon">
+                            <p>ยินดีต้อนรับสู่ Villa Malie หนึ่งในแปดวิลล่าสุดพิเศษในบริเวณ "เดอะเบย์ริดจ์" ในฐานะแขกของ Airbnb คุณจะได้รับสิทธิพิเศษเพลิดเพลินไปกับการพักผ่อนอันหรูหราแบบ 3 ห้องนอน 4 ห้องน้ำบนเนินเขาในเขตบางรัก ห่างจากสนามบินสมุยเพียง 8 นาที วิลล่าแห่งนี้มีการผสมผสานที่ลงตัวระหว่างความปลอดภัย การเข้าถึง และความหรูหรา</p>
+                        </div>
+                        @endif
+                        
                         <br>
                     </div>
                     <div class="col-md-6">
                         <div class="img about-mt-50">
-                            <a href="#"><img src="{{ url('home/images/example/LINE_ALBUM2536.jpg') }}" alt=""></a>
+                            <img src="{{ url('home/images/example/LINE_ALBUM2536.jpg') }}" alt="">
                         </div>
                     </div>
                     <div class="col-md-6">
+                        @if(session()->get('locale') == 'en')
                         <div class="text">
-                            <h2 class="heading">ABOUT US</h2>
+                            <h2 class="heading">Spectacular Panoramic Views</h2>
                             <span class="box-border"></span>
-                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source</p>
-                            <a href="#" class="awe-btn awe-btn-default">READ MORE</a>
+                            <p>Villa Malie is renowned for its unrivaled panoramic views of Koh Samui. Feast your eyes on breathtaking sunsets, Plai Laem hills, Bangrak beach, and the entire North-Western coast of Choengmon. You'll also have a front-row seat to the Big Buddha Temple and neighboring island Koh Phangan from your private haven.</p>
+                            <a href="{{ url('about') }}" class="awe-btn awe-btn-default">READ MORE</a>
                         </div>
+                        @else
+                        <div class="text">
+                            <h2 class="heading">ทัศนียภาพอันงดงามตระการตา</h2>
+                            <span class="box-border"></span>
+                            <p>Villa Malie มีชื่อเสียงในด้านทัศนียภาพอันงดงามที่ไม่มีใครเทียบได้ของเกาะสมุย ดื่มด่ำไปกับทัศนียภาพพระอาทิตย์ตกดิน เนินเขาปลายแหลม หาดบางรัก และชายฝั่งตะวันตกเฉียงเหนือของเชิงมน นอกจากนี้คุณยังจะได้ที่นั่งแถวหน้าไปยังวัดพระใหญ่และเกาะใกล้เคียงเกาะพะงันจากสวรรค์ส่วนตัวของคุณ</p>
+                            <a href="{{ url('about') }}" class="awe-btn awe-btn-default">READ MORE</a>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -167,9 +163,10 @@
                     </div>
 
                     <div class="col-md-6 col-md-pull-6 ">
+                        @if(session()->get('locale') == 'en')
                         <div class="text">
-                            <h2 class="heading">Our Best</h2>
-                            <p>One of Catalina Island's best-loved hotels, Hotel Vista Del Mar is recognized as one of Avalon's leading hotels with gracious island hospitality, thoughtful amenities and distinctive .</p>
+                            <h2 class="heading">Luxurious Living Spaces/h2>
+                            <p>Villa Malie spans three spacious floors, each with 150 sqm of modern and well-equipped living space, totaling 450 sqm. Enjoy an infinity pool on the top floor, a large patio with outdoor furniture, and all the amenities you'd expect for a luxurious stay, including a modern fully appointed European kitchen with oven, microwave, dishwasher, wine fridge, and a refrigerator with an ice maker.</p>
                             <ul>
                                 <li><img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon">250 Best Rooms  5 Star</li>
                                 <li><img src="{{ url('home/images/home/ourbest/icon-2.png') }}" alt="icon">Wet Bar with Refrigerator</li>
@@ -179,6 +176,20 @@
                                 <li><img src="{{ url('home/images/home/ourbest/icon-6.png') }}" alt="icon">Ocean Views to lotus Hotel</li>
                             </ul>
                         </div>
+                        @else
+                        <div class="text">
+                            <h2 class="heading">พื้นที่อยู่อาศัยที่หรูหรา</h2>
+                            <p>Villa Malie ครอบคลุมพื้นที่กว้างขวาง 3 ชั้น โดยแต่ละชั้นมีพื้นที่ใช้สอยที่ทันสมัยและมีอุปกรณ์ครบครันขนาด 150 ตร.ม. รวมพื้นที่ 450 ตร.ม. เพลิดเพลินกับสระว่ายน้ำแบบอินฟินิตี้ที่ชั้นบนสุด ลานขนาดใหญ่พร้อมเฟอร์นิเจอร์กลางแจ้ง และสิ่งอำนวยความสะดวกทั้งหมดที่คุณคาดหวังสำหรับการเข้าพักที่หรูหรา รวมถึงห้องครัวสไตล์ยุโรปที่ตกแต่งอย่างทันสมัยพร้อมเตาอบ ไมโครเวฟ เครื่องล้างจาน ตู้แช่ไวน์ และตู้เย็นพร้อม เครื่องทำน้ำแข็ง</p>
+                            <ul>
+                                <li><img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon">250 Best Rooms  5 Star</li>
+                                <li><img src="{{ url('home/images/home/ourbest/icon-2.png') }}" alt="icon">Wet Bar with Refrigerator</li>
+                                <li><img src="{{ url('home/images/home/ourbest/icon-4.png') }}" alt="icon">Double Whirlpool Jacuzzi Tub</li>
+                                <li><img src="{{ url('home/images/home/ourbest/icon-5.png') }}" alt="icon">Luxurious High Thread Count </li>
+                                <li><img src="{{ url('home/images/home/ourbest/icon-1.png') }}" alt="icon">Breakfast each morning</li>
+                                <li><img src="{{ url('home/images/home/ourbest/icon-6.png') }}" alt="icon">Ocean Views to lotus Hotel</li>
+                            </ul>
+                        </div>
+                        @endif
                     </div>
 
                 </div>
@@ -194,63 +205,38 @@
             <div class="home-guestbook pt0 pb0">
                 <div class="row">
                     <div class="col-xs-12 col-lg-6 col-lg-offset-3">
+                        @if(session()->get('locale') == 'en')
                         <div class="ot-heading mb40 row-20 text-center">
                             <h2>Guest book</h2>
                             <p class="sub">Your feedback means the world to us.</p>
                         </div>
+                        @else
+                        <div class="ot-heading mb40 row-20 text-center">
+                            <h2>ผู้มาใช้บริการ</h2>
+                            <p class="sub">ความคิดเห็นของคุณมีความหมายต่อ Villa Malie</p>
+                        </div>
+                        @endif
                     </div>
                     <div class="guestbook-content text-center owl-single">
-                            <!-- ITEM -->
-                            <div class="guestbook-item">
-                                <div class="text">
-                                    <p class="f20">"This is the only place to stay in Catalina! I have stayed in the
-                                        cheaper hotels and they were fine, but this is just the icing on the cake! After
-                                        spending the day bike riding and hiking to come back and enjoy a glass of wine
-                                        while looking out your ocean view window and then to top it all off"</p>
+
+                        @if(isset($review))
+                            @foreach($review as $u)
+                                <!-- ITEM -->
+                                <div class="guestbook-item">
+                                    <div class="text">
+                                        <p class="f20">{{ $u->msg }}</p>
+                                    </div>
+                                    <div class="img">
+                                        <img src="{{ url('images/malie/review/'.$u->image) }}" alt="{{ $u->name }}">
+                                    </div>
+                                    <div class="info-author">
+                                        <span class="f20 c-main"><strong>{{ $u->name }}</strong></span><br>
+                                        <span class="f14">{{ $u->position }}</span>
+                                    </div>
                                 </div>
-                                <div class="img">
-                                    <img src="{{ url('home/images/avatar/img-15.png') }}" alt="">
-                                </div>
-                                <div class="info-author">
-                                    <span class="f20 c-main"><strong>Rosalind Cloer</strong></span><br>
-                                    <span class="f14">Oxford</span>
-                                </div>
-                            </div>
-                            <!-- ITEM -->
-                            <!-- ITEM -->
-                            <div class="guestbook-item">
-                                <div class="text">
-                                    <p class="f20">This is the only place to stay in Catalina! I have stayed in the
-                                        cheaper hotels and they were fine, but this is just the icing on the cake! After
-                                        spending the day bike riding and hiking to come back and enjoy a glass of wine
-                                        while looking out your ocean view window and then to top it all off...</p>
-                                </div>
-                                <div class="img">
-                                    <img src="{{ url('home/images/avatar/img-5.jpg') }}" alt="">
-                                </div>
-                                <div class="info-author">
-                                    <span class="f20 c-main"><strong>Seelentag</strong></span><br>
-                                    <span class="f14">From Los Angeles, California</span>
-                                </div>
-                            </div>
-                            <!-- ITEM -->
-                            <!-- ITEM -->
-                            <div class="guestbook-item">
-                                <div class="text">
-                                    <p class="f20">This is the only place to stay in Catalina! I have stayed in the
-                                        cheaper hotels and they were fine, but this is just the icing on the cake! After
-                                        spending the day bike riding and hiking to come back and enjoy a glass of wine
-                                        while looking out your ocean view window and then to top it all off...</p>
-                                </div>
-                                <div class="img">
-                                    <img src="{{ url('home/images/avatar/img-5.jpg') }}" alt="">
-                                </div>
-                                <div class="info-author">
-                                    <span class="f20 c-main"><strong>Seelentag</strong></span><br>
-                                    <span class="f14">From Los Angeles, California</span>
-                                </div>
-                            </div>
-                            <!-- ITEM -->
+                                <!-- ITEM -->
+                            @endforeach
+                        @endif
 
                         </div>
                 </div>
@@ -281,26 +267,25 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        <div class="item item-deal">
-                            <div class="img">
-                                <img class="img-full" src="{{ url('home/images/home-3/deals/deals-1.png') }}" alt="">
-                            </div>
-                            <div class="info">
-                                <a class="title bold f26 font-monserat upper" href="{{ url('/') }}">Spa salon</a>
-                                <p class="sub font-monserat f12 f-600 upper mt10 mb20">package</p>
-                                <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12" href="{{ url('/') }}">Click hear</a>
-                            </div>
-                        </div>
-                        <div class="item item-deal">
-                            <div class="img">
-                                <img class="img-full" src="{{ url('home/images/home-3/deals/deals-3.png') }}" alt="">
-                            </div>
-                            <div class="info">
-                                <a class="title bold f26 font-monserat upper" href="{{ url('/') }}">weeding</a>
-                                <p class="sub font-monserat f12 f-600 upper mt10 mb20">event</p>
-                                <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12" href="{{ url('/') }}">Read more</a>
-                            </div>
-                        </div>
+                        @if(isset($pack))
+                            @foreach($pack as $u)
+                                <div class="item item-deal">
+                                    <div class="img">
+                                        <img class="img-full" src="{{ url('images/malie/news/'.$u->image) }}" alt="{{ $u->title_en }}">
+                                    </div>
+                                    <div class="info">
+                                        <a class="title bold f26 font-monserat upper" href="{{ url('/') }}">
+                                            @if(session()->get('locale') == 'en')
+                                            {{ $u->title_en }}
+                                            @else
+                                            {{ $u->title }}
+                                            @endif</a>
+                                        <p class="sub font-monserat f12 f-600 upper mt10 mb20">package</p>
+                                        <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12" href="{{ url('blog_detail/'.$u->id) }}">Click hear</a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -315,59 +300,44 @@
                 <div class="row">
                     <div class="col-xs-12 col-lg-6 col-lg-offset-3">
                         <div class="ot-heading row-20 mb40 text-center">
-                            <h2>News</h2>
+                        @if(session()->get('locale') == 'en')
+                            <h2>NEWS</h2>
+                        @else
+                            <h2>กิจกรรม & ประชาสัมพันธ์</h2>
+                        @endif
                         </div>
                     </div>
                 </div>
                 <div class="row">
+
+                    @if(isset($blog))
+                    @foreach($blog as $u)
                     <div class="col-xs-12 col-sm-4">
                         <div class="item">
                             <div class="img">
-                                <img class="img-responsive img-full" src="{{ url('home/images/example/ADS_97-1024x538.jpg') }}" alt="">
+                                <img class="img-responsive img-full" src="{{ url('images/malie/news/'.$u->image) }}" alt="{{ $u->title_en }}">
                             </div>
                             <div class="info">
                                 <p class="date f20">
-                                    21 December, 2017
+                                    {{ $u->created_at }}
                                 </p>
-                                <a class="title font-monserat f20 mb20 block bold upper" href="{{ url('/') }}">UPDATE MENU FOOD IN LOTUS
-                                    HOTEL</a>
-                                <a class="more block f13" href="{{ url('/') }}">[Read more]</a>
+                                <a class="title font-monserat f20 mb20 block bold upper" href="{{ url('/') }}">
+                                    @if(session()->get('locale') == 'en')
+                                    {{ $u->title_en }}
+                                    @else
+                                    {{ $u->title }}
+                                    @endif
+                                </a>
+                                <a class="more block f13" href="{{ url('blog_detail/'.$u->id) }}">[Read more]</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="item">
-                            <div class="img">
-                                <img class="img-responsive img-full" src="{{ url('home/images/example/S__10870798-1024x538.jpg') }}" alt="">
-                            </div>
-                            <div class="info">
-                                <p class="date f20">
-                                    06 Octorber, 2017
-                                </p>
-                                <a class="title font-monserat f20 mb20 block bold upper" href="{{ url('/') }}">WEDDING DAY
-                                    JONATHA & JESSICA</a>
-                                <a class="more block f13" href="{{ url('/') }}">[Read more]</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="item">
-                            <div class="img">
-                                <img class="img-responsive img-full" src="{{ url('home/images/example/5-pool-villa-for-pattaya-1024x499.jpg') }}" alt="">
-                            </div>
-                            <div class="info">
-                                <p class="date f20">
-                                    18 March, 2017
-                                </p>
-                                <a class="title font-monserat f20 mb20 block bold upper" href="{{ url('/') }}">Bryce Canyon A Stunning Us
-                                    Travel Destination</a>
-                                <a class="more block f13" href="{{ url('/') }}">[Read more]</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    @endif
+
                 </div>
                 <div class="text-center">
-                    <a href="{{ url('/') }}" class="awe-btn awe-btn-default font-hind f12 bold btn-medium mt15">View more</a>
+                    <a href="{{ url('/blog') }}" class="awe-btn awe-btn-default font-hind f12 bold btn-medium mt15">View more</a>
                 </div>
             </div>
         </div>
@@ -384,10 +354,11 @@
             <div class="gallery-cat text-center">
                 <ul class="list-inline">
                     <li class="active"><a href="#" data-filter="*">All</a></li>
-                    <li><a href="#" data-filter=".ground">HOTEL &amp; GROUND</a></li>
-                    <li><a href="#" data-filter=".suite">ROOM/SUITE </a></li>
-                    <li><a href="#" data-filter=".bathroom">BATHROOM</a></li>
-                    <li><a href="#" data-filter=".dining">DINING</a></li>
+                    @if(isset($category))
+                        @foreach($category as $u)
+                            <li><a href="#" data-filter=".{{ $u->cat_name }}">{{ $u->cat_name }}</a></li>
+                        @endforeach
+                    @endif
                 </ul>
             </div>
             <!-- END / FILTER -->
@@ -402,130 +373,24 @@
                             <!-- END / ITEM SIZE -->
                         <!-- ITEM -->
                         
-                        <div class="item-isotope suite dining ">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-1.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-1.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope  ground bathroom suite">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-2.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-2.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope ground bathroom dining">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-3.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-3.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope suite dining">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-4.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-4.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope  ground suite dining">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-5.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-5.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope ground bathroom dining">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-6.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-6.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope ground suite dining">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-7.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-7.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope bathroom suite dining">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-8.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-8.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope bathroom suite dining">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-9.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-9.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope ground bathroom">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-10.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-10.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope ground bathroom suite ">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-11.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-11.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="item-isotope ground bathroom">
-                            <div class="gallery_item">
-                                <a  href="{{ url('home/images/gallery/popup/img-12.jpg') }}" class="gallery-popup mfp-image" title="Luxury Room view all">
-                                    <img src="{{ url('home/images/gallery/img-12.jpg') }}" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
+                        @if(isset($images))
+                            @foreach($images as $item)
+                                <div class="item-isotope {{ $item->cat_name }} ">
+                                    <div class="gallery_item">
+                                        <a  href="{{ url('images/malie/gallery/'.$item->image) }}" class="gallery-popup mfp-image" title="{{ $item->cat_name }}">
+                                            <img src="{{ url('images/malie/gallery/'.$item->image) }}" alt="{{ $item->cat_name }}">
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- END / ITEM -->
+                            @endforeach
+                        @endif
 
                     </div>
                 </div>
 
                 <div class="our-gallery text-center">
-                    <a href="#" class="awe-btn awe-btn-default">BROWSE OUR GALLERY</a>
+                    <a href="{{ url('/gallery') }}" class="awe-btn awe-btn-default">BROWSE OUR GALLERY</a>
                 </div>
 
             </div>

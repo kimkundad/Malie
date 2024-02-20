@@ -220,7 +220,7 @@ class NewConController extends Controller
           ->first();
 
           $storage = Storage::disk('do_spaces');
-          $storage->delete('malie/slide/' . $img->image, 'public');
+          $storage->delete('malie/news/' . $img->image, 'public');
 
           $img = Image::make($image->getRealPath());
           $img->resize(1568, 1045, function ($constraint) {

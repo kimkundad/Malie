@@ -32,8 +32,20 @@ iframe {
         <div class="sub-banner">
             <div class="container">
                 <div class="text text-center">
-                    <h2>CONTACT WITH US</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing</p>
+                    <h2>
+                        @if(session()->get('locale') == 'en')
+                    CONTACT WITH US
+                    @else
+                    ติดต่อกับเรา
+                    @endif
+                    </h2>
+                    @if(session()->get('locale') == 'en')
+                    <p>Convenient and fast booking with support
+                        Before booking and after booking a house</p>
+                    @else
+                    <p>จองสะดวก รวดเร็ว พร้อม support
+                        ก่อนจอง และหลังจองบ้านพัก</p>
+                    @endif
                 </div>
             </div>
 
@@ -44,63 +56,42 @@ iframe {
     <!-- CONTACT -->
     <section class="section-contact">
         <div class="container">
-            <div class="contact">
+            <div class="contact">  
                 <div class="row">
 
                     <div class="col-md-6 col-lg-5">
 
                         <div class="text">
-                            <h2>Contact</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                            <h2>@if(session()->get('locale') == 'en')
+                                CONTACT
+                                @else
+                                ติดต่อเรา
+                                @endif</h2>
+                                    @if(session()->get('locale') == 'en')
+                                    <p>Convenient and fast booking with support
+                                        Before booking and after booking a house Stay safe. Get the right house
+                                        Ready to have an admin answer questions that customers have quickly and promptly.
+                                        Confirmed from reviews of our customers.</p>
+                                    @else
+                                    <p>จองสะดวก รวดเร็ว พร้อม support
+                                        ก่อนจองและหลังจองบ้านพัก เข้าพักได้อย่างปลอดภัย ได้บ้านที่ตรงปก
+                                        พร้อมมีแอดมินตอบคำถามที่ลูกค้าสงสัยได้รวดเร็ว ทันใจ
+                                        คอนเฟิร์มจากรีวิวของลูกค้าของเรา</p>
+                                    @endif
                             <ul>
-                                <li><i class="icon lotus-icon-location"></i> 225 Beach Street, Australian</li>
-                                <li><i class="icon lotus-icon-phone"></i> +61 2 6854 8496</li>
-                                <li><i class="icon fa fa-envelope-o"></i> lotushotel@gmail.com</li>
+                                <li><i class="icon lotus-icon-location"></i> 
+                                    @if(session()->get('locale') == 'en')
+                                    20/125 The Bay Ridge (Villa 2) Surat Thani
+                                    @else
+                                    20/125 The Bay Ridge (Villa 2) สุราษฎร์ธานี
+                                    @endif
+                                </li>
+                                <li><i class="icon lotus-icon-phone"></i> <a href="tel:{{ get_phone() }}">{{ get_phone() }}</a></li>
+                                <li><i class="icon fa fa-envelope-o"></i> <a href="mailto:{{ get_email() }}">{{ get_email() }}</a></li>
                             </ul>
                         </div>
 
-                        <div class="contact-location">
-                            <a class="btn-collapse" data-toggle="collapse" href="#location">OTHER LOCATION <span class="fa fa-angle-down"></span></a>
-                            <div class="collapse" id="location">
-                                <div class="location-group">
-                                    <h6>NORTH AMERICA</h6>
-                                    <span>Caribbean, French West Indies</span>
-
-                                    <!-- ITEM -->
-                                    <div class="location-item" data-location="39.0926986,-94.5747324">
-                                        <div class="img">
-                                            <img src="images/contact/img-1.jpg" alt="">
-                                            <i class="fa  fa-map-marker"></i>
-                                        </div>
-                                        <div class="text">
-                                            <address>PO Box 4077, 2584 St Martin, CEDEX, French West Indies</address>
-                                            <p>
-                                                Tel: 858 634 8975 <br>
-                                                Fax: +1 212 854 7039
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- END / ITEM -->
-
-                                    <!-- ITEM -->
-                                    <div class="location-item" data-location="39.0912284,-94.5743515">
-                                        <div class="img">
-                                            <img src="images/contact/img-2.jpg" alt="">
-                                            <i class="fa  fa-map-marker"></i>
-                                        </div>
-                                        <div class="text">
-                                            <address>PO Box 4077, 2584 St Martin, CEDEX, French West Indies</address>
-                                            <p>
-                                                Tel: 858 634 8975 <br>
-                                                Fax: +1 212 854 7039
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- END / ITEM -->
-
-                                </div>
-                            </div>
-                        </div>
+                        
 
                     </div>
 
@@ -142,13 +133,13 @@ iframe {
     <section class="section-map">
         <h1 class="element-invisible">Map</h1>
         <div class="contact-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.9058651228743!2d100.05505667828884!3d9.510953683569896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3054f195a5d0f2f9%3A0xa542095004139b08!2z4LmA4Lif4Li04Lij4LmM4LiqIOC4muC4seC4h-C4geC4sOC5guC4pSDguJrguLXguIog4Lij4Li14Liq4Lit4Lij4LmM4LiX!5e0!3m2!1sth!2sth!4v1706524848451!5m2!1sth!2sth" height="470"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3934.3290995401935!2d100.06300347502551!3d9.566872990517542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwMzQnMDAuNyJOIDEwMMKwMDMnNTYuMSJF!5e0!3m2!1sen!2sth!4v1706783769751!5m2!1sen!2sth" height="470"></iframe>
         </div>
     </section>
     <!-- END / MAP -->
     
     <script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
 
     @endsection
 
@@ -166,6 +157,7 @@ $(document).on('click','#btnSendData',function (event) {
       var msg = document.getElementById("massage").value;
       var phone = document.getElementById("phone").value;
         console.log(formData)
+
     if(name == '' || msg == '' || email == '' || phone == ''){
       swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
     }else{

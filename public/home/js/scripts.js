@@ -34,12 +34,24 @@
             buttonImageOnly: false,
         });
 
-        var highlightedDays = ["25-12-2023", "28-12-2023"];
+        var highlightedDays = ["25-02-2024", "28-02-2024"];
 
         /* Datepicker from - to */
         $(".awe-calendar.from").datepicker({
             prevText: '<i class="lotus-icon-left-arrow"></i>',
             nextText: '<i class="lotus-icon-right-arrow"></i>',
+            beforeShowDay: function(date) {
+                var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                // Check if the date should be highlighted
+                if ($.inArray(dateString, ['2024-02-26', '2024-02-28', '2024-03-28']) !== -1) {
+                  return [false, 'highlighted-day'];
+                }
+                // Check if the date should be disabled
+                else if ($.inArray(dateString, ['2024-02-26', '2024-02-28', '2024-03-28']) !== -1) {
+                  return [false, 'disabled'];
+                }
+                return [true, ''];
+               },
             buttonImageOnly: false,
             minDate: 0,
             onClose: function (selectedDate) {
@@ -55,11 +67,11 @@
             beforeShowDay: function(date) {
                 var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
                 // Check if the date should be highlighted
-                if ($.inArray(dateString, ['2023-12-26', '2023-12-30']) !== -1) {
+                if ($.inArray(dateString, ['2024-02-26', '2024-02-28', '2024-03-28']) !== -1) {
                   return [false, 'highlighted-day'];
                 }
                 // Check if the date should be disabled
-                else if ($.inArray(dateString, ['2023-12-26', '2023-12-30']) !== -1) {
+                else if ($.inArray(dateString, ['2024-02-26', '2024-02-28', '2024-03-28']) !== -1) {
                   return [false, 'disabled'];
                 }
                 return [true, ''];
@@ -141,6 +153,7 @@
             }
         }
     }
+
 
     /* Menu Resize */
     function MenuResize() {
@@ -1126,25 +1139,14 @@
                     required: true,
                     minlength: 10
                 },
-                departure: {
-                    required: true,
-                    minlength: 10
-                },
                 adults: {
                     required: true,
                     minlength: 1
-                },
-                children: {
-                    required: false
                 }
             },
             messages: {
                 arrive: {
                     required: "Please enter a arrive.",
-                    minlength: $.format("At least {0} characters required.")
-                },
-                departure: {
-                    required: "Please enter a departure.",
                     minlength: $.format("At least {0} characters required.")
                 },
                 adults: {
@@ -1153,20 +1155,20 @@
                 },
             },
 
-            submitHandler: function (form) {
-                $(form).ajaxSubmit({
-                    success: function (responseText, statusText, xhr, $form) {
-                        $(form).parent().append(responseText);
-                        $(form).remove();
-                    }
-                });
-                return false;
-            }
+            // submitHandler: function (form) {
+            //     $(form).ajaxSubmit({
+            //         success: function (responseText, statusText, xhr, $form) {
+            //             $(form).parent().append(responseText);
+            //             $(form).remove();
+            //         }
+            //     });
+            //     return false;
+            // }
         });
 
-        $('#ajax-form-search-room .vailability-submit .awe-btn').on('click', function () {
-            $(this).parents('form:first').submit();
-        });
+        // $('#ajax-form-search-room .vailability-submit .awe-btn').on('click', function () {
+        //     $(this).parents('form:first').submit();
+        // });
     }
 
     $(document).ready(function () {

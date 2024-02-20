@@ -9630,3 +9630,15 @@ blockquote p:after{
   .highlighted-day span.ui-state-default {
     background-color: red !important;
   }
+  .envelope-to a{
+    font-size: 12px;
+    color: #fff;
+    margin-right: 15px;
+    line-height: 36px;
+}
+.header_top .header_left span a{
+    font-size: 12px;
+    color: #fff;
+    margin-right: 15px;
+    line-height: 36px;
+}

@@ -49,38 +49,25 @@
                     <h1 class="element-invisible">Blog</h1>
                     <div class="col-md-8 col-md-offset-2">
                         <div class="blog-content">
-
-                            @if(isset($objs))
-                            @foreach($objs as $u)
-                            <!-- POST ITEM -->
-                            <article class="post">
+                            <h1 class="element-invisible">Blog detail</h1>
+                            <!-- POST SINGLE -->
+                            <article class="post post-single">
 
                                 <div class="entry-media">
-                                    <a href="{{ url('blog_detail/'.$u->id) }}" class="post-thumbnail hover-zoom"><img src="{{ url('images/malie/news/'.$u->image) }}" alt="{{ $u->title }}"></a>
-
+                                    <img src="{{ url('images/malie/news/'.$u->image) }}" alt="{{ $u->title }}">
                                     <span class="posted-on"><strong>{{ date('d', strtotime($u->created_at)) }}</strong>{{ date('M', strtotime($u->created_at)) }}</span>
-
                                 </div>
                                 
                                 <div class="entry-header">
-                                    <h2 class="entry-title"><a href="#">
+
+                                    <h2 class="entry-title">
                                         @if(session()->get('locale') == 'en')
                                             {{ $u->title_en }}
                                             @else
                                             {{ $u->title }}
                                             @endif
-                                    </a></h2>
-                                </div>
+                                    </h2>
 
-                                <div class="entry-content">
-                                    <p>@if(session()->get('locale') == 'en')
-                                        {{ $u->sub_title_en }}
-                                        @else
-                                        {{ $u->sub_title }}
-                                        @endif</p>
-                                </div>
-
-                                <div class="entry-footer">
                                     <p class="entry-meta">
 
                                         <span class="posted-on">
@@ -94,21 +81,25 @@
                                                 <span class="entry-author-name">Admin</span>
                                             </a>
                                         </span>
+
+                                        
                                     </p>
+
+                                </div>
+
+                                <div class="entry-content">
+
+
+                                        @if(session()->get('locale') == 'en')
+                                        {!! $u->detail_en !!}
+                                        @else
+                                        {!! $u->detail !!}
+                                        @endif
+
                                 </div>
 
                             </article>
-                            <!-- END / POST ITEM -->
-                            @endforeach
-                            @endif
-
-
-                            <!-- PAGE NAVIGATION   -->
-                            <div class="text-center">
-                                @include('pagination.default', ['paginator' => $objs])
-                            </div>
-                            <!-- END / PAGE NAVIGATION   -->
-
+                            <!-- END / POST SINGLE -->
 
                         </div>
                     </div> 

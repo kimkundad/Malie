@@ -21,7 +21,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            รูปภาพทั้งหมด</h1>
+                            ยอดจองที่พักด</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -36,7 +36,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">รูปภาพ</li>
+                            <li class="breadcrumb-item text-muted">รายการยอดจองที่พัก</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -44,7 +44,7 @@
                     <!--end::Page title-->
                     <!--begin::Actions-->
                     <div class="d-flex align-items-center gap-2 gap-lg-3">
-                        <a href="{{ url('admin/gallery/create') }}" class="btn btn-sm fw-bold btn-primary" >
+                        <a href="{{ url('admin/order/create') }}" class="btn btn-sm fw-bold btn-primary" >
                             <!--begin::Svg Icon | path: /var/www/preview.keenthemes.com/kt-products/docs/metronic/html/releases/2023-01-26-051612/core/html/src/media/icons/duotune/arrows/arr017.svg-->
                             <span class="svg-icon svg-icon-muted svg-icon-1hx"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.3" d="M11 13H7C6.4 13 6 12.6 6 12C6 11.4 6.4 11 7 11H11V13ZM17 11H13V13H17C17.6 13 18 12.6 18 12C18 11.4 17.6 11 17 11Z" fill="currentColor"/>
@@ -68,8 +68,8 @@
                     <div class="card card-xl-stretch mb-5 mb-xl-8">
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">ทั้งหมด</span>
-                                <span class="text-muted mt-1 fw-semibold fs-7">  {{ count($objs) }}</span>
+                                <span class="card-label fw-bold fs-3 mb-1">รายการยอดจองที่พัก</span>
+                                <span class="text-muted mt-1 fw-semibold fs-7"> รายการจองทั้งหมด {{ count($objs) }}</span>
                             </h3>
                         </div>
                         <div class="card-body py-3">
@@ -80,32 +80,39 @@
                                     <!--begin::Table head-->
                                     <thead>
                                         <tr>
-                                            <th class="p-0 "></th>
-                                            <th class="p-0 ">หมวดหมู่</th>
-                                            <th class="p-0 ">คำอธิบายรูป</th>
+                                            <th class="p-0 ">ชื่อขนามสกุล</th>
+                                            <th class="p-0 ">วันที่จอง</th>
+                                            <th class="p-0 ">เบอร์ติดต่อ</th>
+                                            <th class="p-0 ">อีเมล</th>
+                                            <th class="p-0 ">การยืนยันการจอง</th>
                                             <th class="p-0 "></th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
-                                    
                                     <tbody>
                                         @isset($objs)
                                             @foreach ($objs as $item)
                                         
                                         <tr id="{{$item->id}}">
                                             <td>
-                                                <img src="{{ url('images/malie/gallery/'.$item->image) }}" alt="" style="height:100px; width: auto">
+                                                <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $item->first_name }} {{ $item->last_name }}</a>
                                             </td>
+                                            <td>{{ $item->arrive }} - {{ $item->departure }}</td>
                                             <td>
-                                                {{ $item->cat_name }}
+                                                {{ $item->phone }}
                                             </td>
+                                            <td>{{ $item->email }}</td>
                                             <td>
-                                                {{ $item->detail }}
+                                                @if($item->status == 1)
+                                                <span class="badge py-3 px-4 fs-7 badge-light-success">ยืนยันแล้ว</span>
+                                                @else
+                                                <span class="badge py-3 px-4 fs-7 badge-light-warning">รอการยืนยัน</span>
+                                                @endif
                                             </td>
                                             <td class="text-end">
                                                 <div class="d-flex justify-content-end flex-shrink-0">
-                                                    <a href="{{url('admin/gallery/'.$item->id.'/edit')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                    <a href="{{url('admin/order/'.$item->id.'/edit')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,7 +122,7 @@
                                                         </span>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                    <a href="{{ url('api/del_gallery/'.$item->id) }}"  onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                    <a href="{{ url('api/del_order/'.$item->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                         <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -138,7 +145,9 @@
                                     <!--end::Table body-->
                                 </table>
                             </div>
+                            @if(count($objs) > 10)
                             @include('admin.pagination.default', ['paginator' => $objs])
+                            @endif
                         </div>
                     </div>
                     
@@ -180,5 +189,39 @@
 @endsection
 
 @section('scripts')
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $("input:checkbox").change(function() {
+        var user_id = $(this).closest('tr').attr('id');
+    
+        $.ajax({
+                type:'POST',
+                url:'{{url('api/api_post_status_order')}}',
+                headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                data: { "user_id" : user_id },
+                success: function(data){
+                  if(data.data.success){
+    
+    
+                    Swal.fire({
+                        text: "ระบบได้ทำการอัพเดทข้อมูลสำเร็จ!",
+                        icon: "success",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok, got it!",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
+    
+    
+    
+                  }
+                }
+            });
+        });
+    });
+    </script>
 
 @stop('scripts')

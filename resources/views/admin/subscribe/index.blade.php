@@ -1,10 +1,10 @@
 @extends('admin.layouts.template')
 
-
-
+@section('title')
+    <title>วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด</title>
+    <meta name="description" content=" รายละเอียด วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด">
+@stop
 @section('stylesheet')
-
-<link href="{{ url('admin/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
 
 @stop('stylesheet')
 
@@ -21,13 +21,13 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            ภาพโดยรวมเว็บไซต์</h1>
+                            Subscribe ทั้งหมด</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                             <!--begin::Item-->
                             <li class="breadcrumb-item text-muted">
-                                <a href="{{ url('dashboard') }}" class="text-muted text-hover-primary">Dashboard</a>
+                                <a href="{{ url('admin/dashboard') }}" class="text-muted text-hover-primary">จัดการ</a>
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
@@ -36,16 +36,14 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">ดูสถิติต่างๆ</li>
+                            <li class="breadcrumb-item text-muted">Subscribe</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page title-->
                     <!--begin::Actions-->
-                    <div class="d-flex align-items-center gap-2 gap-lg-3">
-
-                    </div>
+                    
                     <!--end::Actions-->
                 </div>
                 <!--end::Toolbar container-->
@@ -56,18 +54,69 @@
                 <!--begin::Content container-->
                 <div id="kt_app_content_container" class="app-container container-xxl">
                     
-                 
-                    <div class="card">
-                        <div class="card-header">
-                            <h2 class="card-title fw-bold">ปฏิทินการจองที่พัก</h2>
-                            
+                    <div class="card card-xl-stretch mb-5 mb-xl-8">
+                        <div class="card-header border-0 pt-5">
+                            <h3 class="card-title align-items-start flex-column">
+                                <span class="card-label fw-bold fs-3 mb-1">Subscribe ทั้งหมด</span>
+                                <span class="text-muted mt-1 fw-semibold fs-7"> {{ count($objs) }}</span>
+                            </h3>
                         </div>
-                        <div class="card-body">
-                            <div id="kt_docs_fullcalendar_basic"></div>
+                        <div class="card-body py-3">
+
+                            <div class="table-responsive">
+                                <!--begin::Table-->
+                                <table class="table align-middle gs-0 gy-3">
+                                    <!--begin::Table head-->
+                                    <thead>
+                                        <tr>
+                                            <th class="p-0 ">อีเมล</th>
+                                            <th class="p-0 ">วันที่สร้าง</th>
+                                            <th class="p-0 "></th>
+                                        </tr>
+                                    </thead>
+                                    <!--end::Table head-->
+                                    <!--begin::Table body-->
+                                    
+                                    <tbody>
+                                        @isset($objs)
+                                            @foreach ($objs as $item)
+                                        
+                                        <tr id="{{$item->id}}">
+                                            <td>
+                                                <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $item->email }}</a>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="text-dark fw-bold text-hover-primary mb-1 fs-6">{{ $item->created_at }}</a>
+                                            </td>
+                                            <td class="text-end">
+                                                <div class="d-flex justify-content-end flex-shrink-0">
+                                                    
+                                                    <a href="{{ url('api/del_subscribe/'.$item->id) }}"  onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                        <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                                        <span class="svg-icon svg-icon-3">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"></path>
+                                                                <path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"></path>
+                                                                <path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"></path>
+                                                            </svg>
+                                                        </span>
+                                                        <!--end::Svg Icon-->
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                            @endforeach
+
+                                        @endisset
+                                       
+                                    </tbody>
+                                    <!--end::Table body-->
+                                </table>
+                            </div>
+                            @include('admin.pagination.default', ['paginator' => $objs])
                         </div>
                     </div>
-                    
-
                     
                 </div>
                 <!--end::Content container-->
@@ -108,7 +157,6 @@
 
 @section('scripts')
 
-<script src="{{ url('admin/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -117,7 +165,7 @@
     
         $.ajax({
                 type:'POST',
-                url:'{{url('api/api_post_status_contact')}}',
+                url:'{{url('api/api_post_status_category')}}',
                 headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
                 data: { "user_id" : user_id },
                 success: function(data){
@@ -142,70 +190,5 @@
         });
     });
     </script>
-
-
-
-<script type="text/javascript">
-
-"use strict";
-
-// Class definition
-var KTGeneralFullCalendarEventsDemos = function() {
-	// Private functions
-
-	var exampleBackgroundEvents = function() {
-		// Define colors
-		var green = KTUtil.getCssVariableValue('--bs-active-success');
-		var red = KTUtil.getCssVariableValue('--bs-active-danger');
-
-		// Initialize Fullcalendar -- for more info please visit the official site: https://fullcalendar.io/demos
-		var calendarEl = document.getElementById('kt_docs_fullcalendar_basic');
-
-		var calendar = new FullCalendar.Calendar(calendarEl, {
-			headerToolbar: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-			},
-			initialDate: '{{ date('Y-m-d') }}',
-			navLinks: true, // can click day/week names to navigate views
-			businessHours: true, // display business hours
-			editable: true,
-			selectable: true,
-            eventClick: function(info) {
-                var eventObj = info.event;
-                alert('ชื่อผู้จอง: ' + info.event.title + ' เบอร์ติดต่อ: ' + info.event.extendedProps.description );
-            },
-			events: [
-                @if(isset($objs))
-                @foreach($objs as $u)
-                {
-					title: '{{ $u->first_name }}'+' {{ $u->phone }} ',
-					start: '{{ $u->dateorder }}',
-                    description: '{{ $u->phone }}',
-					constraint: 'availableForMeeting'
-				},
-                @endforeach
-                @endif
-			],
-		});
-
-		calendar.render();
-	}
-
-	return {
-		// Public Functions
-		init: function() {
-			exampleBackgroundEvents();
-		}
-	};
-}();
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-	KTGeneralFullCalendarEventsDemos.init();
-});
-
-</script>
 
 @stop('scripts')

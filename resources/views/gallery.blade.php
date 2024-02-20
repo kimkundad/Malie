@@ -29,7 +29,11 @@
             <div class="container">
                 <div class="text text-center">
                     <h2>Gallery</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing</p>
+                    @if(session()->get('locale') == 'en')
+                    <p>Gallery of The Bay Ridge (Villa 2)</p>
+                    @else
+                    <p>คลังรูปภาพของ The Bay Ridge (Villa 2)</p>
+                    @endif
                 </div>
             </div>
         </div>
@@ -45,10 +49,11 @@
                 <div class="gallery-cat text-center">
                     <ul class="list-inline">
                         <li class="active"><a href="#" data-filter="*">All</a></li>
-                        <li><a href="#" data-filter=".ground">HOTEL &amp; GROUND</a></li>
-                        <li><a href="#" data-filter=".suite">ROOM/SUITE </a></li>
-                        <li><a href="#" data-filter=".bathroom">BATHROOM</a></li>
-                        <li><a href="#" data-filter=".dining">DINING</a></li>
+                        @if(isset($category))
+                            @foreach($category as $u)
+                                <li><a href="#" data-filter=".{{ $u->cat_name }}">{{ $u->cat_name }}</a></li>
+                            @endforeach
+                        @endif
                     </ul>
                 </div>
                 <!-- END / FILTER -->
@@ -62,181 +67,26 @@
                             <div class="item-size "></div>
                             <!-- END / ITEM SIZE -->
 
-                            <!-- ITEM -->
-                            <div class="item-isotope suite dining">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-1.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
+                           
 
-                            <!-- ITEM -->
-                            <div class="item-isotope  ground bathroom suite">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-2.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
+                            @if(isset($images))
+                            @foreach($images as $item)
+                                <div class="item-isotope {{ $item->cat_name }} ">
+                                    <div class="gallery_item">
+                                        <a  href="{{ url('images/malie/gallery/'.$item->image) }}" class="gallery-popup mfp-image" title="{{ $item->cat_name }}">
+                                            <img src="{{ url('images/malie/gallery/'.$item->image) }}" alt="{{ $item->cat_name }}">
+                                        </a>
+                                        @if(session()->get('locale') == 'en')
+                                        <h6 class="text">{{ $item->detail_en }}</h6>
+                                        @else
+                                        <h6 class="text">{{ $item->detail }}</h6>
+                                        @endif
+                                        
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope  ground bathroom dining">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-3.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope suite dining ">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-4.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope  ground suite dining">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-5.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope ground bathroom dining">
-                                <div class="gallery_item">
-                                    <a href="https://www.youtube.com/watch?v=RnjZ6IhkR40" target="_blank" class="mfp-iframe" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-6.jpg') }}" alt="">
-                                    </a>
-                                    <span class="icon"><i class="fa lotus-icon-media-play"></i></span>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope ground suite dining">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image">
-                                        <img src="{{ ('home/images/gallery/page/img-7.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope bathroom suite dining">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-8.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope bathroom suite dining">
-                                <div class="gallery_item">
-                                    <a href="https://www.youtube.com/watch?v=RnjZ6IhkR40" target="_blank" class="mfp-iframe" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-9.jpg') }}" alt="">
-                                    </a>
-                                    <span class="icon"><i class="fa lotus-icon-media-play"></i></span>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope ground bathroom">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-iframe">
-                                        <img src="{{ ('home/images/gallery/page/img-10.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope  ground bathroom suite ">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" target="_blank" class="mfp-image">
-                                        <img src="{{ ('home/images/gallery/page/img-11.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope  ground bathroom">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-12.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope  ground bathroom">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-13.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope  ground bathroom">
-                                <div class="gallery_item">
-                                    <a href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-14.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope  ground bathroom">
-                                <div class="gallery_item">
-                                    <a href="https://www.youtube.com/watch?v=RnjZ6IhkR40" target="_blank" class="mfp-iframe" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-15.jpg') }}" alt="">
-                                    </a>
-                                    <span class="icon"><i class="fa lotus-icon-media-play"></i></span>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
-
-                            <!-- ITEM -->
-                            <div class="item-isotope  ground bathroom">
-                                <div class="gallery_item">
-                                    <a  href="{{ ('home/images/gallery/popup/img-1.jpg') }}" class="mfp-image" title="Luxury Room view all">
-                                        <img src="{{ ('home/images/gallery/page/img-16.jpg') }}" alt="">
-                                    </a>
-                                    <h6 class="text">Lorem Ipsum is simply dummy text of the printing</h6>
-                                </div>
-                            </div>
-                            <!-- END / ITEM -->
+                                <!-- END / ITEM -->
+                            @endforeach
+                        @endif
 
                         </div>
                     </div>
