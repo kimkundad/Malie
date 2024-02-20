@@ -78,7 +78,7 @@
 														</div>
                                                         <div style="display:flex; justify-content: space-between; color:#7E8299; font-size: 14px; font-weight:500; margin-bottom:8px">
 															<!--begin:Description-->
-															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px">Email</div>
+															<div style="font-family:Arial,Helvetica,sans-serif;">Email</div>
 															<!--end:Description-->
 															<!--begin:Total-->
 															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['email'] }}</div>
