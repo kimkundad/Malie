@@ -110,6 +110,19 @@ class HomeController extends Controller
           }
           curl_close($chOne);
 
+          $details = [
+            'first_name' => $request['first_name'],
+            'last_name' => $request['last_name'],
+            'phone' => $request['phone'],
+            'email' => $request['email'],
+            'note' => $request['note'],
+            'departure' => $request['departure'],
+            'adults' => $request['adults'],
+            ];
+
+          \Mail::to($request['email'])->send(new \App\Mail\SendMail($details));
+          \Mail::to($request['email'])->send(new \App\Mail\SendMail2($details));
+
 
            return response()->json([
             'data' => [
