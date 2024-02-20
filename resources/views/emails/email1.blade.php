@@ -63,7 +63,7 @@
 															<div style="font-family:Arial,Helvetica,sans-serif">Booking Name</div>
 															<!--end:Description-->
 															<!--begin:Total-->
-															<div style="font-family:Arial,Helvetica,sans-serif"> {{ $details['first_name'] }} {{ $details['last_name'] }}</div>
+															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['first_name'] }} {{ $details['last_name'] }}</div>
 															<!--end:Total-->
 														</div>
 														<!--end:Item-->
@@ -73,15 +73,15 @@
 															<div style="font-family:Arial,Helvetica,sans-serif">Phone</div>
 															<!--end:Description-->
 															<!--begin:Total-->
-															<div style="font-family:Arial,Helvetica,sans-serif"> {{ $details['phone'] }}</div>
+															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['phone'] }}</div>
 															<!--end:Total-->
 														</div>
                                                         <div style="display:flex; justify-content: space-between; color:#7E8299; font-size: 14px; font-weight:500; margin-bottom:8px">
 															<!--begin:Description-->
-															<div style="font-family:Arial,Helvetica,sans-serif">Email</div>
+															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px">Email</div>
 															<!--end:Description-->
 															<!--begin:Total-->
-															<div style="font-family:Arial,Helvetica,sans-serif"> {{ $details['email'] }}</div>
+															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['email'] }}</div>
 															<!--end:Total-->
 														</div>
                                                         <div style="display:flex; justify-content: space-between; color:#7E8299; font-size: 14px; font-weight:500; margin-bottom:8px">
@@ -89,7 +89,7 @@
 															<div style="font-family:Arial,Helvetica,sans-serif">Detail</div>
 															<!--end:Description-->
 															<!--begin:Total-->
-															<div style="font-family:Arial,Helvetica,sans-serif"> {{ $details['note'] }}</div>
+															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['note'] }}</div>
 															<!--end:Total-->
 														</div>
 														<!--end:Item-->
@@ -102,7 +102,7 @@
 															<div style="font-family:Arial,Helvetica,sans-serif">Booking Date</div>
 															<!--end:Description-->
 															<!--begin:Total-->
-															<div style="color:#50cd89; font-weight:700; font-family:Arial,Helvetica,sans-serif"> {{ $details['arrive'] }} - {{ $details['departure'] }}</div>
+															<div style="color:#50cd89; font-weight:700; font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['arrive'] }} - {{ $details['departure'] }}</div>
 															<!--end:Total-->
 														</div>
 														<!--end:Item-->

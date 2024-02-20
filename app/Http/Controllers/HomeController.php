@@ -120,8 +120,10 @@ class HomeController extends Controller
             'arrive' => $request['arrive'],
             ];
 
+           $my_email = 'contact@villamaliesamui.com';
+
           \Mail::to($request['email'])->send(new \App\Mail\SendMail($details));
-          \Mail::to($request['email'])->send(new \App\Mail\SendMail2($details));
+          \Mail::to($my_email)->send(new \App\Mail\SendMail2($details));
 
 
            return response()->json([
