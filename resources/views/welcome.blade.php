@@ -10,6 +10,19 @@
 
     @section('stylesheet')
 
+    <style>
+        .heading {
+    margin: 0;
+    color: #232323;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    line-height: 1;
+    position: relative;
+}
+    </style>
+
     @stop('stylesheet')
 
     @section('content')
@@ -109,13 +122,13 @@
                         <div class="accomd-modations-header">
                             <h2 class="heading">Welcome to Villa Malie</h2>
                             <img src="{{ url('home/images/icon-accmod.png') }}" alt="icon">
-                            <p>Welcome to Villa Malie, one of only eight exclusive villas in "The Bayridge" compound. As an Airbnb guest, you'll have the privilege of enjoying our luxurious three-bedroom, four-bathroom retreat nestled on a hill in Bangrak, just 8 minutes from Samui Airport. This villa offers the perfect blend of safety, accessibility, and luxury.</p>
+                            <p>Welcome to Villa Malie, one of only eight exclusive villas in "The Bayridge" compound. As our special guest, you'll have the privilege of enjoying our luxurious three-bedroom, four-bathroom retreat nestled on a hill in Bangrak, just 8 minutes from Samui Airport. This villa offers the perfect blend of safety, accessibility, and luxury.</p>
                         </div>
                         @else
                         <div class="accomd-modations-header">
                             <h2 class="heading">ยินดีต้อนรับสู่ Villa Malie</h2>
                             <img src="{{ url('home/images/icon-accmod.png') }}" alt="icon">
-                            <p>ยินดีต้อนรับสู่ Villa Malie หนึ่งในแปดวิลล่าสุดพิเศษในบริเวณ "เดอะเบย์ริดจ์" ในฐานะแขกของ Airbnb คุณจะได้รับสิทธิพิเศษเพลิดเพลินไปกับการพักผ่อนอันหรูหราแบบ 3 ห้องนอน 4 ห้องน้ำบนเนินเขาในเขตบางรัก ห่างจากสนามบินสมุยเพียง 8 นาที วิลล่าแห่งนี้มีการผสมผสานที่ลงตัวระหว่างความปลอดภัย การเข้าถึง และความหรูหรา</p>
+                            <p>ยินดีต้อนรับสู่ Villa Malie หนึ่งในแปดวิลล่าสุดพิเศษในบริเวณ "The Bayridge" ในฐานะแขกพิเศษของเรา คุณจะได้รับสิทธิพิเศษในการเพลิดเพลินกับการพักผ่อนอันหรูหราแบบสามห้องนอน สี่ห้องน้ำ ตั้งอยู่บนเนินเขาในเขตบางรัก ห่างจากสนามบินสมุยเพียง 8 นาที วิลล่าแห่งนี้มีการผสมผสานที่ลงตัวระหว่างความปลอดภัย การเข้าถึง และความหรูหรา</p>
                         </div>
                         @endif
                         
