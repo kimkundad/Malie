@@ -44,10 +44,10 @@
 												<!--begin:Text-->
 												<div style="font-size: 14px; font-weight: 500; margin-bottom: 42px; font-family:Arial,Helvetica,sans-serif">
 													<p style="margin-bottom:9px; color:#181C32; font-size: 22px; font-weight:700">Welcome to Villa Malie</p>
-													<p style="margin-bottom:0px; color:#7E8299">one of only eight exclusive villas in</p>
-													<p style="margin-bottom:0px; color:#7E8299">"The Bayridge" compound. As our special guest</p>
-													<p style="margin-bottom:0px; color:#7E8299">you'll have the privilege of enjoying </p>
-                                                    <p style="margin-bottom:0px; color:#7E8299">our luxurious three-bedroom</p>
+													<p style="margin-bottom:0px; margin-top: 0px; color:#7E8299">one of only eight exclusive villas in</p>
+													<p style="margin-bottom:0px; margin-top: 0px; color:#7E8299">"The Bayridge" compound. As our special guest</p>
+													<p style="margin-bottom:0px; margin-top: 0px; color:#7E8299">you'll have the privilege of enjoying </p>
+                                                    <p style="margin-bottom:0px; margin-top: 0px; color:#7E8299">our luxurious three-bedroom</p>
 												</div>
 												<!--end:Text-->
 												<!--begin:Order-->
@@ -78,7 +78,7 @@
 														</div>
                                                         <div style="display:flex; justify-content: space-between; color:#7E8299; font-size: 14px; font-weight:500; margin-bottom:8px">
 															<!--begin:Description-->
-															<div style="font-family:Arial,Helvetica,sans-serif; ">Email</div>
+															<div style="font-family:Arial,Helvetica,sans-serif;">Email</div>
 															<!--end:Description-->
 															<!--begin:Total-->
 															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['email'] }}</div>
