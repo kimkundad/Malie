@@ -117,7 +117,7 @@ class HomeController extends Controller
             'email' => $request['email'],
             'note' => $request['note'],
             'departure' => $request['departure'],
-            'adults' => $request['adults'],
+            'arrive' => $request['arrive'],
             ];
 
           \Mail::to($request['email'])->send(new \App\Mail\SendMail($details));

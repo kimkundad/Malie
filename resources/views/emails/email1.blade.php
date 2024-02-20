@@ -4,7 +4,7 @@
 		<title>Welcome to Villa Malie</title>
 		<meta charset="utf-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+		<link rel="shortcut icon" href="{{ url('home/images/favicon.png') }}"/>
 		<!--begin::Fonts(mandatory for all pages)-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 		<!--end::Fonts-->
@@ -102,7 +102,7 @@
 															<div style="font-family:Arial,Helvetica,sans-serif">Booking Date</div>
 															<!--end:Description-->
 															<!--begin:Total-->
-															<div style="color:#50cd89; font-weight:700; font-family:Arial,Helvetica,sans-serif"> {{ $details['departure'] }} - {{ $details['adults'] }}</div>
+															<div style="color:#50cd89; font-weight:700; font-family:Arial,Helvetica,sans-serif"> {{ $details['arrive'] }} - {{ $details['departure'] }}</div>
 															<!--end:Total-->
 														</div>
 														<!--end:Item-->
@@ -126,11 +126,11 @@
 									</tr>
 									<tr>
 										<td align="center" valign="center" style="text-align:center; padding-bottom: 20px;">
-											<a href="#" style="margin-right:10px">
-												<img alt="Logo" src="{{ url('admin/assets/media/email/icon-facebook.svg') }}" />
+											<a href="https://www.facebook.com/Villamaliekohsamui" style="margin-right:10px">
+												<img alt="Logo" src="{{ url('admin/assets/media/email/icon-facebook.png') }}" />
 											</a>
 											<a href="#">
-												<img alt="Logo" src="{{ url('admin/assets/media/email/icon-twitter.svg') }}" />
+												<img alt="Logo" src="{{ url('admin/assets/media/email/icon-twitter.png') }}" />
 											</a>
 										</td>
 									</tr>
