@@ -54,9 +54,8 @@ Route::get('/about', function () {
 
 Route::get('/room', [App\Http\Controllers\HomeController::class, 'room']);
 
-Route::get('/reservation', function () {
-    return view('reservation');
-});
+Route::get('/reservation', [App\Http\Controllers\HomeController::class, 'reservation']);
+
 
 Route::get('/term_condition', function () {
     return view('term_condition');

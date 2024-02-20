@@ -155,6 +155,30 @@ class HomeController extends Controller
 
     }
 
+    public function reservation(){
+
+      $objs = DB::table('dateorders')->select(
+        'dateorders.*',
+        'dateorders.id as id_q',
+        'orders.*',
+        )
+        ->leftjoin('orders', 'orders.id',  'dateorders.order_id')
+        ->where('dateorders.date_status', 1)
+        ->get();
+
+        $data['objs'] = $objs;
+
+        $order = DB::table('dateorders')
+        ->where('dateorders.date_status', 1)
+        ->where('dateorder', '>=', date('Y-m-d'))
+        ->get();
+
+        $data['order'] = $order;
+
+        return view('reservation', $data);
+
+    }
+
     public function index()
     {
 
@@ -178,6 +202,13 @@ class HomeController extends Controller
         ->limit(12)
         ->get();
       $data['images'] = $images;
+
+      $order = DB::table('dateorders')
+        ->where('dateorders.date_status', 1)
+        ->where('dateorder', '>=', date('Y-m-d'))
+        ->get();
+
+        $data['order'] = $order;
 
         return view('welcome', $data);
     }

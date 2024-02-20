@@ -25,65 +25,8 @@
     }
 
 
+
     
-    /* Datepicker */
-    DatePicker();
-    function DatePicker() {
-        $(".awe-calendar:not(.from, .to)").datepicker({
-            prevText: '<i class="lotus-icon-left-arrow"></i>',
-            nextText: '<i class="lotus-icon-right-arrow"></i>',
-            buttonImageOnly: false,
-        });
-
-        var highlightedDays = ["25-02-2024", "28-02-2024"];
-
-        /* Datepicker from - to */
-        $(".awe-calendar.from").datepicker({
-            prevText: '<i class="lotus-icon-left-arrow"></i>',
-            nextText: '<i class="lotus-icon-right-arrow"></i>',
-            beforeShowDay: function(date) {
-                var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                // Check if the date should be highlighted
-                if ($.inArray(dateString, ['2024-02-26', '2024-02-28', '2024-03-28']) !== -1) {
-                  return [false, 'highlighted-day'];
-                }
-                // Check if the date should be disabled
-                else if ($.inArray(dateString, ['2024-02-26', '2024-02-28', '2024-03-28']) !== -1) {
-                  return [false, 'disabled'];
-                }
-                return [true, ''];
-               },
-            buttonImageOnly: false,
-            minDate: 0,
-            onClose: function (selectedDate) {
-                var newDate = new Date(selectedDate),
-                    tomorrow = new Date(newDate.getTime() + 24 * 60 * 60 * 1000),
-                    nextDate = (tomorrow.getMonth() + 1) + '/' + tomorrow.getDate() + '/' + tomorrow.getFullYear();
-                $(".awe-calendar.to").datepicker("option", "minDate", nextDate).focus();
-            }
-        });
-        $(".awe-calendar.to").datepicker({
-            prevText: '<i class="lotus-icon-left-arrow"></i>',
-            nextText: '<i class="lotus-icon-right-arrow"></i>',
-            beforeShowDay: function(date) {
-                var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                // Check if the date should be highlighted
-                if ($.inArray(dateString, ['2024-02-26', '2024-02-28', '2024-03-28']) !== -1) {
-                  return [false, 'highlighted-day'];
-                }
-                // Check if the date should be disabled
-                else if ($.inArray(dateString, ['2024-02-26', '2024-02-28', '2024-03-28']) !== -1) {
-                  return [false, 'disabled'];
-                }
-                return [true, ''];
-               },
-            buttonImageOnly: false,
-            minDate: 0,
-            onClose: function (selectedDate) {
-                //$(".awe-calendar.from").datepicker( "option", "maxDate", selectedDate );
-            }
-        });
-    }
 
     /*Accordion*/
     Accordion();

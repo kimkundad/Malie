@@ -56,7 +56,7 @@
                     <li><a href="{{ url('/') }}">Home</a></li>
                     <li class="{{ (request()->is('about')) ? 'current-menu-item' : '' }}" ><a href="{{ url('/about') }}">About</a></li>
                     <li class="{{ (request()->is('room')) ? 'current-menu-item' : '' }}"><a href="{{ url('/room') }}">Room</a></li>
-                    {{-- <li class="{{ (request()->is('reservation')) ? 'current-menu-item' : '' }}"><a href="{{ url('/reservation') }}">Reservation</a></li> --}}
+                    <li class="{{ (request()->is('reservation')) ? 'current-menu-item' : '' }}"><a href="{{ url('/reservation') }}">Reservation</a></li>
                     <li class="{{ (request()->is('gallery')) ? 'current-menu-item' : '' }}"><a href="{{ url('/gallery') }}">Gallery</a></li>
                     <li class="{{ (request()->is('blog')) ? 'current-menu-item' : '' }}"><a href="{{ url('/blog') }}">Blog</a></li>
                     <li class="{{ (request()->is('contact')) ? 'current-menu-item' : '' }}"><a href="{{ url('/contact') }}">Contact</a></li>

@@ -64,7 +64,7 @@
                     </li>
                     <li><a href="{{ url('/about') }}">About</a></li>
                     <li><a href="{{ url('/room') }}">Room</a></li>
-                    {{-- <li><a href="{{ url('/reservation') }}">Reservation</a></li> --}}
+                    <li><a href="{{ url('/reservation') }}">Reservation</a></li>
                     <li><a href="{{ url('/gallery') }}">Gallery</a></li>
                     <li><a href="{{ url('/blog') }}">Blog</a></li>
                     

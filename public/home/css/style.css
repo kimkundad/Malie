@@ -9629,6 +9629,7 @@ blockquote p:after{
   }
   .highlighted-day span.ui-state-default {
     background-color: red !important;
+    color: #fff;
   }
   .envelope-to a{
     font-size: 12px;

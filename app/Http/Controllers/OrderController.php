@@ -19,7 +19,7 @@ class OrderController extends Controller
     public function index()
     {
         //
-        $objs = order::paginate(15);
+        $objs = order::orderby('id', 'desc')->paginate(15);
         $objs->setPath('');
         return view('admin.order.index', compact('objs'));
     }

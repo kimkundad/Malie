@@ -10,6 +10,8 @@
 
     @section('stylesheet')
 
+    <link href="{{ url('admin/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
+
     <style>
         .center-block {
   display: block;
@@ -30,8 +32,14 @@
         <div class="sub-banner">
             <div class="container">
                 <div class="text text-center">
-                    <h2>RESERVATION</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing</p>
+                    @if(session()->get('locale') == 'en')
+                        <h2>RESERVATION</h2>
+                        <p>Pool Villa Reservation Schedule</p>
+                    @else
+                        <h2>ตารางการจอง</h2>
+                        <p>ค้นหาวันที่สามารถจองที่พักได้</p>
+                    @endif
+                    
                 </div>
             </div>
 
@@ -49,7 +57,12 @@
                 <!-- STEP -->
                 <div class="reservation_step">
                     <ul>
+                        @if(session()->get('locale') == 'en')
+                        <li class="active"><a href="#">  Reservation schedule for Pool Villa Malie Koh Samui (Villa Malie Kor Samui)</a></li>
+                        @else
                         <li class="active"><a href="#">  ตารางการจองพักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)</a></li>
+                        @endif
+                        
                     </ul>
                 </div>
                 <!-- END / STEP -->
@@ -62,6 +75,7 @@
 
                             <!-- SIDEBAR AVAILBBILITY -->
                             <div class="reservation-sidebar_availability bg-gray">
+                                <form id="ajax-form-search-room" action="{{ url('/check_out') }}" method="get">
 
                                 <!-- HEADING -->
                                 <h2 class="reservation-heading">YOUR RESERVATION</h2>
@@ -71,98 +85,35 @@
                                     
                                 <div class="check_availability-field">
                                     <label>Arrive</label>
-                                    <input type="text" class="awe-calendar awe-input from" placeholder="Arrive">
+                                    <input type="text" name="arrive" class="awe-calendar awe-input from" placeholder="Arrive">
                                 </div>
                                 
                                 <div class="check_availability-field">
                                     <label>Depature</label>
-                                    <input type="text" class="awe-calendar awe-input to" placeholder="Depature">
+                                    <input type="text" name="departure" class="awe-calendar awe-input to" placeholder="Depature">
                                 </div>
                                 
-                                <h6 class="check_availability_title">ROOMS &amp; GUest</h6>
+                                <h6 class="check_availability_title">GUest</h6>
                                 
                                 <div class="check_availability-field">
-                                    <label>ROOMS</label>
-                                    <select class="awe-select">
+                                    <label>All guests</label>
+                                    <select class="awe-select" name="adults">
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
                                         <option>5</option>
                                         <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
                                     </select>
                                 </div>
-                                
-                                <div class="check_availability_group">
-                                
-                                    <span class="label-group">ROOM 1</span>
-                                
-                                    <div class="check_availability-field_group">
-                                
-                                        <div class="check_availability-field">
-                                            <label>Adult</label>
-                                            <select class="awe-select">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                            </select>
-                                        </div>
-                                
-                                        <div class="check_availability-field">
-                                            <label>Chirld</label>
-                                            <select class="awe-select">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                            </select>
-                                        </div>
-                                
-                                    </div>
-                                
-                                </div>
 
-                                <div class="check_availability_group">
-                                
-                                    <span class="label-group">ROOM 2</span>
-                                
-                                    <div class="check_availability-field_group">
-                                
-                                        <div class="check_availability-field">
-                                            <label>Adult</label>
-                                            <select class="awe-select">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                            </select>
-                                        </div>
-                                
-                                        <div class="check_availability-field">
-                                            <label>Chirld</label>
-                                            <select class="awe-select">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                            </select>
-                                        </div>
-                                
-                                    </div>
-                                
-                                </div>
-
-                                <button class="awe-btn awe-btn-13">CHECK AVAILABLE</button>
-
+                                <button type="submit" class="awe-btn awe-btn-13">CHECK AVAILABLE</button>
+                                </form>
                             </div>
                             <!-- END / SIDEBAR AVAILBBILITY -->
 
@@ -171,157 +122,11 @@
                     </div>
                     
                     <div class="col-md-8 col-lg-9">
-                        <div class="reservation_content bg-gray">
-                            <h2 class="reservation-heading">Availability</h2>
-        
-                            <div class="col-sm-6">
-                                <div class="reservation-calendar_custom">
-                                
-                                    <div class="reservation-calendar_title">
-                                        <span class="reservation-calendar_month">JUNE</span>
-                                        <span class="reservation-calendar_year">2015</span>
-                                
-                                        <a href="#" class="reservation-calendar_prev reservation-calendar_corner"><i class="lotus-icon-left-arrow"></i></a>
-                                    </div>
-                                
-                                    <table class="reservation-calendar_tabel">
-                                        <thead>
-                                            <tr>
-                                                <th>Su</th>
-                                                <th>Mo</th>
-                                                <th>Tu</th>
-                                                <th>We</th>
-                                                <th>Th</th>
-                                                <th>Fr</th>
-                                                <th>Sa</th>
-                                            </tr>
-                                        </thead>
-                                        <tr>
-                                            <td></td>
-                                            <td class="reservation-calendar_current-date">
-                                                <a href="#"><small>1</small> <span>Today</span></a>
-                                            </td>
-                                            <td class="current-select"><a href="#"><small>2</small> <span>Arrive</span></a></td>
-                                            <td class="current-select"><a href="#"><small>3</small></a></td>
-                                            <td class="current-select"><a href="#"><small>4</small></a></td>
-                                            <td class="current-select"><a href="#"><small>5</small> <span>Depart</span></a></td>
-                                            <td><a href="#"><small>6</small></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#"><small>7</small></a></td>
-                                            <td><a href="#"><small>8</small></a></td>
-                                            <td><a href="#"><small>9</small></a></td>
-                                            <td><a href="#"><small>10</small></a></td>
-                                            <td class="reservation-calendar_current-select"><a href="#"><small>11</small></a></td>
-                                            <td class="reservation-calendar_current-select"><a href="#"><small>12</small></a></td>
-                                            <td><a href="#"><small>13</small></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#"><small>14</small></a></td>
-                                            <td><a href="#"><small>15</small></a></td>
-                                            <td><a href="#"><small>16</small></a></td>
-                                            <td><a href="#"><small>17</small></a></td>
-                                            <td><a href="#"><small>18</small></a></td>
-                                            <td><a href="#"><small>19</small></a></td>
-                                            <td><a href="#"><small>20</small></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#"><small>21</small></a></td>
-                                            <td><a href="#"><small>22</small></a></td>
-                                            <td><a href="#"><small>23</small></a></td>
-                                            <td><a href="#"><small>24</small></a></td>
-                                            <td><a href="#"><small>25</small></a></td>
-                                            <td><a href="#"><small>26</small></a></td>
-                                            <td><a href="#"><small>27</small></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#"><small>28</small></a></td>
-                                            <td><a href="#"><small>29</small></a></td>
-                                            <td><a href="#"><small>30</small></a></td>
-                                            <td><a href="#"><small>31</small></a></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </table>
-                                
-                                </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <br>
+                                <div id="kt_docs_fullcalendar_basic"></div>
                             </div>
-
-                            <div class="col-sm-6">
-                                <div class="reservation-calendar_custom">
-                                
-                                    <div class="reservation-calendar_title">
-                                        <span class="reservation-calendar_month">JUNE</span>
-                                        <span class="reservation-calendar_year">2015</span>
-                                
-                                        <a href="#" class="reservation-calendar_next reservation-calendar_corner"><i class="lotus-icon-right-arrow"></i></a>
-                                    </div>
-                                
-                                    <table class="reservation-calendar_tabel">
-                                        <thead>
-                                            <tr>
-                                                <th>Su</th>
-                                                <th>Mo</th>
-                                                <th>Tu</th>
-                                                <th>We</th>
-                                                <th>Th</th>
-                                                <th>Fr</th>
-                                                <th>Sa</th>
-                                            </tr>
-                                        </thead>
-                                        <tr>
-                                            <td></td>
-                                            <td class="reservation-calendar_current-date">
-                                                <a href="#"><small>1</small> <span>Today</span></a>
-                                            </td>
-                                            <td class="current-select"><a href="#"><small>2</small> <span>Arrive</span></a></td>
-                                            <td class="current-select"><a href="#"><small>3</small></a></td>
-                                            <td class="current-select"><a href="#"><small>4</small></a></td>
-                                            <td class="current-select"><a href="#"><small>5</small> <span>Depart</span></a></td>
-                                            <td><a href="#"><small>6</small></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#"><small>7</small></a></td>
-                                            <td><a href="#"><small>8</small></a></td>
-                                            <td><a href="#"><small>9</small></a></td>
-                                            <td><a href="#"><small>10</small></a></td>
-                                            <td class="reservation-calendar_current-select"><a href="#"><small>11</small></a></td>
-                                            <td class="reservation-calendar_current-select"><a href="#"><small>12</small></a></td>
-                                            <td><a href="#"><small>13</small></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#"><small>14</small></a></td>
-                                            <td><a href="#"><small>15</small></a></td>
-                                            <td><a href="#"><small>16</small></a></td>
-                                            <td><a href="#"><small>17</small></a></td>
-                                            <td><a href="#"><small>18</small></a></td>
-                                            <td><a href="#"><small>19</small></a></td>
-                                            <td><a href="#"><small>20</small></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#"><small>21</small></a></td>
-                                            <td><a href="#"><small>22</small></a></td>
-                                            <td><a href="#"><small>23</small></a></td>
-                                            <td><a href="#"><small>24</small></a></td>
-                                            <td><a href="#"><small>25</small></a></td>
-                                            <td><a href="#"><small>26</small></a></td>
-                                            <td><a href="#"><small>27</small></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="#"><small>28</small></a></td>
-                                            <td><a href="#"><small>29</small></a></td>
-                                            <td><a href="#"><small>30</small></a></td>
-                                            <td><a href="#"><small>31</small></a></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </table>
-                                
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                     
@@ -335,10 +140,126 @@
 
     @endsection
 
+
+
     @section('scripts')
+
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.11/index.global.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.11/index.global.min.js'></script>
     
-        <script>
-    
+    <script type="text/javascript">
+
+document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('kt_docs_fullcalendar_basic');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            headerToolbar: {
+				left: 'prev,next today',
+				center: 'title',
+				right: ''
+			},
+			initialDate: '{{ date('Y-m-d') }}',
+			navLinks: true, // can click day/week names to navigate views
+			businessHours: true, // display business hours
+			editable: true,
+			selectable: true,
+			events: [
+                @if(isset($objs))
+                @foreach($objs as $u)
+                {
+					title: ' จองแล้ว ',
+					start: '{{ $u->dateorder }}',
+                    description: '{{ $u->phone }}',
+					constraint: 'availableForMeeting'
+				},
+                @endforeach
+                @endif
+			],
+        });
+        calendar.render();
+      });
+
+
+
+       
+       
+        
         </script>
+
+
+<script>
+
+    /* Datepicker */
+DatePicker();
+function DatePicker() {
+    $(".awe-calendar:not(.from, .to)").datepicker({
+        prevText: '<i class="lotus-icon-left-arrow"></i>',
+        nextText: '<i class="lotus-icon-right-arrow"></i>',
+        buttonImageOnly: false,
+    });
+
+    var highlightedDays = [
+        @if(isset($order))
+        @foreach($order as $u)
+        '{{ $u->dateorder }}', 
+        @endforeach
+        @endif
+    ];
+
+    // var highlightedDays = [
+    //     '2024-02-26', 
+    //     '2024-02-28', 
+    //     '2024-03-28'
+    // ];
+
+    /* Datepicker from - to */
+    $(".awe-calendar.from").datepicker({
+        prevText: '<i class="lotus-icon-left-arrow"></i>',
+        nextText: '<i class="lotus-icon-right-arrow"></i>',
+        beforeShowDay: function(date) {
+            var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            // Check if the date should be highlighted
+            if ($.inArray(dateString, highlightedDays) !== -1) {
+              return [false, 'highlighted-day'];
+            }
+            // Check if the date should be disabled
+            else if ($.inArray(dateString, highlightedDays) !== -1) {
+              return [false, 'disabled'];
+            }
+            return [true, ''];
+           },
+        buttonImageOnly: false,
+        minDate: 0,
+        onClose: function (selectedDate) {
+            var newDate = new Date(selectedDate),
+                tomorrow = new Date(newDate.getTime() + 24 * 60 * 60 * 1000),
+                nextDate = (tomorrow.getMonth() + 1) + '/' + tomorrow.getDate() + '/' + tomorrow.getFullYear();
+            $(".awe-calendar.to").datepicker("option", "minDate", nextDate).focus();
+        }
+    });
+    $(".awe-calendar.to").datepicker({
+        prevText: '<i class="lotus-icon-left-arrow"></i>',
+        nextText: '<i class="lotus-icon-right-arrow"></i>',
+        beforeShowDay: function(date) {
+            var dateString = jQuery.datepicker.formatDate('yy-mm-dd', date);
+            // Check if the date should be highlighted
+            if ($.inArray(dateString, highlightedDays) !== -1) {
+              return [false, 'highlighted-day'];
+            }
+            // Check if the date should be disabled
+            else if ($.inArray(dateString, highlightedDays) !== -1) {
+              return [false, 'disabled'];
+            }
+            return [true, ''];
+           },
+        buttonImageOnly: false,
+        minDate: 0,
+        onClose: function (selectedDate) {
+            //$(".awe-calendar.from").datepicker( "option", "maxDate", selectedDate );
+        }
+    });
+}
+
+
+</script>
     
     @stop('scripts')
