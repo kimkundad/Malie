@@ -11,6 +11,22 @@
     @section('stylesheet')
 
     <style>
+        .our-best .text ul li img {
+    margin-right: 9px;
+}
+        .our-best .text ul li {
+    margin-top: 15px;
+    color: #232323;
+    font-weight: 300;
+    width: -moz-calc(50% - 1px);
+    width: -o-calc(50% - 1px);
+    width: -webkit-calc(50% - 1px);
+    width: calc(50% - 1px);
+    font-size: 12px;
+    display: inline-block;
+    padding-right: 5px;
+    margin-bottom: 15px;
+}
         .heading {
     margin: 0;
     color: #232323;

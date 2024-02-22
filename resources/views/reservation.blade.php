@@ -109,6 +109,7 @@
                                         <option>9</option>
                                         <option>10</option>
                                         <option>11</option>
+                                        <option>12</option>
                                     </select>
                                 </div>
 
@@ -126,6 +127,51 @@
                             <div class="card-body">
                                 <br>
                                 <div id="kt_docs_fullcalendar_basic"></div>
+                                <br>
+
+
+                                <div class="room-detail_overview">
+                                    <h5 class='text-uppercase'>Reservation</h5>
+                                   
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-6">
+                                            <h6>📍LOW</h6>
+                                            <ul>
+                                                <li>01.11. - 14.12.</li>
+                                                <li> <b>💰 THB 10,000 /  Night 💰</b></li>
+                                                <li>Minimum Stay – 3 Nights</li>
+                                            </ul>
+                                            <h6>📍MID</h6>
+                                            <ul>
+                                                <li>01.05. - 30.06.</li>
+                                                <li>01.09. - 31.10.</li>
+                                                <li> <b>💰 THB 15,000 /  Night 💰</b></li>
+                                                <li>Minimum Stay – 3 Nights</li>
+                                            </ul>
+                                            <h6>📍HIGH​</h6>
+                                            <ul>
+                                                <li>16.01. - 30.04.</li>
+                                                <li>01.07. - 31.08.</li>
+                                                <li> <b>💰 THB 20,000 /  Night 💰</b> </li>
+                                                <li>Minimum Stay – 3 Nights</li>
+                                            </ul>
+                                            <h6>📍PEAK</h6>
+                                            <ul>
+                                                <li>15.12. - 15.01.</li>
+                                                <li> <b>💰 THB 25,000 / Night 💰</b> </li>
+                                                <li>Minimum Stay – 5 Nights that overlap Christmas or New Years</li>
+                                                <li>Minimum Stay – 7 Nights overlapping both</li>
+                                            </ul>
+                                            <p>All Rates are in THB incl. Service Charge and Taxes</p>
+                                            <h6>LONGTERM</h6>
+                                            <p>Booking for more than 1 week please contact us by email <a href="mailto:{{ get_email() }}">{{ get_email() }}</a>
+                                                The longer the stay, the better the price. Discounts are already included in the weekly price
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
                     </div>

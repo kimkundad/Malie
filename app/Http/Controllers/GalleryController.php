@@ -19,17 +19,18 @@ class GalleryController extends Controller
     public function index()
     {
         //
-        $objs = images::paginate(30);
+      //  $objs = images::orderby('id', 'desc')->paginate(30);
         $objs = DB::table('images')->select(
             'images.*',
             'images.id as id_q',
             'categories.*',
             )
             ->leftjoin('categories', 'categories.id',  'images.cat_id')
+            ->orderby('images.id', 'desc')
             ->paginate(15);
 
         $objs->setPath('');
-        $data['objs'] = $objs;
+      //  $data['objs'] = $objs;
         return view('admin.gallery.index', compact('objs'));
     }
 

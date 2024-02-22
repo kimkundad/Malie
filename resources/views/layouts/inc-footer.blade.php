@@ -67,7 +67,7 @@
                         <h4 class="widget-title">Page site</h4>
                         <ul>
                             <li><a href="{{ url('/room') }}">Room</a></li>
-                            {{-- <li><a href="{{ url('/reservation') }}">Reservation</a></li> --}}
+                            <li><a href="{{ url('/reservation') }}">Reservation</a></li>
                             <li><a href="{{ url('/gallery') }}">Gallery</a></li>
                             @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">เข้าสู่ระบบ / Login</a></li>

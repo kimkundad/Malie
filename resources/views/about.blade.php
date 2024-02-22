@@ -16,6 +16,33 @@
   margin-left: auto;
   margin-right: auto;
 }
+.about-item .text .desc {
+    margin-top: 5px;
+    color: #333333;
+    font-size: 12px;
+}
+.about-item .text h2 {
+    line-height: 1.2em;
+}
+.heading {
+    margin: 0;
+    color: #232323;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    line-height: 1;
+    position: relative;
+}
+.about-item .text {
+    width: 50%;
+    float: left;
+    padding-left: 40px;
+    margin-top: 10px;
+}
+p {
+    font-size: 13px;
+}
     </style>
 
     @stop('stylesheet')
@@ -57,8 +84,11 @@
                 <div class="about-item">
 
                     <div class="img owl-single">
-                        <img src="{{ url('home/images/example/out.-5_w.webp') }}" alt="">
-                        <img src="{{ url('home/images/example/LINE_ALBUM2536.jpg') }}" alt="">
+                        @if(isset($images))
+                        @foreach($images as $item)
+                        <img src="{{ url('images/malie/gallery/'.$item->image) }}" alt="{{ $item->detail }}">
+                        @endforeach
+                        @endif
                     </div>
 
                     @if(session()->get('locale') == 'en')
@@ -66,16 +96,18 @@
                         <h2 class="heading">ABOUT Villa Malie</h2>
                         <div class="desc">
                             <p>Welcome to Villa Malie, one of only eight exclusive villas in "The Bayridge" 
-                                compound. As an Airbnb guest, you'll have the privilege of enjoying our 
+                                compound. As our special guest, you'll have the privilege of enjoying our 
                                 luxurious three-bedroom, four-bathroom retreat nestled on a hill in Bangrak, 
                                 just 8 minutes from Samui Airport. This villa offers the perfect blend of safety, 
                                 accessibility, and luxury.
-                            </p><br>
-                            <p>Villa Malie is renowned for its unrivaled panoramic views of Koh Samui.
-                                 Feast your eyes on breathtaking sunsets, Plai Laem hills, Bangrak beach,
-                                  and the entire North-Western coast of Choengmon. You'll also have a 
-                                  front-row seat to the Big Buddha Temple and neighboring island Koh Phangan 
-                                  from your private haven.</p>
+                            </p>
+                            <h5>Spectacular Panoramic Views</h5>
+                            <p>Villa Malie is renowned for its unrivaled panoramic views of Koh Samui. 
+                                Feast your eyes on breathtaking sunsets, Plai Laem hills, Bangrak beach, 
+                                and the entire North-Western coast of Choengmon. You'll also have a 
+                                front-row seat to the Big Buddha Temple and neighboring island Koh Phangan from your private haven.</p>
+                            <h5>Safe and Exclusive</h5>
+                            <p>Our villa is one of only eight in "The Bayridge" compound, ensuring your safety and privacy throughout your stay.</p>
                         </div>
                     </div>
                     @else
@@ -108,16 +140,20 @@
                     </div>
                     @if(session()->get('locale') == 'en')
                     <div class="text">
-                        <h2 class="heading">Entertainment and Convenience</h2>
                         <div class="desc">
-                            <p>We've thought of everything to make your stay enjoyable. 
-                                In addition to the amenities mentioned earlier, Villa Malie features a 
-                                family/flex room with a home theatre, a dedicated kids' zone for the little ones 
-                                to enjoy, and a fully equipped office for remote work. Stay connected while taking a 
-                                break from the breathtaking views. Each floor is equipped with Sonos sound systems and 
-                                large flat-screen LED TVs with pre-programmed smart TV apps (NETFLIX, HBO, Disney, and more) 
-                                for your entertainment. There's also a dedicated laundry room with a washer and dryer for your 
-                                convenience, so you can keep your clothes fresh during your stay.
+                            <h5>Accessibility</h5>
+                            <p>While you'll evel in the tremendous views, you'll be pleased to know that Villa Malie is 
+                                just a 2-minute drive up from the main beach road. This means you can easily explore the 
+                                island's attractions and access the beach with utmost convenience.</p>
+                            <h5>Elevator Convenience</h5>
+                            <p>For guests with special needs or elderly visitors, our Schneider elevator servicing all floors 
+                                ensures a welcoming and accessible experience. Everyone is invited to relish the beauty of Villa Malie.
+                            </p>
+                            <h5>Luxurious Living Spaces</h5>
+                            <p>Villa Malie spans three spacious floors, each with 150 sqm of modern and well-equipped living space, 
+                                totaling 450 sqm. Enjoy an infinity pool on the top floor, a large patio with outdoor furniture, 
+                                and all the amenities you'd expect for a luxurious stay, including a modern fully appointed European 
+                                kitchen with oven, microwave, dishwasher, wine fridge, and a refrigerator with an ice maker.
                             </p>
                         </div>
                     </div>

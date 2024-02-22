@@ -48,9 +48,8 @@ Route::get('/images/{file}', function ($file) {
 	return abort(404);
   })->where('file', '.+');
 
-Route::get('/about', function () {
-    return view('about');
-});
+
+Route::get('/about', [App\Http\Controllers\HomeController::class, 'about']);
 
 Route::get('/room', [App\Http\Controllers\HomeController::class, 'room']);
 
