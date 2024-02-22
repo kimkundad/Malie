@@ -194,7 +194,7 @@
                     <div class="col-md-6 col-md-pull-6 ">
                         @if(session()->get('locale') == 'en')
                         <div class="text">
-                            <h2 class="heading">Luxurious Living Spaces/h2>
+                            <h2 class="heading">Luxurious Living Spaces</h2>
                             <p>Villa Malie spans three spacious floors, each with 150 sqm of modern and well-equipped living space, totaling 450 sqm. Enjoy an infinity pool on the top floor, a large patio with outdoor furniture, and all the amenities you'd expect for a luxurious stay, including a modern fully appointed European kitchen with oven, microwave, dishwasher, wine fridge, and a refrigerator with an ice maker.</p>
                             <ul>
                                 <li><img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon">250 Best Rooms  5 Star</li>
