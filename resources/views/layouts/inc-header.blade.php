@@ -6,9 +6,9 @@
         <div class="container">
             <div class="header_left float-left">
                 <span><i class="lotus-icon-location"></i> @if(session()->get('locale') == 'en')
-                    20/125 The Bay Ridge (Villa 2) Surat Thani
+                    {{ get_address_en() }}
                     @else
-                    20/125 The Bay Ridge (Villa 2) สุราษฎร์ธานี
+                    {{ get_address() }}
                     @endif</span>
                 <span><i class="lotus-icon-phone"></i> <a href="tel:{{ get_phone() }}">{{ get_phone() }}</a></span>
             </div>
@@ -18,10 +18,9 @@
                     <i class="fa fa-envelope-o "></i> <a href="mailto:{{ get_email() }}">{{ get_email() }}</a>
                 </span>
                 <span class="socials">
-                    <a href="!#"><i class="fa fa-facebook"></i></a>
-                    <a href="!#"><i class="fa fa-twitter"></i></a>
-                    <a href="!#"><i class="fa fa-pinterest-p"></i></a>
-                    <a href="!#"><i class="fa fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/Villamaliekohsamui"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.youtube.com/@VillaMalieSamui/featured"><i class="fa fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/villa_malie_samui/?fbclid=IwAR2vWANsMqSFN7dOMdT4R4xRBcb1Q6lVHoZF5jnwEpJsrVmZWKRWFyRJXAE"><i class="fa fa-instagram"></i></a>
                 </span>
                 <div class="dropdown language">
                     <span>

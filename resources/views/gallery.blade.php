@@ -1,7 +1,7 @@
 @extends('layouts.template2')
 
     @section('title')
-    Gallery ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)
+    Gallery ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)
     @stop
 
     @section('og')

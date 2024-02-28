@@ -49,7 +49,6 @@ class ReviewController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'msg' => 'required',
-            'position' => 'required',
             'image' => 'required'
            ]);
 
@@ -62,7 +61,7 @@ class ReviewController extends Controller
 
         $image = $request->file('image');
           $img = Image::make($image->getRealPath());
-          $img->resize(200, 200, function ($constraint) {
+          $img->resize(500, 500, function ($constraint) {
           $constraint->aspectRatio();
           });
         $img->stream();
@@ -121,7 +120,6 @@ class ReviewController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'msg' => 'required',
-            'position' => 'required',
            ]);
 
         $status = 0;
@@ -154,7 +152,7 @@ class ReviewController extends Controller
           $storage->delete('malie/review/' . $img->image, 'public');
 
           $img = Image::make($image->getRealPath());
-          $img->resize(200, 200, function ($constraint) {
+          $img->resize(500, 500, function ($constraint) {
           $constraint->aspectRatio();
           });
         $img->stream();

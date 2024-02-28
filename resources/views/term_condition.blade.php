@@ -1,7 +1,7 @@
 @extends('layouts.template2')
 
     @section('title')
-    ข้อตกลงและเงื่อนไข ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)
+    ข้อตกลงและเงื่อนไข ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)
     @stop
 
     @section('og')
@@ -32,12 +32,12 @@
                 @if(session()->get('locale') == 'en')
                 <div class="text text-center">
                     <h2>Terms and Conditions</h2>
-                    <p>Terms of Use of Properties Pool Villa Malie Koh Samui (Villa Malie Kor Samui)</p>
+                    <p>Terms of Use of Properties Pool Villa Malie Koh Samui (Villa Malie Koh Samui)</p>
                 </div>
                 @else
                 <div class="text text-center">
                     <h2>เงื่อนไขและข้อตกลงทั่วไป</h2>
-                    <p>ข้อตกลงการใช้บริการของ ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)</p>
+                    <p>ข้อตกลงการใช้บริการของ ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)</p>
                 </div>
                 @endif
             </div>
@@ -56,7 +56,7 @@
                 <h3 class="text-uppercase">General terms and conditions</h3>
                 <br>
 
-                <p>Website www.villamaliesamui.com This website (hereinafter referred to as the “Website”) is created by Villa Malie Kor Samui 
+                <p>Website www.villamaliesamui.com This website (hereinafter referred to as the “Website”) is created by Villa Malie Koh Samui 
                     to provide information about online marketing. The user's use of the website is subject to the terms and conditions of this agreement. 
                     Therefore, users should study these terms and conditions and/or any other terms and conditions that we have notified on the website in 
                     detail before using the website. In this regard, by using this website, it is considered that the users accept and Agree to abide by all such terms and conditions. 

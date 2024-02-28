@@ -6,7 +6,7 @@
 		
 		<meta charset="utf-8" />
 		<title>ที่พักพูลวิลล่า Malie เกาะสมุย </title>
-		<meta name="description" content=" ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui) ">
+		<meta name="description" content=" ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui) ">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
 		@include('admin.layouts.inc-style')

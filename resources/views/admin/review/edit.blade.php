@@ -21,7 +21,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            แก้ไขรีวิว</h1>
+                            แก้ไขArt</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -36,7 +36,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">แก้ไขรีวิวใหม่</li>
+                            <li class="breadcrumb-item text-muted">แก้ไข Art ใหม่</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -61,7 +61,7 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปคนรีวิว</label>
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปงาน Art</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8">
@@ -95,7 +95,7 @@
                                         <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
                                         @if ($errors->has('image'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณาเลือกรูปคนรีวิว</div>
+                                                <div>กรุณาเลือกรูปคนArt</div>
                                             </div>
                                         @endif
                                         <!--end::Hint-->
@@ -105,48 +105,33 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ชื่อคนรีวิว</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ชื่องาน Art</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="name" class="form-control form-control-lg form-control-solid" placeholder="ชื่อคนรีวิว" value="{{ $objs->name }}">
+                                        <input type="text" name="name" class="form-control form-control-lg form-control-solid" placeholder="ชื่อคนArt" value="{{ $objs->name }}">
                                     
                                         @if ($errors->has('name'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกชื่อคนรีวิว</div>
+                                                <div>กรุณากรอกชื่อคนArt</div>
                                             </div>
                                         @endif
                                     </div>
                                     <!--end::Col-->
                                 </div>
 
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ที่มาของคนรีวิว</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="position" class="form-control form-control-lg form-control-solid" placeholder="From Los Angeles, California" value="{{ $objs->position }}">
-                                    
-                                        @if ($errors->has('position'))
-                                            <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>กรุณากรอกที่มาของคนรีวิว</div>
-                                            </div>
-                                        @endif
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
+                                
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ข้อความที่รีวิว</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">ข้อความที่Art</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <textarea class="form-control form-control-lg form-control-solid" id="textareaAutosize" placeholder="ข้อความที่รีวิว..." rows="3" name="msg" >{{ $objs->msg }} </textarea>
+                                        <textarea class="form-control form-control-lg form-control-solid" id="textareaAutosize" placeholder="ข้อความที่Art..." rows="3" name="msg" >{{ $objs->msg }} </textarea>
                                         @if ($errors->has('msg'))
                                             <div class="fv-plugins-message-container invalid-feedback">
-                                                <div>ข้อความที่รีวิว</div>
+                                                <div>ข้อความที่Art</div>
                                             </div>
                                         @endif
                                     </div>
@@ -190,7 +175,7 @@
                 <!--begin::Copyright-->
                 <div class="text-dark order-2 order-md-1">
                     <span class="text-muted fw-semibold me-1">2024&copy;</span>
-                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)</a>
+                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Ko้ Samui)</a>
                 </div>
                 <!--end::Copyright-->
                 <!--begin::Menu-->

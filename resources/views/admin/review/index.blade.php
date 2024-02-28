@@ -21,7 +21,7 @@
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
                         <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                            รีวิวทั้งหมด</h1>
+                            Artทั้งหมด</h1>
                         <!--end::Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -36,7 +36,7 @@
                             </li>
                             <!--end::Item-->
                             <!--begin::Item-->
-                            <li class="breadcrumb-item text-muted">รีวิว</li>
+                            <li class="breadcrumb-item text-muted">Art</li>
                             <!--end::Item-->
                         </ul>
                         <!--end::Breadcrumb-->
@@ -68,8 +68,8 @@
                     <div class="card card-xl-stretch mb-5 mb-xl-8">
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">รีวิวทั้งหมด</span>
-                                <span class="text-muted mt-1 fw-semibold fs-7"> รีวิว {{ count($objs) }}</span>
+                                <span class="card-label fw-bold fs-3 mb-1">Artทั้งหมด</span>
+                                <span class="text-muted mt-1 fw-semibold fs-7"> Art {{ count($objs) }}</span>
                             </h3>
                         </div>
                         <div class="card-body py-3">
@@ -103,9 +103,7 @@
                                             <td>
                                                 <div class="d-flex flex-column">
                                                     <a href="#" class="text-dark text-hover-primary fs-6 fw-bold">{{ $item->name }}</a>
-                                                    <a href="#" class="text-muted text-hover-primary fw-semibold text-muted d-block fs-7">
-                                                        <span class="text-dark"></span>: {{ $item->position }}
-                                                    </a>
+                                                    
                                                 </div>
                                             </td>
                                             <td>
@@ -174,7 +172,7 @@
                 <!--begin::Copyright-->
                 <div class="text-dark order-2 order-md-1">
                     <span class="text-muted fw-semibold me-1">2024&copy;</span>
-                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)</a>
+                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)</a>
                 </div>
                 <!--end::Copyright-->
                 <!--begin::Menu-->

@@ -1,7 +1,7 @@
 @extends('layouts.template2')
 
     @section('title')
-    ตารางการจองที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)
+    ตารางการจองที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)
     @stop
 
     @section('og')
@@ -58,9 +58,9 @@
                 <div class="reservation_step">
                     <ul>
                         @if(session()->get('locale') == 'en')
-                        <li class="active"><a href="#">  Reservation schedule for Pool Villa Malie Koh Samui (Villa Malie Kor Samui)</a></li>
+                        <li class="active"><a href="#">  Reservation schedule for Pool Villa Malie Koh Samui (Villa Malie Koh Samui)</a></li>
                         @else
-                        <li class="active"><a href="#">  ตารางการจองพักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)</a></li>
+                        <li class="active"><a href="#">  ตารางการจองพักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)</a></li>
                         @endif
                         
                     </ul>

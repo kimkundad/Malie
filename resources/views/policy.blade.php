@@ -1,7 +1,7 @@
 @extends('layouts.template2')
 
     @section('title')
-    นโยบายความเป็นส่วนตัว ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)
+    นโยบายความเป็นส่วนตัว ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)
     @stop
 
     @section('og')

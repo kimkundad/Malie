@@ -129,11 +129,22 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">เบอร์แฟกซ์</label>
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">ที่อยู่ Eng</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8 fv-row fv-plugins-icon-container">
-                                        <input type="text" name="fax" class="form-control form-control-lg form-control-solid" placeholder="027870020" value="{{ $objs->banner_his }}">
+                                        <input type="text" name="address_en" class="form-control form-control-lg form-control-solid" placeholder="20/125 The Bay Ridge (Villa 2) Surat Thani " value="{{ $objs->address_en }}">
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">ที่อยู่ TH</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="address" class="form-control form-control-lg form-control-solid" placeholder="20/125 The Bay Ridge (Villa 2) Surat Thani " value="{{ $objs->address }}">
                                     </div>
                                     <!--end::Col-->
                                 </div>
@@ -297,6 +308,153 @@
                                     <!--end::Col-->
                                 </div>
 
+                                <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปหน้าแรก</label>
+                                    <div class="col-lg-8">
+                                        <img src="{{ url('img/1709088440818.jpg') }}" class="img-fluid" />
+                                    </div>
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูป A หน้าแรก</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8">
+                                        <!--begin::Image input-->
+                                        <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('img/1676212425285.jpg') }}')">
+                                            <!--begin::Preview existing avatar-->
+                                            <div class="image-input-wrapper " style="background-image: url({{ url('images/malie/setting/'.$objs->img_a) }}); width:380px; height:200px"></div>
+                                            <!--end::Preview existing avatar-->
+                                            <!--begin::Label-->
+                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูป facebook">
+                                                <i class="bi bi-pencil-fill fs-7"></i>
+                                                <!--begin::Inputs-->
+                                                <input type="file" name="img_a" accept=".png, .jpg, .jpeg" />
+                                                <input type="hidden" name="avatar_remove" />
+                                                <!--end::Inputs-->
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Cancel-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="ยกเลิก รูป facebook">
+                                                <i class="bi bi-x fs-2"></i>
+                                            </span>
+                                            <!--end::Cancel-->
+                                            <!--begin::Remove-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="ลบ รูป facebook">
+                                                <i class="bi bi-x fs-2"></i>
+                                            </span>
+                                            <!--end::Remove-->
+                                        </div>
+                                        <!--end::Image input-->
+                                        <!--begin::Hint-->
+                                        <div class="form-text">Allowed file types: png, jpg, jpeg. (1200 x 630 pixels)</div>
+                                        @if ($errors->has('image'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>กรุณาเลือกรูป facebook image shared</div>
+                                            </div>
+                                        @endif
+                                        <!--end::Hint-->
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูป B หน้าแรก</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8">
+                                        <!--begin::Image input-->
+                                        <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('img/1676212425285.jpg') }}')">
+                                            <!--begin::Preview existing avatar-->
+                                            <div class="image-input-wrapper " style="background-image: url({{ url('images/malie/setting/'.$objs->img_b) }}); width:380px; height:200px"></div>
+                                            <!--end::Preview existing avatar-->
+                                            <!--begin::Label-->
+                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูป facebook">
+                                                <i class="bi bi-pencil-fill fs-7"></i>
+                                                <!--begin::Inputs-->
+                                                <input type="file" name="img_b" accept=".png, .jpg, .jpeg" />
+                                                <input type="hidden" name="avatar_remove" />
+                                                <!--end::Inputs-->
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Cancel-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="ยกเลิก รูป facebook">
+                                                <i class="bi bi-x fs-2"></i>
+                                            </span>
+                                            <!--end::Cancel-->
+                                            <!--begin::Remove-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="ลบ รูป facebook">
+                                                <i class="bi bi-x fs-2"></i>
+                                            </span>
+                                            <!--end::Remove-->
+                                        </div>
+                                        <!--end::Image input-->
+                                        <!--begin::Hint-->
+                                        <div class="form-text">Allowed file types: png, jpg, jpeg. (1200 x 630 pixels)</div>
+                                        @if ($errors->has('image'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>กรุณาเลือกรูป facebook image shared</div>
+                                            </div>
+                                        @endif
+                                        <!--end::Hint-->
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปหน้าแรก C DEALS & PACKAGE</label>
+                                    <div class="col-lg-8">
+                                        <img src="{{ url('img/1709088728187.jpg') }}" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูป C หน้าแรก</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8">
+                                        <!--begin::Image input-->
+                                        <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('img/1676212425285.jpg') }}')">
+                                            <!--begin::Preview existing avatar-->
+                                            <div class="image-input-wrapper " style="background-image: url({{ url('images/malie/setting/'.$objs->img_c) }}); width:380px; height:200px"></div>
+                                            <!--end::Preview existing avatar-->
+                                            <!--begin::Label-->
+                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูป facebook">
+                                                <i class="bi bi-pencil-fill fs-7"></i>
+                                                <!--begin::Inputs-->
+                                                <input type="file" name="img_c" accept=".png, .jpg, .jpeg" />
+                                                <input type="hidden" name="avatar_remove" />
+                                                <!--end::Inputs-->
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Cancel-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="ยกเลิก รูป facebook">
+                                                <i class="bi bi-x fs-2"></i>
+                                            </span>
+                                            <!--end::Cancel-->
+                                            <!--begin::Remove-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="ลบ รูป facebook">
+                                                <i class="bi bi-x fs-2"></i>
+                                            </span>
+                                            <!--end::Remove-->
+                                        </div>
+                                        <!--end::Image input-->
+                                        <!--begin::Hint-->
+                                        <div class="form-text">Allowed file types: png, jpg, jpeg. (1200 x 630 pixels)</div>
+                                        @if ($errors->has('image'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>กรุณาเลือกรูป facebook image shared</div>
+                                            </div>
+                                        @endif
+                                        <!--end::Hint-->
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
                             
 
                             </div>
@@ -319,7 +477,7 @@
                 <!--begin::Copyright-->
                 <div class="text-dark order-2 order-md-1">
                     <span class="text-muted fw-semibold me-1">2024&copy;</span>
-                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)</a>
+                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)</a>
                 </div>
                 <!--end::Copyright-->
                 <!--begin::Menu-->

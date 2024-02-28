@@ -102,7 +102,9 @@
                                         </div>
                                         <!--end::Image input-->
                                         <!--begin::Hint-->
-                                        <div class="form-text">Allowed file types: png, jpg, jpeg. (800px X 415px)</div>
+                                        <div class="form-text">Allowed file types: png, jpg, jpeg. (800px X 415px) <br>
+                                            ถ้า DEALS & PACKAGE ใช้ขนาด 555 x 230 px
+                                            </div>
                                         @if ($errors->has('image'))
                                             <div class="fv-plugins-message-container invalid-feedback">
                                                 <div>กรุณาเลือกรูปกิจกรรม & ประชาสัมพันธ์สินค้า</div>
@@ -295,7 +297,7 @@
                 <!--begin::Copyright-->
                 <div class="text-dark order-2 order-md-1">
                     <span class="text-muted fw-semibold me-1">2024&copy;</span>
-                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)</a>
+                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)</a>
                 </div>
                 <!--end::Copyright-->
                 <!--begin::Menu-->

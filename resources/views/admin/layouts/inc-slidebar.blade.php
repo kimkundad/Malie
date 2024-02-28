@@ -109,7 +109,7 @@
                             </span>
                             <!--end::Svg Icon-->
                         </span>
-                        <span class="menu-title">Review</span>
+                        <span class="menu-title">Art</span>
                     </a>
                     <!--end:Menu link-->
                 </div>

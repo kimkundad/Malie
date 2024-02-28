@@ -9,9 +9,9 @@
                 <span><i class="lotus-icon-location"></i> 
                 
                     @if(session()->get('locale') == 'en')
-                    20/125 The Bay Ridge (Villa 2) Surat Thani
+                    {{ get_address_en() }}
                     @else
-                    20/125 The Bay Ridge (Villa 2) สุราษฎร์ธานี
+                    {{ get_address() }}
                     @endif
                 </span>
                 <span><i class="lotus-icon-phone"></i> <a href="tel:{{ get_phone() }}">{{ get_phone() }}</a></span>

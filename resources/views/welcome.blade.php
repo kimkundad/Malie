@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
     @section('title')
-    ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)
+    ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)
     @stop
 
     @section('og')
@@ -36,6 +36,35 @@
     text-transform: uppercase;
     line-height: 1;
     position: relative;
+}
+.section-home-guestbook.home-guestbook-style-2 .home-guestbook .guestbook-item .text p:before {
+    content: "";
+    background: url(../images/home-3/icon/before-testimonial.png);
+    width: 30px;
+    height: 19px;
+    right: 0;
+    left: -30px;
+    top: -10px;
+    margin: 0 auto;
+    display: none
+}
+.section-home-guestbook.home-guestbook-style-2 .home-guestbook .guestbook-item .img {
+    width: 380px;
+    height: 380px;
+    margin: 15px auto 15px auto;
+}
+.pb50{
+    padding-bottom: 50px
+}
+.myflexbox {
+    min-height: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.accomd-modations-header p {
+    margin: 10px auto 20px;
+    max-width: 685px;
 }
     </style>
 
@@ -191,31 +220,168 @@
                         </div>
                     </div>
 
+                    
                     <div class="col-md-6 col-md-pull-6 ">
                         @if(session()->get('locale') == 'en')
                         <div class="text">
-                            <h2 class="heading">Luxurious Living Spaces</h2>
-                            <p>Villa Malie spans three spacious floors, each with 150 sqm of modern and well-equipped living space, totaling 450 sqm. Enjoy an infinity pool on the top floor, a large patio with outdoor furniture, and all the amenities you'd expect for a luxurious stay, including a modern fully appointed European kitchen with oven, microwave, dishwasher, wine fridge, and a refrigerator with an ice maker.</p>
+                            <h2 class="heading">OUR BEST</h2>
+                            {{-- <p>Villa Malie spans three spacious floors, each with 150 sqm of modern and well-equipped living space, totaling 450 sqm. Enjoy an infinity pool on the top floor, a large patio with outdoor furniture, and all the amenities you'd expect for a luxurious stay, including a modern fully appointed European kitchen with oven, microwave, dishwasher, wine fridge, and a refrigerator with an ice maker.</p> --}}
                             <ul>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon">250 Best Rooms  5 Star</li>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-2.png') }}" alt="icon">Wet Bar with Refrigerator</li>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-4.png') }}" alt="icon">Double Whirlpool Jacuzzi Tub</li>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-5.png') }}" alt="icon">Luxurious High Thread Count </li>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-1.png') }}" alt="icon">Breakfast each morning</li>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-6.png') }}" alt="icon">Ocean Views to lotus Hotel</li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; ">King bed size all room </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('img/pool1.jpg') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; ">Private Pool with sunbeds </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('img/elevator.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; "> Private Elevator </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('home/images/home/ourbest/icon-6.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; ">Ocean/Moutain View </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('img/sun.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; ">Sunrise/Sunset View</p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('home/images/home/ourbest/icon-1.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; ">BBQ</p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('img/protect.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; "> Good Security in private compound </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('home/images/home/ourbest/icon-5.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; ">Office/Children’s room </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
                             </ul>
                         </div>
                         @else
                         <div class="text">
-                            <h2 class="heading">พื้นที่อยู่อาศัยที่หรูหรา</h2>
-                            <p>Villa Malie ครอบคลุมพื้นที่กว้างขวาง 3 ชั้น โดยแต่ละชั้นมีพื้นที่ใช้สอยที่ทันสมัยและมีอุปกรณ์ครบครันขนาด 150 ตร.ม. รวมพื้นที่ 450 ตร.ม. เพลิดเพลินกับสระว่ายน้ำแบบอินฟินิตี้ที่ชั้นบนสุด ลานขนาดใหญ่พร้อมเฟอร์นิเจอร์กลางแจ้ง และสิ่งอำนวยความสะดวกทั้งหมดที่คุณคาดหวังสำหรับการเข้าพักที่หรูหรา รวมถึงห้องครัวสไตล์ยุโรปที่ตกแต่งอย่างทันสมัยพร้อมเตาอบ ไมโครเวฟ เครื่องล้างจาน ตู้แช่ไวน์ และตู้เย็นพร้อม เครื่องทำน้ำแข็ง</p>
+                            <h2 class="heading">สิ่งที่ดีที่สุดของเรา</h2>
+                            {{-- <p>Villa Malie spans three spacious floors, each with 150 sqm of modern and well-equipped living space, totaling 450 sqm. Enjoy an infinity pool on the top floor, a large patio with outdoor furniture, and all the amenities you'd expect for a luxurious stay, including a modern fully appointed European kitchen with oven, microwave, dishwasher, wine fridge, and a refrigerator with an ice maker.</p> --}}
                             <ul>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon">250 Best Rooms  5 Star</li>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-2.png') }}" alt="icon">Wet Bar with Refrigerator</li>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-4.png') }}" alt="icon">Double Whirlpool Jacuzzi Tub</li>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-5.png') }}" alt="icon">Luxurious High Thread Count </li>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-1.png') }}" alt="icon">Breakfast each morning</li>
-                                <li><img src="{{ url('home/images/home/ourbest/icon-6.png') }}" alt="icon">Ocean Views to lotus Hotel</li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; "> เตียงคิงส์ไซส์ทุกห้องนอน </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('img/pool1.jpg') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; ">สระว่ายน้ำส่วนตัว พร้อมเตียงอาบแดด </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('img/elevator.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; "> ลิฟต์ส่วนตัวในวิลล่า </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('home/images/home/ourbest/icon-6.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; ">วิวทะเลและภูเขา </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('img/sun.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; "> วิวพระอาทิตย์ขึ้นและพระอาทิตย์ตก</p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('home/images/home/ourbest/icon-1.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; ">เตาบาร์บีคิว</p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('img/protect.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; "> มีการรักษาความปลอดภัยที่ดี </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
+                                
+                                <li>
+                                    <div style="display: flex;">
+                                        <img src="{{ url('home/images/home/ourbest/icon-5.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <div class="myflexbox ">
+                                            <p style="margin-top: 2px; font-size: 12px; ">ห้องทำงานและห้องเด็กเล่น </p>
+                                        </div>
+                                    </div>
+                                    
+                                </li>
                             </ul>
                         </div>
                         @endif
@@ -229,11 +395,11 @@
     <!-- END / OUR BEST -->
 
     <!-- HOME GUEST BOOK -->
-    <div class="section-home-guestbook home-guestbook-style-2 awe-parallax bg-22 mt90 pt100 pb100">
+    <div class="section-home-guestbook home-guestbook-style-2 awe-parallax bg-22 mt90 pb50">
         <div class="container">
             <div class="home-guestbook pt0 pb0">
                 <div class="row">
-                    <div class="col-xs-12 col-lg-6 col-lg-offset-3">
+                    {{-- <div class="col-xs-12 col-lg-6 col-lg-offset-3">
                         @if(session()->get('locale') == 'en')
                         <div class="ot-heading mb40 row-20 text-center">
                             <h2>Guest book</h2>
@@ -245,7 +411,7 @@
                             <p class="sub">ความคิดเห็นของคุณมีความหมายต่อ Villa Malie</p>
                         </div>
                         @endif
-                    </div>
+                    </div> --}}
                     <div class="guestbook-content text-center owl-single">
 
                         @if(isset($review))
@@ -260,7 +426,7 @@
                                     </div>
                                     <div class="info-author">
                                         <span class="f20 c-main"><strong>{{ $u->name }}</strong></span><br>
-                                        <span class="f14">{{ $u->position }}</span>
+                                        {{-- <span class="f14">{{ $u->position }}</span> --}}
                                     </div>
                                 </div>
                                 <!-- ITEM -->
@@ -344,13 +510,15 @@
                     <div class="col-xs-12 col-sm-4">
                         <div class="item">
                             <div class="img">
-                                <img class="img-responsive img-full" src="{{ url('images/malie/news/'.$u->image) }}" alt="{{ $u->title_en }}">
+                                <a href="{{ url('blog_detail/'.$u->id) }}">
+                                    <img class="img-responsive img-full" src="{{ url('images/malie/news/'.$u->image) }}" alt="{{ $u->title_en }}">
+                                </a>
                             </div>
                             <div class="info">
                                 <p class="date f20">
                                     {{ $u->created_at }}
                                 </p>
-                                <a class="title font-monserat f20 mb20 block bold upper" href="{{ url('/') }}">
+                                <a class="title font-monserat mb20 block bold upper" href="{{ url('blog_detail/'.$u->id) }}" style="font-size: 14px">
                                     @if(session()->get('locale') == 'en')
                                     {{ $u->title_en }}
                                     @else

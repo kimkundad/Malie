@@ -1,7 +1,7 @@
 @extends('layouts.template2')
 
     @section('title')
-    CHECKOUT ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)
+    CHECKOUT ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)
     @stop
 
     @section('og')

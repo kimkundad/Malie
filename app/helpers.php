@@ -51,6 +51,18 @@ function get_line(){
     return $objs->line_oa_url;
 }
 
+function get_address_en(){
+    $id = 1;
+    $objs = setting::find($id);
+    return $objs->address_en;
+}
+
+function get_address(){
+    $id = 1;
+    $objs = setting::find($id);
+    return $objs->address;
+}
+
 function get_email(){
     $id = 1;
     $objs = setting::find($id);
@@ -91,6 +103,7 @@ function get_brand(){
 
     return $objs;
 }
+
 
 function get_data_category(){
 

@@ -102,7 +102,7 @@
                                                 <div class="d-flex flex-column">
                                                     
                                                     <a href="#" class="text-muted text-hover-primary fw-semibold text-muted d-block fs-7">
-                                                        <span class="text-dark">Phone </span>: {{ $item->phone }}</a>
+                                                        <span class="text-dark">Phone </span>: {{ $item->type }} {{ $item->phone }}</a>
                                                 </div>
                                                
                                             </td>
@@ -209,7 +209,7 @@
                 <!--begin::Copyright-->
                 <div class="text-dark order-2 order-md-1">
                     <span class="text-muted fw-semibold me-1">2024&copy;</span>
-                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)</a>
+                    <a href="" target="_blank" class="text-gray-800 text-hover-primary">ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)</a>
                 </div>
                 <!--end::Copyright-->
                 <!--begin::Menu-->

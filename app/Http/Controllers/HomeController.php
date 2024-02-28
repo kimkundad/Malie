@@ -310,11 +310,12 @@ class HomeController extends Controller
            $objs->name = $request['name'];
            $objs->email = $request['email'];
            $objs->phone = $request['phone'];
+           $objs->type = $request['type'];
            $objs->messenger = $request['massage'];
            $objs->save();
 
 
-        $message = "ข้อความจากหน้าติดต่อ หัวข้อติดต่อ : ชื่อผู้ติดต่อ : ".$request['name'].", ".$request['email'].", ".$request['phone'].", ข้อความ : ".$request['massage'];
+        $message = "ข้อความจากหน้าติดต่อ หัวข้อติดต่อ : ชื่อผู้ติดต่อ : ".$request['name'].", ".$request['email'].", ".$request['type']." ".$request['phone'].", ข้อความ : ".$request['massage'];
         $lineapi = env('line_token');
 
         $mms =  trim($message);

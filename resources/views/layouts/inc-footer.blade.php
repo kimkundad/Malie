@@ -25,9 +25,8 @@
                     <div class="social">
                         <div class="social-content">
                             <a href="https://www.facebook.com/Villamaliekohsamui"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-youtube"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/@VillaMalieSamui/featured"><i class="fa fa-youtube"></i></a>
+                            <a href="https://www.instagram.com/villa_malie_samui/?fbclid=IwAR2vWANsMqSFN7dOMdT4R4xRBcb1Q6lVHoZF5jnwEpJsrVmZWKRWFyRJXAE"><i class="fa fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -51,9 +50,9 @@
                             </div>
                             <div class="text">
                                 <p><i class="lotus-icon-location"></i> @if(session()->get('locale') == 'en')
-                                    20/125 The Bay Ridge (Villa 2) Surat Thani 84320
+                                    {{ get_address_en() }}
                                     @else
-                                    20/125 The Bay Ridge (Villa 2) สุราษฎร์ธานี 84320
+                                    {{ get_address() }}
                                     @endif</p>
                                 <p><i class="lotus-icon-phone"></i> <a href="tel:{{ get_phone() }}">{{ get_phone() }}</a></p>
                                 <p><i class="fa fa-envelope-o"></i> <a href="mailto:{{ get_email() }}">{{ get_email() }}</a></p>
@@ -111,7 +110,7 @@
     <!-- FOOTER BOTTOM -->
     <div class="footer_bottom">
         <div class="container">
-            <p>&copy; 2024 Villa Malie Kor Samui All rights reserved.</p>
+            <p>&copy; 2024 Villa Malie Koh Samui All rights reserved.</p>
         </div>
     </div>
     <!-- END / FOOTER BOTTOM -->

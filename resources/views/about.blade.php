@@ -1,7 +1,7 @@
 @extends('layouts.template2')
 
     @section('title')
-    เกี่ยวกับเรา ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Kor Samui)
+    เกี่ยวกับเรา ที่พักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)
     @stop
 
     @section('og')
