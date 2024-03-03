@@ -22,6 +22,7 @@
     @yield('stylesheet')
 
     
+    
 </head>
 
 <!--[if IE 7]>
