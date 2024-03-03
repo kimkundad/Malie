@@ -85,8 +85,8 @@
                 @isset($slide)
                     @foreach ($slide as $item)
                         <li data-transition="fade">
-                            <img src="{{ url('images/malie/slide/'.$item->image) }}" data-bgposition="left center" data-duration="14000"
-                                data-bgpositionend="right center" alt="">
+                            <img src="{{ url('images/malie/slide/'.$item->image) }}" data-bgposition="center center" data-duration="14000"
+                                data-bgpositionend="center center" alt="">
 
                             <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240"
                                 data-speed="700" data-start="1500" data-easing="easeOutBack">
