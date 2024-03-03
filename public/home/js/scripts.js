@@ -586,10 +586,9 @@
         if ($('.room-detail_thumbs').length) {
 
             $(".room-detail_thumbs").owlCarousel({
-                items: 7,
-                pagination: false,
-                navigation: false,
-                mouseDrag: false,
+                pagination: true,
+                navigation: true,
+                mouseDrag: true,
                 navigationText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
                 itemsCustom: [[0, 3], [320, 4], [480, 5], [768, 6], [992, 7], [1200, 7]]
             });
