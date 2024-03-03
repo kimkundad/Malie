@@ -93,7 +93,7 @@
                                         @isset($objs)
                                             @foreach ($objs as $item)
                                         
-                                        <tr id="{{$item->id}}">
+                                        <tr id="{{$item->id_q}}">
                                             <td>
                                                 <img src="{{ url('images/malie/gallery/'.$item->image) }}" alt="" style="height:100px; width: auto">
                                             </td>
@@ -105,7 +105,7 @@
                                             </td>
                                             <td class="text-end">
                                                 <div class="d-flex justify-content-end flex-shrink-0">
-                                                    <a href="{{url('admin/gallery/'.$item->id.'/edit')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                    <a href="{{url('admin/gallery/'.$item->id_q.'/edit')}}" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -115,7 +115,7 @@
                                                         </span>
                                                         <!--end::Svg Icon-->
                                                     </a>
-                                                    <a href="{{ url('api/del_gallery/'.$item->id) }}"  onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                                                    <a href="{{ url('api/del_gallery/'.$item->id_q) }}"  onclick="return confirm('Are you sure?')" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                                                         <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
                                                         <span class="svg-icon svg-icon-3">
                                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
