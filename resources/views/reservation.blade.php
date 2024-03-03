@@ -18,6 +18,9 @@
   margin-left: auto;
   margin-right: auto;
 }
+.bg-9 {
+    background-image: url({{ url('home/images/banner/bg_top_reservation.jpg') }});
+}
     </style>
 
     @stop('stylesheet')

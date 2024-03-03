@@ -69,6 +69,12 @@
 .section-home-guestbook.home-guestbook-style-2.bg-22 {
     background: url({{ url('home/images/example/240216-Villa-Malie-0001_dark.jpg') }});
 }
+@media (max-width: 990px){
+    .home-about{
+        margin-top: 50px;
+    }
+}
+
     </style>
 
     @stop('stylesheet')
@@ -432,28 +438,16 @@
     <!-- END / OUR BEST -->
 
     <!-- HOME GUEST BOOK -->
-    <div class="section-home-guestbook home-guestbook-style-2 awe-parallax bg-22 mt90 pb50">
+    {{-- <div class="section-home-guestbook home-guestbook-style-2 awe-parallax bg-22 mt90 pb50">
         <div class="container">
             <div class="home-guestbook pt0 pb0">
                 <div class="row">
-                    {{-- <div class="col-xs-12 col-lg-6 col-lg-offset-3">
-                        @if(session()->get('locale') == 'en')
-                        <div class="ot-heading mb40 row-20 text-center">
-                            <h2>Guest book</h2>
-                            <p class="sub">Your feedback means the world to us.</p>
-                        </div>
-                        @else
-                        <div class="ot-heading mb40 row-20 text-center">
-                            <h2>ผู้มาใช้บริการ</h2>
-                            <p class="sub">ความคิดเห็นของคุณมีความหมายต่อ Villa Malie</p>
-                        </div>
-                        @endif
-                    </div> --}}
+                
                     <div class="guestbook-content text-center owl-single">
 
                         @if(isset($review))
                             @foreach($review as $u)
-                                <!-- ITEM -->
+                          
                                 <div class="guestbook-item">
                                     <div class="text">
                                         <p class="f20">{{ $u->msg }}</p>
@@ -463,10 +457,10 @@
                                     </div>
                                     <div class="info-author">
                                         <span class="f20 c-main"><strong>{{ $u->name }}</strong></span><br>
-                                        {{-- <span class="f14">{{ $u->position }}</span> --}}
+                                    
                                     </div>
                                 </div>
-                                <!-- ITEM -->
+                       
                             @endforeach
                         @endif
 
@@ -476,7 +470,7 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
     <!-- END / HOME GUEST BOOK -->
 
     <!-- DEALS PACKAGE -->

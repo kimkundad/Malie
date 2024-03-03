@@ -43,6 +43,9 @@
 p {
     font-size: 13px;
 }
+.bg-9 {
+    background-image: url({{ url('home/images/banner/bg_top_title.jpg') }});
+}
     </style>
 
     @stop('stylesheet')

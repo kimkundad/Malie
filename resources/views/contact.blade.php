@@ -21,6 +21,9 @@ iframe {
     max-width: 100%;
     width: 100%;
 }
+.bg-9 {
+    background-image: url({{ url('home/images/banner/bg_top_gallery.jpg') }});
+}
     </style>
 
     @stop('stylesheet')

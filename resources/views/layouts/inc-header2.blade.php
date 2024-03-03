@@ -46,7 +46,7 @@
         <div class="container">
             <!-- HEADER LOGO -->
             <div class="header_logo">
-                <a href="{{ url('/') }}"><img src="{{ url('home/images/logo-header-MALIE.png') }}" alt="logo website"></a>
+                <a href="{{ url('/') }}"><img src="{{ url('home/images/logo-header-MALIE_v2.png') }}" alt="logo website"></a>
             </div>
             <!-- END / HEADER LOGO -->
             

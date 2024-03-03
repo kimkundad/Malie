@@ -19,6 +19,9 @@
 h3{
     line-height: 20px
 }
+.bg-9 {
+    background-image: url({{ url('home/images/banner/bg_top_room.jpg') }});
+}
     </style>
 
     @stop('stylesheet')

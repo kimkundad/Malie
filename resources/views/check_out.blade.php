@@ -24,6 +24,9 @@
     font-family: 'Montserrat';
     color: #000;
 }
+.bg-9 {
+    background-image: url({{ url('home/images/banner/bg_top_gallery.jpg') }});
+}
     </style>
 
     @stop('stylesheet')

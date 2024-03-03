@@ -66,7 +66,7 @@ class GalleryController extends Controller
 
            $image = $request->file('image');
             $img = Image::make($image->getRealPath());
-            $img->resize(1400, 1400, function ($constraint) {
+            $img->resize(2000, 2000, function ($constraint) {
             $constraint->aspectRatio();
             });
             $img->stream();
@@ -162,7 +162,7 @@ class GalleryController extends Controller
             $storage->delete('malie/gallery/' . $img->image, 'public');
   
             $img = Image::make($image->getRealPath());
-            $img->resize(1400, 1400, function ($constraint) {
+            $img->resize(2000, 2000, function ($constraint) {
             $constraint->aspectRatio();
             });
             $img->stream();
