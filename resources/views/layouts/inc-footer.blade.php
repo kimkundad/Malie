@@ -46,7 +46,7 @@
                     <div class="widget widget_logo">
                         <div class="widget-logo">
                             <div class="img">
-                                <a href="#"><img src="{{ url('home/images/logo-footer.png') }}" alt=""></a>
+                                <a href="#"><img src="{{ url('home/images/logo-footer_v2.png') }}" alt="logo website"></a>
                             </div>
                             <div class="text">
                                 <p><i class="lotus-icon-location"></i> @if(session()->get('locale') == 'en')

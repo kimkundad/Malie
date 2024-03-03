@@ -187,7 +187,7 @@ class GalleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function del_gallery($id)
     {
         //
         $objs = DB::table('images')

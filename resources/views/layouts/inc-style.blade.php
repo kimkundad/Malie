@@ -22,7 +22,14 @@ type='text/css'>
 
 <!-- MAIN STYLE -->
 <link rel="stylesheet" type="text/css" href="{{ url('home/css/style.css') }}?v{{time()}}">
-
+<style>
+    #header.header-v3.header-sticky .header_top .logo-top {
+    margin-top: 60px;
+    margin-bottom: 0;
+    max-width: 140px;
+    height: auto;
+}
+</style>
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>

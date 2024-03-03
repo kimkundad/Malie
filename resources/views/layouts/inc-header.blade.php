@@ -38,7 +38,9 @@
                 
             </div>
             <!-- HEADER LOGO -->
-            <a class="logo-top img-responsive" href="#"><img src="{{ url('home/images/logo-header.png') }}" alt=""></a>
+            <a class="logo-top img-responsive" href="#">
+                <img src="{{ url('home/images/logo-header-MALIE_v2.png') }}" alt="logo website">
+            </a>
             <!-- END / HEADER LOGO -->
 
         </div>
@@ -52,7 +54,7 @@
 
             <!-- HEADER LOGO -->
             <div class="header_logo">
-                <a href="{{ url('/') }}"><img src="{{ url('home/images/logo-header.png') }}" alt=""></a>
+                <a href="{{ url('/') }}"><img src="{{ url('home/images/logo-header-MALIE_v2.png') }}" alt="logo website"></a>
             </div>
             <!-- END / HEADER LOGO -->
             <!-- HEADER MENU -->
