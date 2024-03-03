@@ -9,6 +9,42 @@ use App\Models\brand;
 use App\Models\product;
 
 
+function reservation(){
+    $id = 1;
+    $objs = setting::find($id);
+    return $objs->detail_reservation;
+}
+
+function reservation_en(){
+    $id = 1;
+    $objs = setting::find($id);
+    return $objs->detail_reservation_en;
+}
+
+function img_a(){
+    $id = 1;
+    $objs = setting::find($id);
+    return $objs->img_a;
+}
+
+function img_b(){
+    $id = 1;
+    $objs = setting::find($id);
+    return $objs->img_b;
+}
+
+function img_c(){
+    $id = 1;
+    $objs = setting::find($id);
+    return $objs->img_c;
+}
+
+function img_d(){
+    $id = 1;
+    $objs = setting::find($id);
+    return $objs->img_d;
+}
+
 function get_phone(){
     $id = 1;
     $objs = setting::find($id);
@@ -49,6 +85,18 @@ function get_line(){
     $id = 1;
     $objs = setting::find($id);
     return $objs->line_oa_url;
+}
+
+function get_room_en(){
+    $id = 1;
+    $objs = setting::find($id);
+    return $objs->detail_room_en;
+}
+
+function get_room(){
+    $id = 1;
+    $objs = setting::find($id);
+    return $objs->detail_room;
 }
 
 function get_address_en(){

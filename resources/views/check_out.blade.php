@@ -95,10 +95,13 @@
                                     <input type="hidden" name="arrive" id="arrive" value="{{ $arrive }}" class="field-text">
                                     <input type="hidden" name="departure" id="departure" value="{{ $departure }}" class="field-text">
                                     <input type="hidden" name="adults" id="adults" value="{{ $adults }}" class="field-text">
+
+                                    <input type="hidden" name="children" id="children" value="{{ $children }}" class="field-text">
+                                    <input type="hidden" name="pets" id="pets" value="{{ $pets }}" class="field-text">
                                 </div>
                                 <div class="col-xs-12 col-sm-12">
                                     <label>Order Notes</label>
-                                    <textarea class="field-textarea" name="note" id="note" placeholder="Notes about your order, eg. special notes for delivery">{{ old('note') }}</textarea>
+                                    <textarea class="field-textarea" name="note" id="note" placeholder="Please write to us with any questions, we are here to help.">{{ old('note') }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -107,16 +110,35 @@
                     </div>
                     <div class="col-md-6">
                         <div class="checkout_form checkout_margin">
+                            @if(session()->get('locale') == 'en')
+                            <div class="checkout_cartinfo">
+                                <p><span>Date:</span> {{ $arrive }} - {{ $departure }}</p>
+                                <p><span>Adults:</span> {{ $adults }}</p>
+                                <p><span>Children:</span> {{ $children }}</p>
+                                <p><span>Pets:</span> {{ $pets }}</p>
+                            </div>
+                            @else
                             <div class="checkout_cartinfo">
                                 <p><span>วันที่จอง:</span> {{ $arrive }} - {{ $departure }}</p>
                                 <p><span>จำนวนคน:</span> {{ $adults }}</p>
+                                <p><span>เด็ก:</span> {{ $adults }}</p>
+                                <p><span>สัตว์เลี้ยง:</span> {{ $adults }}</p>
                             </div>
+                            @endif
+                            
                             <div class="checkout_option">
                                 <ul>
                                     <li>
+                                        @if(session()->get('locale') == 'en')
+                                        <input type="radio" class="radio payment-methor" name="payment">
+                                        <h6>Terms & Conditions</h6><br>
+                                        <a class="text-primary" href="{{ url('/term_condition') }}">I accept all terms of this agreement. and according to the company's personal information policy</a>
+                                        @else
                                         <input type="radio" class="radio payment-methor" name="payment">
                                         <h6>ข้อตกลงและเงื่อนไข (Terms & Conditions)</h6><br>
                                         <a class="text-primary" href="{{ url('/term_condition') }}">ฉันยอมรับเงื่อนไขทุกประการตามข้อตกลงนี้ และตามนโยบายข้อมูลส่วนบุคคลของบริษัท</a>
+                                        @endif
+                                        
                                     </li>
                                 </ul>
                             </div>
@@ -156,6 +178,8 @@ $(document).on('click','#btn_submitx',function (event) {
       var arrive = document.getElementById("arrive").value;
       var departure = document.getElementById("departure").value;
       var adults = document.getElementById("adults").value;
+      var children = document.getElementById("children").value;
+      var pets = document.getElementById("pets").value;
 
       if(first_name == '' || last_name == '' || phone == '' || email == '' || arrive == ''){
       swal("Please enter information completely.");

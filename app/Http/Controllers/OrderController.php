@@ -89,6 +89,8 @@ class OrderController extends Controller
            $objs->arrive = $request['arrive'];
            $objs->departure = $request['departure'];
            $objs->adults = $request['adults'];
+           $objs->children = $request['children'];
+           $objs->pets = $request['pets'];
            $objs->status = $status;
            $objs->save();
 
@@ -184,6 +186,8 @@ class OrderController extends Controller
            $objs->arrive = $request['arrive'];
            $objs->departure = $request['departure'];
            $objs->adults = $request['adults'];
+           $objs->children = $request['children'];
+           $objs->pets = $request['pets'];
            $objs->status = $status;
            $objs->save();
 

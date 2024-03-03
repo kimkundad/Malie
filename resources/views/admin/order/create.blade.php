@@ -214,6 +214,31 @@
                                     <!--end::Col-->
                                 </div>
 
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">จำนวนเด็ก</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="children" class="form-control form-control-lg form-control-solid" placeholder="16 คน" value="{{old('children') ? old('children') : ''}}">
+                                
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label  fw-semibold fs-6">จำนวนสัตว์เลี้ยง</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="pets" class="form-control form-control-lg form-control-solid" value="{{old('pets') ? old('pets') : ''}}">
+                                
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
                                
 
                                 <div class="row mb-6">

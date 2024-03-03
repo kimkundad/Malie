@@ -29,11 +29,11 @@
             <div class="container">
                 <div class="text text-center">
                     <h2>Gallery</h2>
-                    @if(session()->get('locale') == 'en')
+                    {{-- @if(session()->get('locale') == 'en')
                     <p>Gallery of The Bay Ridge (Villa 2)</p>
                     @else
                     <p>คลังรูปภาพของ The Bay Ridge (Villa 2)</p>
-                    @endif
+                    @endif --}}
                 </div>
             </div>
         </div>

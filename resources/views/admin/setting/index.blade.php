@@ -5,6 +5,17 @@
     <meta name="description" content=" รายละเอียด วงษ์พาณิชย์รีไซเคิล ระยอง จำกัด">
 @stop
 @section('stylesheet')
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+<style>
+    .note-editor.note-frame .note-editing-area .note-editable {
+        padding: 35px;
+        overflow: auto;
+        color: #000;
+        background-color: #fff;
+    }
+    </style>
 
 @stop('stylesheet')
 
@@ -455,6 +466,106 @@
                                     <!--end::Col-->
                                 </div>
 
+
+                                <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูป หน้า About</label>
+                                    <div class="col-lg-8">
+                                        <img src="{{ url('img/1709088728187.jpg') }}" class="img-fluid" />
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูป หน้า About</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8">
+                                        <!--begin::Image input-->
+                                        <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{ url('img/1676212425285.jpg') }}')">
+                                            <!--begin::Preview existing avatar-->
+                                            <div class="image-input-wrapper " style="background-image: url({{ url('images/malie/setting/'.$objs->img_d) }}); width:380px; height:200px"></div>
+                                            <!--end::Preview existing avatar-->
+                                            <!--begin::Label-->
+                                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="เปลี่ยน รูป facebook">
+                                                <i class="bi bi-pencil-fill fs-7"></i>
+                                                <!--begin::Inputs-->
+                                                <input type="file" name="img_d" accept=".png, .jpg, .jpeg" />
+                                                <input type="hidden" name="avatar_remove" />
+                                                <!--end::Inputs-->
+                                            </label>
+                                            <!--end::Label-->
+                                            <!--begin::Cancel-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="ยกเลิก รูป facebook">
+                                                <i class="bi bi-x fs-2"></i>
+                                            </span>
+                                            <!--end::Cancel-->
+                                            <!--begin::Remove-->
+                                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="ลบ รูป facebook">
+                                                <i class="bi bi-x fs-2"></i>
+                                            </span>
+                                            <!--end::Remove-->
+                                        </div>
+                                        <!--end::Image input-->
+                                        <!--begin::Hint-->
+                                        <div class="form-text">Allowed file types: png, jpg, jpeg. (1200 x 630 pixels)</div>
+                                        @if ($errors->has('image'))
+                                            <div class="fv-plugins-message-container invalid-feedback">
+                                                <div>กรุณาเลือกรูป facebook image shared</div>
+                                            </div>
+                                        @endif
+                                        <!--end::Hint-->
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-2 col-form-label required fw-semibold fs-6">รายละเอียดหน้า Room TH</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-10 fv-row fv-plugins-icon-container">
+                                        <textarea name="detail_room" class="summernote" id="kt_docs_ckeditor_classic" >{{ $objs->detail_room }}</textarea>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-2 col-form-label required fw-semibold fs-6">รายละเอียดหน้า Room Eng</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-10 fv-row fv-plugins-icon-container">
+                                        <textarea name="detail_room_en" class="summernote" id="kt_docs_ckeditor_classic" >{{ $objs->detail_room_en }}</textarea>
+                                        
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-2 col-form-label required fw-semibold fs-6">รายละเอียดหน้า reservation TH</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-10 fv-row fv-plugins-icon-container">
+                                        <textarea name="detail_reservation" class="summernote" id="kt_docs_ckeditor_classic" >{{ $objs->detail_reservation }}</textarea>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-2 col-form-label required fw-semibold fs-6">รายละเอียดหน้า reservation Eng</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-10 fv-row fv-plugins-icon-container">
+                                        <textarea name="detail_reservation_en" class="summernote" id="kt_docs_ckeditor_classic" >{{ $objs->detail_reservation_en }}</textarea>
+                                        
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
                             
 
                             </div>
@@ -503,5 +614,66 @@
 
 @section('scripts')
 
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+<script>
+
+    $(document).ready(function() {
+      $('.summernote').summernote({
+        fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48' , '64', '82', '150'],
+        fontNames: ['Arial', 'Prompt', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana', 'Roboto'],
+        height: 550,
+        popover: {
+                image: [
+                    ['custom', ['imageAttributes']],
+                    ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                    ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                    ['remove', ['removeMedia']]
+                ],
+            },
+            imageAttributes:{
+                icon:'<i class="note-icon-pencil"/>',
+                removeEmpty:false, // true = remove attributes | false = leave empty if present
+                disableUpload: false // true = don't display Upload Options | Display Upload Options
+            },
+      callbacks: {
+      onImageUpload: function(image) {
+      editor = $(this);
+      uploadImageContent(image[0], editor);
+      }
+      }
+    });
+    
+    
+    
+    
+      function uploadImageContent(image, editor) {
+        var data = new FormData();
+        data.append("image", image);
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+            url: "{{ url('api/upload_img') }}",
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: data,
+            type: "post",
+            success: function(url) {
+            var image = $('<img>').attr({src: url, width: '100%'});
+            $(editor).summernote("insertNode", image[0]);
+            },
+            error: function(data) {
+            console.log(data);
+            }
+        });
+      }
+    
+    
+    
+    });
+    
+    </script>
 
 @stop('scripts')

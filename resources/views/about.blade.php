@@ -59,12 +59,10 @@ p {
                 @if(session()->get('locale') == 'en')
                 <div class="text text-center">
                     <h2>ABOUT US</h2>
-                    <p>one of only eight exclusive villas in "The Bayridge" compound</p>
                 </div>
                 @else
                 <div class="text text-center">
                     <h2>เกี่ยวกับเรา</h2>
-                    <p>หนึ่งในแปดวิลล่าสุดพิเศษในบริเวณ "The Bayridge"</p>
                 </div>
                 @endif
             </div>
@@ -93,38 +91,60 @@ p {
 
                     @if(session()->get('locale') == 'en')
                     <div class="text">
-                        <h2 class="heading">ABOUT Villa Malie</h2>
+                        <h2 class="heading">Welcome to Villa Malie</h2>
                         <div class="desc">
-                            <p>Welcome to Villa Malie, one of only eight exclusive villas in "The Bayridge" 
-                                compound. As our special guest, you'll have the privilege of enjoying our 
-                                luxurious three-bedroom, four-bathroom retreat nestled on a hill in Bangrak, 
-                                just 8 minutes from Samui Airport. This villa offers the perfect blend of safety, 
-                                accessibility, and luxury.
+                            <p>your oasis in Bangrak, Samui! Whether it's your 
+                                first time on the island or a return visit, 
+                                we're thrilled to be your hosts. 
+                                Nestled in the heart of Bangrak,
+                                 our villa offers the perfect blend of 
+                                 tranquility and convenience. Surrounded by 
+                                 lush greenery, yet just a stone's throw away 
+                                 from beaches, restaurants, cafes, 7/11, bars, and 
+                                 markets, Villa Malie provides an ideal base for 
+                                 exploring all that Samui has to offer.
                             </p>
-                            <h5>Spectacular Panoramic Views</h5>
-                            <p>Villa Malie is renowned for its unrivaled panoramic views of Koh Samui. 
-                                Feast your eyes on breathtaking sunsets, Plai Laem hills, Bangrak beach, 
-                                and the entire North-Western coast of Choengmon. You'll also have a 
-                                front-row seat to the Big Buddha Temple and neighboring island Koh Phangan from your private haven.</p>
-                            <h5>Safe and Exclusive</h5>
-                            <p>Our villa is one of only eight in "The Bayridge" compound, ensuring your safety and privacy throughout your stay.</p>
+                            <h5>Panoramic Views</h5>
+                            <p>Immerse yourself in the beauty of Villa Malie, where every moment is a 
+                                celebration of nature's finest artistry. Our villa is known for its unparalleled 
+                                panoramic views, offering captivating vistas of both sunrise and sunset over Koh Samui. 
+                                Whether you're starting your day with a sunrise yoga session or winding down with a 
+                                sundowner cocktail, Villa Malie offers the perfect vantage point to witness nature's daily magic.</p>
+                            <h5>Luxurious Living Spaces</h5>
+                            <p>Ascend to the top floor via elevator for your own private infinity pool and spacious patio 
+                                with stunning views of Koh Samui. Inside, a fully equipped European kitchen awaits, 
+                                featuring top-of-the-line appliances for your culinary delights. Experience ultimate 
+                                relaxation in our island designed bedrooms and indulgent bathrooms. Discover unparalleled 
+                                luxury at Villa Malie, where every moment promises pure bliss.</p>
                         </div>
                     </div>
                     @else
                     <div class="text">
-                        <h2 class="heading">เกี่ยวกับ Villa Malie</h2>
+                        <h2 class="heading">ยินดีต้อนรับสู่ Villa Malie</h2>
                         <div class="desc">
-                            <p>ยินดีต้อนรับสู่ Villa Malie หนึ่งในแปดวิลล่าสุดพิเศษใน "The Bayridge"
-                                สารประกอบ. ในฐานะแขกของ Airbnb คุณจะได้รับสิทธิพิเศษในการเพลิดเพลินไปกับเรา
-                                ที่พักหรู 3 ห้องนอน 4 ห้องน้ำ ตั้งอยู่บนเนินเขาในเขตบางรัก
-                                เพียง 8 นาทีจากสนามบินสมุย วิลล่าแห่งนี้มีการผสมผสานที่ลงตัวของความปลอดภัย
-                                การเข้าถึงและความหรูหรา
-                            </p><br>
-                            <p>Villa Malie มีชื่อเสียงในด้านทัศนียภาพอันงดงามของเกาะสมุยที่ไม่มีใครเทียบได้
-                                ชมพระอาทิตย์ตกดิน เนินเขาปลายแหลม หาดบางรัก
-                                 และชายฝั่งตะวันตกเฉียงเหนือของเชิงมนทั้งหมด นอกจากนี้คุณยังจะมี
-                                 ที่นั่งแถวหน้าวัดพระใหญ่และเกาะใกล้เคียงเกาะพะงัน
-                                 จากสวรรค์ส่วนตัวของคุณ</p>
+                            <p>โอเอซิสของคุณในบางรัก สมุย! ไม่ว่าจะเป็นของคุณ
+                                ครั้งแรกบนเกาะหรือกลับมาเยือน
+                                เราตื่นเต้นมากที่ได้เป็นเจ้าภาพของคุณ
+                                ตั้งอยู่ในใจกลางบางรัก
+                                 วิลล่าของเรามีการผสมผสานที่ลงตัวของ
+                                 ความเงียบสงบและความสะดวกสบาย ล้อมรอบไปด้วย
+                                 แมกไม้เขียวขจีแต่อยู่ไม่ไกล
+                                 จากชายหาด ร้านอาหาร ร้านกาแฟ 7/11 บาร์ และ
+                                 ตลาด Villa Malie มีตำแหน่งที่เหมาะสำหรับ
+                                 สำรวจทุกสิ่งที่สมุยมีให้
+                            </p>
+                            <h5>ทิวทัศน์มุมกว้าง</h5>
+                            <p>ดื่มด่ำไปกับความงามของ Villa Malie ที่ซึ่งทุกช่วงเวลาคือ
+                                การเฉลิมฉลองศิลปะที่ดีที่สุดของธรรมชาติ วิลล่าของเราขึ้นชื่อในเรื่องที่ไม่มีใครเทียบได้
+                                ทิวทัศน์แบบพาโนรามานำเสนอทิวทัศน์อันน่าหลงใหลทั้งพระอาทิตย์ขึ้นและพระอาทิตย์ตกเหนือเกาะสมุย
+                                ไม่ว่าคุณจะเริ่มต้นวันใหม่ด้วยการเล่นโยคะในช่วงพระอาทิตย์ขึ้นหรือผ่อนคลายด้วยการ
+                                ค็อกเทลยามพระอาทิตย์ตก วิลล่า มาลี มอบจุดชมวิวที่สมบูรณ์แบบสำหรับการชมความมหัศจรรย์ของธรรมชาติในแต่ละวัน</p>
+                            <h5>พื้นที่อยู่อาศัยที่หรูหรา</h5>
+                            <p>ขึ้นไปชั้นบนสุดด้วยลิฟต์เพื่อไปยังสระว่ายน้ำอินฟินิตี้ส่วนตัวและลานเฉลียงอันกว้างขวาง
+                                พร้อมทิวทัศน์อันงดงามของเกาะสมุย ภายในมีครัวยุโรปพร้อมอุปกรณ์ครบครันรออยู่
+                                มาพร้อมเครื่องใช้ไฟฟ้าชั้นยอดเพื่อความสุขในการทำอาหารของคุณ สัมผัสประสบการณ์สุดขีด
+                                ผ่อนคลายในห้องนอนที่ออกแบบบนเกาะของเราและห้องน้ำที่ผ่อนคลาย ค้นพบที่ไม่มีใครเทียบได้
+                                ความหรูหราที่วิลล่า มาลี ที่ซึ่งทุกช่วงเวลารับประกันความสุขอันบริสุทธิ์</p>
                         </div>
                     </div>
                     @endif
@@ -136,37 +156,44 @@ p {
                 <div class="about-item about-right">
 
                     <div class="img">
-                        <img src="{{ url('home/images/example/out.-2_w - Copy.webp') }}" alt="">
+                        <img src="{{ url('images/malie/setting/'.img_d()) }}" alt="ABOUT US">
                     </div>
                     @if(session()->get('locale') == 'en')
                     <div class="text">
                         <div class="desc">
+                            <h5>Safe and Exclusive</h5>
+                            <p>1 of only 8 villas in “The Bayridge” compound, with 24/7 security, ensuring your safety and privacy throughout your stay.</p>
                             <h5>Accessibility</h5>
-                            <p>While you'll evel in the tremendous views, you'll be pleased to know that Villa Malie is 
-                                just a 2-minute drive up from the main beach road. This means you can easily explore the 
-                                island's attractions and access the beach with utmost convenience.</p>
-                            <h5>Elevator Convenience</h5>
-                            <p>For guests with special needs or elderly visitors, our Schneider elevator servicing all floors 
-                                ensures a welcoming and accessible experience. Everyone is invited to relish the beauty of Villa Malie.
+                            <p>Your location is centrally located in Bangrak and is just 2-minute drive (450m) to 7/11,
+                                 cafes and restaurants. 3-minute drive (1.3km) to Bangrak Market and the bustling 
+                                 Ferry pier to Koh Phangan. a 6-minute drive (2.7km) to the gorgeous Choengmon Beach, 
+                                 and an 8-minute drive (3.3km) to Samui International Airport. All Food/Grocery Delivery apps
+                                  (Villa Market,Foodpanda,Grab,7/11) will deliver directly to the villa. You can easily explore the 
+                                  island’s attractions and access the beaches with utmost convenience.
                             </p>
-                            <h5>Luxurious Living Spaces</h5>
-                            <p>Villa Malie spans three spacious floors, each with 150 sqm of modern and well-equipped living space, 
-                                totaling 450 sqm. Enjoy an infinity pool on the top floor, a large patio with outdoor furniture, 
-                                and all the amenities you'd expect for a luxurious stay, including a modern fully appointed European 
-                                kitchen with oven, microwave, dishwasher, wine fridge, and a refrigerator with an ice maker.
+                            <h5>Elevator Convenience</h5>
+                            <p>For guests with special needs or elderly visitors, our Schneider elevator servicing all floors ensures 
+                                a welcoming and accessible experience for all. Everyone is invited to relish the beauty and tranquility of Villa Malie.
                             </p>
                         </div>
                     </div>
                     @else
                     <div class="text">
-                        <h2 class="heading">ความบันเทิงและความสะดวกสบาย</h2>
                         <div class="desc">
-                            <p>เราคิดถึงทุกสิ่งทุกอย่างเพื่อให้การเข้าพักของคุณสนุกสนาน นอกเหนือจากสิ่งอำนวยความสะดวกที่กล่าวไว้ข้างต้น วิลล่า 
-                                มาลียังมีห้องสำหรับครอบครัว/ห้องเฟล็กพร้อมโฮมเธียเตอร์ 
-                                โซนสำหรับเด็กโดยเฉพาะสำหรับเด็กเล็ก และสำนักงานที่มีอุปกรณ์ครบครันสำหรับการทำงานทางไกล 
-                                เชื่อมต่อขณะพักสมองจากทิวทัศน์อันน่าทึ่ง แต่ละชั้นมีระบบเสียง Sonos และทีวี LED จอแบนขนาดใหญ่พร้อมแอปสมาร์ททีวีที่ตั้งโปรแกรมไว้ล่วงหน้า 
-                                (NETFLIX, HBO, Disney และอื่นๆ) เพื่อความบันเทิงของคุณ นอกจากนี้ยังมีห้องซักรีดโดยเฉพาะพร้อมเครื่องซักผ้าและเครื่องอบผ้าเพื่อความสะดวกของคุณ 
-                                เพื่อให้เสื้อผ้าของคุณสะอาดอยู่เสมอระหว่างการเข้าพัก</p>
+                            <h5>ปลอดภัยและพิเศษ</h5>
+                            <p>วิลล่า 1 ใน 8 หลังในบริเวณ "เดอะเบย์ริดจ์" พร้อมระบบรักษาความปลอดภัยตลอด 24 ชั่วโมงทุกวัน รับประกันความปลอดภัยและความเป็นส่วนตัวของคุณตลอดการเข้าพัก</p>
+                            <h5>การเข้าถึง</h5>
+                            <p>ที่ตั้งของคุณตั้งอยู่ใจกลางเมืองบางรักและใช้เวลาขับรถเพียง 2 นาที (450 ม.) ถึง 7/11
+                                ร้านกาแฟและร้านอาหาร ขับรถ 3 นาที (1.3 กม.) ถึงตลาดบางรักและความคึกคัก
+                                ท่าเรือเฟอร์รี่ไปเกาะพะงัน ขับรถ 6 นาที (2.7 กม.) ไปยังหาดเชิงมนอันงดงาม
+                                และใช้เวลาขับรถ 8 นาที (3.3 กม.) ไปยังสนามบินนานาชาติสมุย แอปส่งอาหาร/ของชำทั้งหมด
+                                 (วิลล่ามาร์เก็ต,ฟู้ดแพนด้า,แกร็บ,7/11) จะส่งตรงถึงวิลล่า คุณสามารถสำรวจได้อย่างง่ายดาย
+                                 สถานที่ท่องเที่ยวของเกาะและการเข้าถึงชายหาดด้วยความสะดวกสบายสูงสุด
+                            </p>
+                            <h5>ความสะดวกสบายของลิฟต์</h5>
+                            <p>สำหรับแขกที่มีความต้องการพิเศษหรือแขกผู้สูงอายุ ลิฟต์ Schneider ของเราพร้อมให้บริการทุกชั้น
+                                ประสบการณ์ที่อบอุ่นและเข้าถึงได้สำหรับทุกคน ขอเชิญทุกท่านมาเพลิดเพลินกับความงามและความเงียบสงบของวิลล่ามาลี
+                            </p>
                         </div>
                     </div>
                     @endif
@@ -180,130 +207,7 @@ p {
     </section>
     <!-- END / ABOUT -->
 
-    <!-- HOTEL STATISTICS -->
-    <section class="section-statistics bg-10">
-            
-        <div class="awe-overlay"></div>
-
-        <div class="container">
-            <div class="statistics">
-                @if(session()->get('locale') == 'en')
-                <h2 class="heading white text-center">Villa Malie statistics</h2>
-                @else
-                <h2 class="heading white text-center">สถิติของ Villa Malie</h2>
-                @endif
-            
-                <div class="statistics_content">
-                    <div class="row">
-            
-                        <!-- ITEM -->
-                        <div class="col-xs-6 col-md-3">
-                            <div class="statistics_item">
-                                <span class="count">768</span>
-                                <span>Guest Stay</span>
-                            </div>
-                        </div>
-                        <!-- END ITEM -->
-            
-                        <!-- ITEM -->
-                        <div class="col-xs-6 col-md-3">
-                            <div class="statistics_item">
-                                <span class="count">632</span>
-                                <span>BOOK ROOM</span>
-                            </div>
-                        </div>
-                        <!-- END ITEM -->
-            
-                        <!-- ITEM -->
-                        <div class="col-xs-6 col-md-3">
-                            <div class="statistics_item">
-                                <span class="count">1024</span>
-                                <span>MEMBER STAY</span>
-                            </div>
-                        </div>
-                        <!-- END ITEM -->
-            
-                        <!-- ITEM -->
-                        <div class="col-xs-6 col-md-3">
-                            <div class="statistics_item">
-                                <span class="count">256</span>
-                                <span>MEALS SERVED</span>
-                            </div>
-                        </div>
-                        <!-- END ITEM -->
-            
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END / HOTEL STATISTICS -->
-
-    <!-- TEAM -->
-    <section class="section-team">
-        <div class="container">
-
-            <div class="team">
-                @if(session()->get('locale') == 'en')
-                <h2 class="heading text-center">Manager team</h2>
-                <p class="sub-heading text-center">Our villa is one of only eight in "The Bayridge" compound, ensuring your safety and privacy throughout your stay.</p>
-                @else
-                <h2 class="heading text-center">ทีมงานผู้จัดการ</h2>
-                <p class="sub-heading text-center">วิลล่าของเราเป็นหนึ่งในแปดแห่งในบริเวณ "เดอะเบย์ริดจ์" ซึ่งรับประกันความปลอดภัยและความเป็นส่วนตัวของคุณตลอดการเข้าพัก</p>
-                @endif
-                
-                
-                <div class="team_content">
-                    <div class="row justify-content-center">
-
-                        <!-- ITEM -->
-                        <div class="col-xs-6 col-md-6 center-block">
-                            <div class="team_item text-center">
-
-                                <div class="img">
-                                    <a href=""><img src="{{ url('home/images/team/img-1.jpg') }}" alt=""></a>
-                                </div> 
-
-                                <div class="text">
-                                    <h2>JESSICA ALBA</h2>
-                                    <span>Manager lotus Hotel</span>
-                                    <p>Mea omnium explicari te, eu sit vidit harum fabellas, his no legere feugaitper in laudem malorum epicuri, quod natum evertitur ne per.</p>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        <!-- ITEM -->
-                        <div class="col-xs-6 col-md-6 center-block">
-                            <div class="team_item text-center">
-
-                                <div class="img">
-                                    <a href=""><img src="{{ url('home/images/team/img-1.jpg') }}" alt=""></a>
-                                </div> 
-
-                                <div class="text">
-                                    <h2>Robet WILIAM</h2>
-                                    <span>Founder Hotel</span>
-                                    <p>Mea omnium explicari te, eu sit vidit harum fabellas, his no legere feugaitper in laudem malorum epicuri, quod natum evertitur ne per.</p>
-                                    
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- END / ITEM -->
-
-                        
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <!-- END / TEAM -->
-
+   
 
     @endsection
 

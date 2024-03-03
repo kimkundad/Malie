@@ -84,6 +84,30 @@
 															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['email'] }}</div>
 															<!--end:Total-->
 														</div>
+														<div style="display:flex; justify-content: space-between; color:#7E8299; font-size: 14px; font-weight:500; margin-bottom:8px">
+															<!--begin:Description-->
+															<div style="font-family:Arial,Helvetica,sans-serif;">Adults</div>
+															<!--end:Description-->
+															<!--begin:Total-->
+															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['adults'] }}</div>
+															<!--end:Total-->
+														</div>
+														<div style="display:flex; justify-content: space-between; color:#7E8299; font-size: 14px; font-weight:500; margin-bottom:8px">
+															<!--begin:Description-->
+															<div style="font-family:Arial,Helvetica,sans-serif;">Children</div>
+															<!--end:Description-->
+															<!--begin:Total-->
+															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['children'] }}</div>
+															<!--end:Total-->
+														</div>
+														<div style="display:flex; justify-content: space-between; color:#7E8299; font-size: 14px; font-weight:500; margin-bottom:8px">
+															<!--begin:Description-->
+															<div style="font-family:Arial,Helvetica,sans-serif;">Pets</div>
+															<!--end:Description-->
+															<!--begin:Total-->
+															<div style="font-family:Arial,Helvetica,sans-serif; margin-left:10px"> {{ $details['pets'] }}</div>
+															<!--end:Total-->
+														</div>
                                                         <div style="display:flex; justify-content: space-between; color:#7E8299; font-size: 14px; font-weight:500; margin-bottom:8px">
 															<!--begin:Description-->
 															<div style="font-family:Arial,Helvetica,sans-serif">Detail</div>
@@ -129,8 +153,11 @@
 											<a href="https://www.facebook.com/Villamaliekohsamui" style="margin-right:10px">
 												<img alt="Logo" src="{{ url('admin/assets/media/email/icon-facebook.png') }}" />
 											</a>
-											<a href="#">
-												<img alt="Logo" src="{{ url('admin/assets/media/email/icon-twitter.png') }}" />
+											<a href="https://www.youtube.com/@VillaMalieSamui/featured">
+												<img alt="Logo" src="{{ url('admin/assets/media/email/youtube-icon.png') }}" style="height: 24px; width:24px"/>
+											</a>
+											<a href="https://www.instagram.com/villa_malie_samui/?fbclid=IwAR2vWANsMqSFN7dOMdT4R4xRBcb1Q6lVHoZF5jnwEpJsrVmZWKRWFyRJXAE">
+												<img alt="Logo" src="{{ url('admin/assets/media/email/ig-icon.png') }}" style="height: 24px; width:24px"/>
 											</a>
 										</td>
 									</tr>

@@ -34,10 +34,10 @@
                 <div class="text text-center">
                     @if(session()->get('locale') == 'en')
                         <h2>RESERVATION</h2>
-                        <p>Pool Villa Reservation Schedule</p>
+                        {{-- <p>Pool Villa Reservation Schedule</p> --}}
                     @else
                         <h2>ตารางการจอง</h2>
-                        <p>ค้นหาวันที่สามารถจองที่พักได้</p>
+                        {{-- <p>ค้นหาวันที่สามารถจองที่พักได้</p> --}}
                     @endif
                     
                 </div>
@@ -93,11 +93,49 @@
                                     <input type="text" name="departure" class="awe-calendar awe-input to" placeholder="Depature">
                                 </div>
                                 
-                                <h6 class="check_availability_title">GUest</h6>
+                                <h6 class="check_availability_title">GUEST</h6>
                                 
                                 <div class="check_availability-field">
-                                    <label>All guests</label>
+                                    <label>Adults</label>
                                     <select class="awe-select" name="adults">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="check_availability-field">
+                                    <label>Children</label>
+                                    <select class="awe-select" name="children">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                                </div>
+
+                                <div class="check_availability-field">
+                                    <label>Pets</label>
+                                    <select class="awe-select" name="pets">
+                                        <option>0</option>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -131,43 +169,12 @@
 
 
                                 <div class="room-detail_overview">
-                                    <h5 class='text-uppercase'>Reservation</h5>
-                                   
-                                    <div class="row">
-                                        <div class="col-xs-6 col-md-6">
-                                            <h6>📍LOW</h6>
-                                            <ul>
-                                                <li>01.11. - 14.12.</li>
-                                                <li> <b>💰 THB 10,000 /  Night 💰</b></li>
-                                                <li>Minimum Stay – 3 Nights</li>
-                                            </ul>
-                                            <h6>📍MID</h6>
-                                            <ul>
-                                                <li>01.05. - 30.06.</li>
-                                                <li>01.09. - 31.10.</li>
-                                                <li> <b>💰 THB 15,000 /  Night 💰</b></li>
-                                                <li>Minimum Stay – 3 Nights</li>
-                                            </ul>
-                                            <h6>📍HIGH​</h6>
-                                            <ul>
-                                                <li>16.01. - 30.04.</li>
-                                                <li>01.07. - 31.08.</li>
-                                                <li> <b>💰 THB 20,000 /  Night 💰</b> </li>
-                                                <li>Minimum Stay – 3 Nights</li>
-                                            </ul>
-                                            <h6>📍PEAK</h6>
-                                            <ul>
-                                                <li>15.12. - 15.01.</li>
-                                                <li> <b>💰 THB 25,000 / Night 💰</b> </li>
-                                                <li>Minimum Stay – 5 Nights that overlap Christmas or New Years</li>
-                                                <li>Minimum Stay – 7 Nights overlapping both</li>
-                                            </ul>
-                                            <p>All Rates are in THB incl. Service Charge and Taxes</p>
-                                            <h6>LONGTERM</h6>
-                                            <p>Booking for more than 1 week please contact us by email <a href="mailto:{{ get_email() }}">{{ get_email() }}</a>
-                                                The longer the stay, the better the price. Discounts are already included in the weekly price
-                                            </p>
-                                        </div>
+                                    <div>
+                                        @if(session()->get('locale') == 'en')
+                                            {!! reservation_en() !!}
+                                        @else
+                                            {!! reservation() !!}
+                                        @endif
                                     </div>
                                 </div>
 
@@ -212,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 @if(isset($objs))
                 @foreach($objs as $u)
                 {
-					title: ' จองแล้ว ',
+					title: ' Booked ',
 					start: '{{ $u->dateorder }}',
                     description: '{{ $u->phone }}',
 					constraint: 'availableForMeeting'

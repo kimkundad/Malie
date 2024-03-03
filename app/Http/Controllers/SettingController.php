@@ -29,6 +29,65 @@ class SettingController extends Controller
 
           $filename = null;
           $id = 1;
+
+          $img_a = $request->file('img_a');
+          $img_b = $request->file('img_b');
+          $img_c = $request->file('img_c');
+          $img_d = $request->file('img_d');
+
+          if($img_a){
+            $imga = Image::make($img_a->getRealPath());
+              $imga->resize(1200, 630, function ($constrainta) {
+              $constrainta->aspectRatio();
+              });
+              $imga->stream();
+              Storage::disk('do_spaces')->put('malie/setting/'.$img_a->hashName(), $imga, 'public');
+  
+              $objs = setting::find($id);
+              $objs->img_a = $img_a->hashName();
+              $objs->save();
+          }
+
+
+          if($img_b){
+            $imgb = Image::make($img_b->getRealPath());
+              $imgb->resize(1200, 630, function ($constraintb) {
+              $constraintb->aspectRatio();
+              });
+              $imgb->stream();
+              Storage::disk('do_spaces')->put('malie/setting/'.$img_b->hashName(), $imgb, 'public');
+  
+              $objs = setting::find($id);
+              $objs->img_b = $img_b->hashName();
+              $objs->save();
+          }
+
+          if($img_c){
+            $imgc = Image::make($img_c->getRealPath());
+              $imgc->resize(1200, 630, function ($constraintc) {
+              $constraintc->aspectRatio();
+              });
+              $imgc->stream();
+              Storage::disk('do_spaces')->put('malie/setting/'.$img_c->hashName(), $imgc, 'public');
+  
+              $objs = setting::find($id);
+              $objs->img_c = $img_c->hashName();
+              $objs->save();
+          }
+
+          if($img_d){
+            $imgd = Image::make($img_d->getRealPath());
+              $imgd->resize(1200, 630, function ($constraintd) {
+              $constraintd->aspectRatio();
+              });
+              $imgd->stream();
+              Storage::disk('do_spaces')->put('malie/setting/'.$img_d->hashName(), $imgd, 'public');
+  
+              $objs = setting::find($id);
+              $objs->img_d = $img_d->hashName();
+              $objs->save();
+          }
+
           if($image){
                 
     
@@ -58,6 +117,10 @@ class SettingController extends Controller
             $objs->youtube = $request['youtube'];
             $objs->address_en = $request['address_en'];
             $objs->address = $request['address'];
+            $objs->detail_room = $request['detail_room'];
+            $objs->detail_room_en = $request['detail_room_en'];
+            $objs->detail_reservation = $request['detail_reservation'];
+            $objs->detail_reservation_en = $request['detail_reservation_en'];
             $objs->save();
 
 
@@ -80,6 +143,10 @@ class SettingController extends Controller
             $objs->youtube = $request['youtube'];
             $objs->address_en = $request['address_en'];
             $objs->address = $request['address'];
+            $objs->detail_room = $request['detail_room'];
+            $objs->detail_room_en = $request['detail_room_en'];
+            $objs->detail_reservation = $request['detail_reservation'];
+            $objs->detail_reservation_en = $request['detail_reservation_en'];
             $objs->save();
 
           }

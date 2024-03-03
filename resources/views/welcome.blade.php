@@ -129,7 +129,39 @@
                                 <input type="text" name="departure" class="awe-calendar to" placeholder="Departure Date">
 
                                 <select class="awe-select" name="adults">
-                                    <option>All guests</option>
+                                    <option>Adults</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                                <select class="awe-select" name="children">
+                                    <option>Children</option>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                                <select class="awe-select" name="pets">
+                                    <option>Pets</option>
+                                    <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -145,7 +177,7 @@
                                 </select>
                                 
                                 <div class="vailability-submit">
-                                    <button type="submit" class="awe-btn awe-btn-13">FIND THE BEST RATE</button>
+                                    <button type="submit" class="awe-btn awe-btn-13">FIND</button>
                                 </div>
                             </div>
                         </form>
@@ -181,7 +213,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="img about-mt-50">
-                            <img src="{{ url('home/images/example/LINE_ALBUM2536.jpg') }}" alt="">
+                            <img src="{{ url('images/malie/setting/'.img_a()) }}" alt="Spectacular Panoramic Views">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -216,7 +248,7 @@
 
                     <div class="col-md-6 col-md-push-6">
                         <div class="img">
-                            <img src="{{ url('home/images/example/LINE_ALBUM_Star-stay-pattaya_220905_26.jpg') }}" alt="">
+                            <img src="{{ url('images/malie/setting/'.img_b()) }}" alt="OUR BEST Pic">
                         </div>
                     </div>
 
@@ -457,7 +489,7 @@
                     <div class="col-xs-12 col-sm-6">
                         <div class="img-deals img-hover-box">
                             <div class="img">
-                                <img src="{{ url('home/images/example/241_Baanpuck_Cover-Website_BP-835.jpg') }}" alt="" class="img-responsive img-full">
+                                <img src="{{ url('images/malie/setting/'.img_c()) }}" alt="Deals & PACKAGE pic" class="img-responsive img-full">
                             </div>
                         </div>
                     </div>

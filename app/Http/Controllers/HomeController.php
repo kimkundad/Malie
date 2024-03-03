@@ -87,6 +87,8 @@ class HomeController extends Controller
            $objs->arrive = $request['arrive'];
            $objs->departure = $request['departure'];
            $objs->adults = $request['adults'];
+           $objs->children = $request['children'];
+           $objs->pets = $request['pets'];
            $objs->save();
 
            $message = "ลูกค้าติดต่อจองที่พัก ชื่อ : ". $request['first_name'] ." นามสกุล : ".$request['last_name'].", ".$request['email'].", ".$request['phone'].", ในวันที่ : ".$request['arrive'];
@@ -119,6 +121,9 @@ class HomeController extends Controller
             'note' => $request['note'],
             'departure' => $request['departure'],
             'arrive' => $request['arrive'],
+            'children' => $request['children'],
+            'pets' => $request['pets'],
+            'adults' => $request['adults'],
             ];
 
            $my_email = 'contact@villamaliesamui.com';
@@ -140,6 +145,9 @@ class HomeController extends Controller
 
       $arrive = date("Y-m-d", strtotime($request->arrive));
       $data['arrive'] = $arrive;
+
+      $data['children'] = $request->children;
+      $data['pets'] = $request->pets;
       if($request->departure){
         $departure = date("Y-m-d", strtotime($request->departure));
       $data['departure'] = $departure;

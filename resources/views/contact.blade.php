@@ -39,13 +39,13 @@ iframe {
                     ติดต่อกับเรา
                     @endif
                     </h2>
-                    @if(session()->get('locale') == 'en')
+                    {{-- @if(session()->get('locale') == 'en')
                     <p>Convenient and fast booking with support
                         Before booking and after booking a house</p>
                     @else
                     <p>จองสะดวก รวดเร็ว พร้อม support
                         ก่อนจอง และหลังจองบ้านพัก</p>
-                    @endif
+                    @endif --}}
                 </div>
             </div>
 
