@@ -66,6 +66,9 @@
     margin: 10px auto 20px;
     max-width: 685px;
 }
+.section-home-guestbook.home-guestbook-style-2.bg-22 {
+    background: url({{ url('home/images/example/240216-Villa-Malie-0001_dark.jpg') }});
+}
     </style>
 
     @stop('stylesheet')
@@ -82,7 +85,7 @@
                 @isset($slide)
                     @foreach ($slide as $item)
                         <li data-transition="fade">
-                            <img src="{{ url('home/images/example/out._w.webp') }}" data-bgposition="left center" data-duration="14000"
+                            <img src="{{ url('images/malie/slide/'.$item->image) }}" data-bgposition="left center" data-duration="14000"
                                 data-bgpositionend="right center" alt="">
 
                             <div class="tp-caption sft fadeout slider-caption-sub slider-caption-1" data-x="center" data-y="240"
@@ -103,8 +106,10 @@
                                 @endif
                             </div>
 
+                            @if($item->g_btn_text)
                             <a href="{{ $item->g_btn_url !== null ? $item->g_btn_url : "#" }}" class="tp-caption sfb fadeout awe-btn awe-btn-12 awe-btn-slider" data-x="center"
                             data-y="380" data-easing="easeOutBack" data-speed="700" data-start="2200">{{ $item->g_btn_text }}</a>
+                            @endif
                         </li>
                     @endforeach
                 @endisset
