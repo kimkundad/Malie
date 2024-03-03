@@ -605,9 +605,29 @@
                             @foreach($images as $item)
                                 <div class="item-isotope {{ $item->cat_name }} ">
                                     <div class="gallery_item">
+
+                                        @if($item->type == 0)
+
                                         <a  href="{{ url('images/malie/gallery/'.$item->image) }}" class="gallery-popup mfp-image" title="{{ $item->cat_name }}">
                                             <img src="{{ url('images/malie/gallery/'.$item->image) }}" alt="{{ $item->cat_name }}">
                                         </a>
+
+                                        @if(session()->get('locale') == 'en')
+                                        <h6 class="text">{{ $item->detail_en }}</h6>
+                                        @else
+                                        <h6 class="text">{{ $item->detail }}</h6>
+                                        @endif
+
+                                        @else
+
+                                        <a  href="{{ $item->youtube }}" target="_blank" class="mfp-iframe" title="{{ $item->cat_name }}">
+                                            <img src="{{ url('images/malie/gallery/'.$item->image) }}" alt="{{ $item->cat_name }}">
+                                        </a>
+
+                                        <span class="icon"><i class="fa lotus-icon-media-play"></i></span>
+
+                                        @endif
+                                        
                                     </div>
                                 </div>
                                 <!-- END / ITEM -->

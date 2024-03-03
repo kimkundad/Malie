@@ -61,6 +61,7 @@ h3{
                         
                         <!-- LAGER IMGAE -->
                         <div class="room-detail_img">
+                            
                             @if(isset($gallery))
                                 @foreach($gallery as $u)
                                     <div class="room_img-item">
@@ -77,8 +78,10 @@ h3{
                                             @endif
                                         </h6>
                                     </div>
+                                    <div class="room_img-item"><a class="owl-video" href="https://www.youtube.com/watch?v=JpxsRwnRwCQ"></a></div>
                                 @endforeach
                             @endif
+                            
                         </div>
                         <!-- END / LAGER IMGAE -->
                         
