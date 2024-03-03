@@ -82,6 +82,7 @@
                                         <tr>
                                             <th class="p-0 "></th>
                                             <th class="p-0 ">หมวดหมู่</th>
+                                            <th class="p-0 ">ประเภท</th>
                                             <th class="p-0 ">คำอธิบายรูป</th>
                                             <th class="p-0 "></th>
                                         </tr>
@@ -99,6 +100,13 @@
                                             </td>
                                             <td>
                                                 {{ $item->cat_name }}
+                                            </td>
+                                            <td>
+                                                @if($item->type == 0)
+                                                รูปภาพ
+                                                @else
+                                                วิดีโอ
+                                                @endif
                                             </td>
                                             <td>
                                                 {{ $item->detail }}

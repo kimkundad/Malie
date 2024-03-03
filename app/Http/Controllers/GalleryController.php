@@ -84,6 +84,8 @@ class GalleryController extends Controller
            $objs->detail = $request['detail'];
            $objs->detail_en = $request['detail_en'];
            $objs->image = $image->hashName();
+           $objs->type = $request['type'];
+           $objs->youtube = $request['youtube'];
            $objs->status = $status;
            $objs->save();
 
@@ -150,6 +152,8 @@ class GalleryController extends Controller
             $objs->detail = $request['detail'];
             $objs->detail_en = $request['detail_en'];
            $objs->status = $status;
+           $objs->type = $request['type'];
+           $objs->youtube = $request['youtube'];
            $objs->save();
 
            }else{
@@ -174,6 +178,8 @@ class GalleryController extends Controller
             $objs->detail_en = $request['detail_en'];
            $objs->status = $status;
            $objs->image = $image->hashName();
+           $objs->type = $request['type'];
+           $objs->youtube = $request['youtube'];
            $objs->save();
 
            }

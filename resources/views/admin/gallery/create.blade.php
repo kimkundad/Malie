@@ -63,7 +63,7 @@
 
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปภาพ</label>
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">รูปภาพ *ต้องใส่ทั้งรูปทุกครั้ง</label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8">
@@ -123,6 +123,32 @@
                                                 <div>กรุณาเลือกหมวดหมู่รูปภาพ</div>
                                             </div>
                                         @endif
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">ประเภทปภาพ</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <select class="form-select" aria-label="Select example" name="type">
+                                            <option value="0">รูปภาพ</option>
+                                            <option value="1">วิดีโอ youtube</option>
+                                        </select>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">url Youtube **ใส่ในกรณีที่เป็นวิดีโอเท่านั้น</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="youtube" class="form-control form-control-lg form-control-solid" placeholder="https://www.youtube.com/watch?v=9UMxZofMNbA" value="{{old('youtube') ? old('youtube') : ''}}">
                                     </div>
                                     <!--end::Col-->
                                 </div>

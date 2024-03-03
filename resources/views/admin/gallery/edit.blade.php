@@ -129,6 +129,36 @@
                                     <!--end::Col-->
                                 </div>
 
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label fw-semibold fs-6">ประเภทปภาพ</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <select class="form-select" aria-label="Select example" name="type">
+                                            <option value="0" @if( $objs->type == 0)
+                                                selected='selected'
+                                                @endif>รูปภาพ</option>
+                                            <option value="1" @if( $objs->type == 1)
+                                                selected='selected'
+                                                @endif>วิดีโอ youtube</option>
+                                        </select>
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">url Youtube **ใส่ในกรณีที่เป็นวิดีโอเท่านั้น</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8 fv-row fv-plugins-icon-container">
+                                        <input type="text" name="youtube" class="form-control form-control-lg form-control-solid" placeholder="https://www.youtube.com/watch?v=9UMxZofMNbA" value="{{ $objs->youtube }}">
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
+
                                 <div class="row mb-6">
                                     <!--begin::Label-->
                                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">คำอธิบายรูป TH</label>
