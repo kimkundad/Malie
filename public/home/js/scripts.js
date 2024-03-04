@@ -540,7 +540,6 @@
         }
     }
 
-
     /* Popup Gallery */
     GalleryPopup();
     function GalleryPopup() {
