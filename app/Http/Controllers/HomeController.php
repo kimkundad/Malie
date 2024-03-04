@@ -69,7 +69,7 @@ class HomeController extends Controller
         ->get();
       $data['images'] = $images;
 
-      $category = category::whereNotIn('id', [3, 6])->get();
+      $category = category::whereNotIn('id', [3, 6])->orderby('sort', 'asc')->get();
       $data['category'] = $category;
 
       return view('gallery', $data);
@@ -216,7 +216,7 @@ class HomeController extends Controller
       $data['slide'] = $slide;
       $review = review::where('status', 1)->get();
       $data['review'] = $review;
-      $category = category::whereNotIn('id', [3, 6])->get();
+      $category = category::whereNotIn('id', [3, 6])->orderby('sort', 'asc')->get();
       $data['category'] = $category;
 
       $images = DB::table('images')->select(
@@ -226,6 +226,7 @@ class HomeController extends Controller
         )
         ->leftjoin('categories', 'categories.id',  'images.cat_id')
         ->whereNotIn('images.cat_id', [3, 6])
+        ->inRandomOrder()
         ->limit(12)
         ->get();
       $data['images'] = $images;

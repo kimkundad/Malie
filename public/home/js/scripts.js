@@ -540,13 +540,14 @@
         }
     }
 
+
     /* Popup Gallery */
     GalleryPopup();
     function GalleryPopup() {
 
-        if ($('.gallery_item').length) {
+        if ($('.gallery-isotope').length) {
 
-            $('.gallery_item').each(function (index, el) {
+            $('.gallery-isotope').each(function (index, el) {
                 $(this).magnificPopup({
                     delegate: 'a', // the selector for gallery item
                     type: 'image',
@@ -558,9 +559,10 @@
                     },
                     gallery: {
                         enabled: true,
+                        navigateByImgClick: true,
                         arrowMarkup: '<button title="%title%" type="button" class="mfp-prevent-%dir% lotus-icon-%dir%-arrow"></button>',
-                        tPrev: '',
-                        tNext: ''
+                        tPrev: "<i class='fa fa-chevron-left'></i>",
+                        tNext: "<i class='fa fa-chevron-right'></i>"
                     }
                 });
             });
