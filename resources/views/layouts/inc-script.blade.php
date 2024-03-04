@@ -18,7 +18,7 @@
     <script type="text/javascript" src="{{ url('home/js/lib/jquery.form.min.js') }}"></script>
     <script type="text/javascript" src="{{ url('home/js/lib/jquery.validate.min.js') }}"></script>
     <!-- Custom jQuery -->
-    <script type="text/javascript" src="{{ url('home/js/scripts.js') }}"></script>
+    <script type="text/javascript" src="{{ url('home/js/scripts.js') }}?v{{time()}}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
