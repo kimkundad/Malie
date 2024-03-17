@@ -507,7 +507,7 @@
                                             {{ $u->title }}
                                             @endif</a>
                                         <p class="sub font-monserat f12 f-600 upper mt10 mb20">package</p>
-                                        <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12" href="{{ url('blog_detail/'.$u->id) }}">Click hear</a>
+                                        <a class="awe-btn awe-btn-12 btn-medium font-hind bold f12" href="{{ url('blog_detail/'.$u->id) }}">Click Here</a>
                                     </div>
                                 </div>
                             @endforeach
