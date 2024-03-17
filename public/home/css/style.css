@@ -4,6 +4,9 @@ body, body, h1, h2, h3, h4, h5, h6 {
 span, p , li ,strong, option , label, input, a, b {
     font-family: 'Prompt', sans-serif !important;
 }
+.section-deals .item-deal .info .title {
+    font-family: 'Prompt', sans-serif !important;
+}
 
 a,input,textarea,button,select{
     outline:none
