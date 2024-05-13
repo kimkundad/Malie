@@ -5,7 +5,7 @@
     @stop
 
     @section('og')
-    
+
     @stop('og')
 
     @section('stylesheet')
@@ -42,7 +42,7 @@
                         <h2>ตารางการจอง</h2>
                         {{-- <p>ค้นหาวันที่สามารถจองที่พักได้</p> --}}
                     @endif
-                    
+
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
 
         <div class="container">
             <div class="reservation-page">
-                
+
                 <!-- STEP -->
                 <div class="reservation_step">
                     <ul>
@@ -65,13 +65,13 @@
                         @else
                         <li class="active"><a href="#">  ตารางการจองพักพูลวิลล่า Malie เกาะสมุย (Villa Malie Koh Samui)</a></li>
                         @endif
-                        
+
                     </ul>
                 </div>
                 <!-- END / STEP -->
 
                 <div class="row">
-                    
+
                     <div class="col-md-4 col-lg-3">
 
                         <div class="reservation-sidebar">
@@ -85,19 +85,19 @@
                                 <!-- END / HEADING -->
 
                                 <h6 class="check_availability_title">your stay dates</h6>
-                                    
+
                                 <div class="check_availability-field">
                                     <label>Arrive</label>
                                     <input type="text" name="arrive" class="awe-calendar awe-input from" placeholder="Arrive">
                                 </div>
-                                
+
                                 <div class="check_availability-field">
                                     <label>Depature</label>
                                     <input type="text" name="departure" class="awe-calendar awe-input to" placeholder="Depature">
                                 </div>
-                                
+
                                 <h6 class="check_availability_title">GUEST</h6>
-                                
+
                                 <div class="check_availability-field">
                                     <label>Adults</label>
                                     <select class="awe-select" name="adults">
@@ -115,7 +115,7 @@
                                         <option>12</option>
                                     </select>
                                 </div>
-                                
+
                                 <div class="check_availability-field">
                                     <label>Children</label>
                                     <select class="awe-select" name="children">
@@ -162,7 +162,7 @@
                         </div>
 
                     </div>
-                    
+
                     <div class="col-md-8 col-lg-9">
                         <div class="card">
                             <div class="card-body">
@@ -185,7 +185,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -202,7 +202,7 @@
 
     <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.11/index.global.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.11/index.global.min.js'></script>
-    
+
     <script type="text/javascript">
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -221,12 +221,15 @@ document.addEventListener('DOMContentLoaded', function() {
 			events: [
                 @if(isset($objs))
                 @foreach($objs as $u)
+                @if(isset( $u->first_name ))
                 {
 					title: ' Booked ',
 					start: '{{ $u->dateorder }}',
+                    color: '{{ $u->color }}',
                     description: '{{ $u->phone }}',
 					constraint: 'availableForMeeting'
 				},
+                @endif
                 @endforeach
                 @endif
 			],
@@ -236,9 +239,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-       
-       
-        
+
+
+
         </script>
 
 
@@ -256,14 +259,14 @@ function DatePicker() {
     var highlightedDays = [
         @if(isset($order))
         @foreach($order as $u)
-        '{{ $u->dateorder }}', 
+        '{{ $u->dateorder }}',
         @endforeach
         @endif
     ];
 
     // var highlightedDays = [
-    //     '2024-02-26', 
-    //     '2024-02-28', 
+    //     '2024-02-26',
+    //     '2024-02-28',
     //     '2024-03-28'
     // ];
 
@@ -317,5 +320,5 @@ function DatePicker() {
 
 
 </script>
-    
+
     @stop('scripts')

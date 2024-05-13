@@ -175,7 +175,7 @@ class HomeController extends Controller
         ->whereIn('images.cat_id', [6])
         ->limit(12)
         ->get();
-        
+
       $data['images'] = $images;
 
       return view('about', $data);
@@ -245,7 +245,7 @@ class HomeController extends Controller
 
       $email = $request['email'];
       $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-   
+
 
       if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $check_mail = subscribe::where('email', $request['email'])->count();
@@ -288,9 +288,9 @@ class HomeController extends Controller
     }
 
     public function add_contact(Request $request){
-        
 
-      
+
+
         $secret=env('reCAPTCHA');
     //  $response = $request['captcha'];
 
@@ -347,7 +347,7 @@ class HomeController extends Controller
     //    echo "message : ". $result_['message'];
         }
         curl_close($chOne);
-  
+
 
         return response()->json([
             'data' => [

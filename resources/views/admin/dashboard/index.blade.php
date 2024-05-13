@@ -55,20 +55,20 @@
             <div id="kt_app_content" class="app-content flex-column-fluid">
                 <!--begin::Content container-->
                 <div id="kt_app_content_container" class="app-container container-xxl">
-                    
-                 
+
+
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title fw-bold">ปฏิทินการจองที่พัก</h2>
-                            
+
                         </div>
                         <div class="card-body">
                             <div id="kt_docs_fullcalendar_basic"></div>
                         </div>
                     </div>
-                    
 
-                    
+
+
                 </div>
                 <!--end::Content container-->
             </div>
@@ -114,7 +114,7 @@
     $(document).ready(function(){
       $("input:checkbox").change(function() {
         var user_id = $(this).closest('tr').attr('id');
-    
+
         $.ajax({
                 type:'POST',
                 url:'{{url('api/api_post_status_contact')}}',
@@ -122,8 +122,8 @@
                 data: { "user_id" : user_id },
                 success: function(data){
                   if(data.data.success){
-    
-    
+
+
                     Swal.fire({
                         text: "ระบบได้ทำการอัพเดทข้อมูลสำเร็จ!",
                         icon: "success",
@@ -133,9 +133,9 @@
                             confirmButton: "btn btn-primary"
                         }
                     });
-    
-    
-    
+
+
+
                   }
                 }
             });
@@ -179,12 +179,15 @@ var KTGeneralFullCalendarEventsDemos = function() {
 			events: [
                 @if(isset($objs))
                 @foreach($objs as $u)
+                @if(isset( $u->first_name ))
                 {
-					title: '{{ $u->first_name }}'+' {{ $u->phone }} ',
+					title: '{{ $u->first_name }}'+' {{ $u->phone }} ' + '{{$u->id}}',
 					start: '{{ $u->dateorder }}',
+                    color: '{{ $u->color }}',
                     description: '{{ $u->phone }}',
 					constraint: 'availableForMeeting'
 				},
+                @endif
                 @endforeach
                 @endif
 			],

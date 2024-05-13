@@ -19,7 +19,7 @@ class OrderController extends Controller
     public function index()
     {
         //
-        $objs = order::orderby('id', 'desc')->paginate(15);
+        $objs = order::orderby('arrive', 'desc')->paginate(15);
         $objs->setPath('');
         return view('admin.order.index', compact('objs'));
     }
@@ -103,6 +103,8 @@ class OrderController extends Controller
                     $current = strtotime($request['arrive']);
                     $last = strtotime($request['departure']);
 
+                    $ran = array("#d9214e","#009ef7","#50cd89","#7239ea", "#f1bc00");
+
                     while( $current <= $last ) {
 
                         $dates = date($output_format, $current);
@@ -110,6 +112,7 @@ class OrderController extends Controller
                         $obj = new dateorder();
                         $obj->order_id = $objs->id;
                         $obj->dateorder = $dates;
+                        $obj->color = $ran[array_rand($ran, 1)];
                         $obj->date_status = 1;
                         $obj->save();
 
@@ -205,6 +208,8 @@ class OrderController extends Controller
                 $current = strtotime($request['arrive']);
                 $last = strtotime($request['departure']);
 
+                $ran = array("#d9214e","#009ef7","#50cd89","#7239ea", "#f1bc00");
+
                 while( $current <= $last ) {
 
                     $dates = date($output_format, $current);
@@ -212,6 +217,7 @@ class OrderController extends Controller
                     $obj = new dateorder();
                     $obj->order_id = $objs->id;
                     $obj->dateorder = $dates;
+                    $obj->color = $ran[array_rand($ran, 1)];
                     $obj->date_status = 1;
                     $obj->save();
 
@@ -243,6 +249,10 @@ class OrderController extends Controller
         //
         $obj = order::find($id);
         $obj->delete();
+
+        DB::table('dateorders')
+            ->where('order_id', $id)
+            ->delete();
 
         return redirect(url('admin/order/'))->with('del_success','คุณทำการลบอสังหา สำเร็จ');
     }

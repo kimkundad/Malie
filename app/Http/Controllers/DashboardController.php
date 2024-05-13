@@ -21,9 +21,9 @@ class DashboardController extends Controller
             ->where('dateorders.date_status', 1)
             ->get();
 
-          //  dd($objs);
-      
-      
+           // dd($objs);
+
+
         return view('admin.dashboard.index', compact('objs'	));
     }
 
