@@ -5,7 +5,7 @@
     @stop
 
     @section('og')
-    
+
     @stop('og')
 
     @section('stylesheet')
@@ -26,6 +26,11 @@
     display: inline-block;
     padding-right: 5px;
     margin-bottom: 15px;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
 }
         .heading {
     margin: 0;
@@ -186,7 +191,7 @@
                                     <option>11</option>
                                     <option>12</option>
                                 </select>
-                                
+
                                 <div class="vailability-submit">
                                     <button type="submit" class="awe-btn awe-btn-13">FIND</button>
                                 </div>
@@ -219,7 +224,7 @@
                             <p>ยินดีต้อนรับสู่ Villa Malie หนึ่งในแปดวิลล่าสุดพิเศษในบริเวณ "The Bayridge" ในฐานะแขกพิเศษของเรา คุณจะได้รับสิทธิพิเศษในการเพลิดเพลินกับการพักผ่อนอันหรูหราแบบสามห้องนอน สี่ห้องน้ำ ตั้งอยู่บนเนินเขาในเขตบางรัก ห่างจากสนามบินสมุยเพียง 8 นาที วิลล่าแห่งนี้มีการผสมผสานที่ลงตัวระหว่างความปลอดภัย การเข้าถึง และความหรูหรา</p>
                         </div>
                         @endif
-                        
+
                         <br>
                     </div>
                     <div class="col-md-6">
@@ -263,7 +268,7 @@
                         </div>
                     </div>
 
-                    
+
                     <div class="col-md-6 col-md-pull-6 ">
                         @if(session()->get('locale') == 'en')
                         <div class="text">
@@ -272,77 +277,77 @@
                             <ul>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; ">King bed size all room </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('img/pool1.jpg') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('img/pool1.jpg') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; ">Private Pool with sunbeds </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('img/elevator.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('img/elevator.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; "> Private Elevator </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('home/images/home/ourbest/icon-6.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('home/images/home/ourbest/icon-6.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; ">Ocean/Moutain View </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('img/sun.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('img/sun.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; ">Sunrise/Sunset View</p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
-                                
+
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('home/images/home/ourbest/icon-1.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('home/images/home/ourbest/icon-1.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; ">BBQ</p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('img/protect.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('img/protect.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; "> Good Security in private compound </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
-                                
+
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('home/images/home/ourbest/icon-5.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('home/images/home/ourbest/icon-5.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; ">Office/Children’s room </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                             </ul>
                         </div>
@@ -353,77 +358,77 @@
                             <ul>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('home/images/home/ourbest/icon-3.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; "> เตียงคิงส์ไซส์ทุกห้องนอน </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('img/pool1.jpg') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('img/pool1.jpg') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; ">สระว่ายน้ำส่วนตัว พร้อมเตียงอาบแดด </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('img/elevator.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('img/elevator.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; "> ลิฟต์ส่วนตัวในวิลล่า </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('home/images/home/ourbest/icon-6.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('home/images/home/ourbest/icon-6.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; ">วิวทะเลและภูเขา </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('img/sun.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('img/sun.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; "> วิวพระอาทิตย์ขึ้นและพระอาทิตย์ตก</p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
-                                
+
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('home/images/home/ourbest/icon-1.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('home/images/home/ourbest/icon-1.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; ">เตาบาร์บีคิว</p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('img/protect.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('img/protect.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; "> มีการรักษาความปลอดภัยที่ดี </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
-                                
+
                                 <li>
                                     <div style="display: flex;">
-                                        <img src="{{ url('home/images/home/ourbest/icon-5.png') }}" alt="icon" style="height: 48px; wight:48px"> 
+                                        <img src="{{ url('home/images/home/ourbest/icon-5.png') }}" alt="icon" style="height: 48px; wight:48px">
                                         <div class="myflexbox ">
                                             <p style="margin-top: 2px; font-size: 12px; ">ห้องทำงานและห้องเด็กเล่น </p>
                                         </div>
                                     </div>
-                                    
+
                                 </li>
                             </ul>
                         </div>
@@ -442,12 +447,12 @@
         <div class="container">
             <div class="home-guestbook pt0 pb0">
                 <div class="row">
-                
+
                     <div class="guestbook-content text-center owl-single">
 
                         @if(isset($review))
                             @foreach($review as $u)
-                          
+
                                 <div class="guestbook-item">
                                     <div class="text">
                                         <p class="f20">{{ $u->msg }}</p>
@@ -457,10 +462,10 @@
                                     </div>
                                     <div class="info-author">
                                         <span class="f20 c-main"><strong>{{ $u->name }}</strong></span><br>
-                                    
+
                                     </div>
                                 </div>
-                       
+
                             @endforeach
                         @endif
 
@@ -574,10 +579,10 @@
 
     <!-- GALLERY -->
     <section class="section-gallery bg-white">
-            
+
         <div class="gallery  no-padding">
             <h2 class="heading text-center">GALLERY</h2>
-            
+
             <!-- FILTER -->
             <div class="gallery-cat text-center">
                 <ul class="list-inline">
@@ -600,7 +605,7 @@
                             <div class="item-size"></div>
                             <!-- END / ITEM SIZE -->
                         <!-- ITEM -->
-                        
+
                         @if(isset($images))
                             @foreach($images as $item)
                                 <div class="item-isotope {{ $item->cat_name }} ">
@@ -627,7 +632,7 @@
                                         <span class="icon"><i class="fa lotus-icon-media-play"></i></span>
 
                                         @endif
-                                        
+
                                     </div>
                                 </div>
                                 <!-- END / ITEM -->
@@ -641,8 +646,21 @@
                     <a href="{{ url('/gallery') }}" class="awe-btn awe-btn-default">BROWSE OUR GALLERY</a>
                 </div>
 
+
+
+
             </div>
+            <br>
             <!-- GALLERY CONTENT -->
+            <div class="container">
+            <div class="row vertical-align">
+                <div class="col-xs-6 col-md-offset-3">
+                    @if((get_youtube() !== null))
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ get_youtube() }}" title="YouTube Shorts Video" frameborder="0" allowfullscreen></iframe>
+                    @endif
+                </div>
+            </div>
+            </div>
 
         </div>
     </section>
@@ -666,14 +684,14 @@
         var highlightedDays = [
             @if(isset($order))
             @foreach($order as $u)
-            '{{ $u->dateorder }}', 
+            '{{ $u->dateorder }}',
             @endforeach
             @endif
         ];
 
         // var highlightedDays = [
-        //     '2024-02-26', 
-        //     '2024-02-28', 
+        //     '2024-02-26',
+        //     '2024-02-28',
         //     '2024-03-28'
         // ];
 
