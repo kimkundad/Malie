@@ -104,7 +104,7 @@ class OrderController extends Controller
                     $last = strtotime($request['departure']);
 
                     $ran = array("#d9214e","#009ef7","#50cd89","#7239ea", "#f1bc00");
-
+                    $color = $ran[array_rand($ran, 1)];
                     while( $current <= $last ) {
 
                         $dates = date($output_format, $current);
@@ -112,7 +112,7 @@ class OrderController extends Controller
                         $obj = new dateorder();
                         $obj->order_id = $objs->id;
                         $obj->dateorder = $dates;
-                        $obj->color = $ran[array_rand($ran, 1)];
+                        $obj->color = $color;
                         $obj->date_status = 1;
                         $obj->save();
 
@@ -209,6 +209,7 @@ class OrderController extends Controller
                 $last = strtotime($request['departure']);
 
                 $ran = array("#d9214e","#009ef7","#50cd89","#7239ea", "#f1bc00");
+                $color = $ran[array_rand($ran, 1)];
 
                 while( $current <= $last ) {
 
@@ -217,7 +218,7 @@ class OrderController extends Controller
                     $obj = new dateorder();
                     $obj->order_id = $objs->id;
                     $obj->dateorder = $dates;
-                    $obj->color = $ran[array_rand($ran, 1)];
+                    $obj->color = $color;
                     $obj->date_status = 1;
                     $obj->save();
 
