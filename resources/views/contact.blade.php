@@ -5,7 +5,7 @@
     @stop
 
     @section('og')
-    
+
     @stop('og')
 
     @section('stylesheet')
@@ -59,7 +59,7 @@ iframe {
     <!-- CONTACT -->
     <section class="section-contact">
         <div class="container">
-            <div class="contact">  
+            <div class="contact">
                 <div class="row">
 
                     <div class="col-md-6 col-lg-5">
@@ -81,7 +81,7 @@ iframe {
                                         หลังจากการเข้าพักของคุณ กรุณาอย่าลังเลที่จะติดต่อผ่านทางต่อไปนี้</p>
                                     @endif
                             <ul>
-                                <li><i class="icon lotus-icon-location"></i> 
+                                <li><i class="icon lotus-icon-location"></i>
                                     @if(session()->get('locale') == 'en')
                                     {{ get_address_en() }}
                                     @else
@@ -93,13 +93,13 @@ iframe {
                             </ul>
                         </div>
 
-                        
+
 
                     </div>
 
                     <div class="col-md-6 col-lg-6 col-lg-offset-1">
                         <div class="contact-form">
-                            <form id="contactForm" action="send_mail_contact.php" method="post"> 
+                            <form id="contactForm" action="send_mail_contact.php" method="post">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <input type="text" class="field-text"  name="name" id='name' placeholder="Name">
@@ -386,7 +386,7 @@ iframe {
                         </div>
                     </div>
 
-                </div>  
+                </div>
             </div>
         </div>
     </section>
@@ -400,19 +400,19 @@ iframe {
         </div>
     </section>
     <!-- END / MAP -->
-    
+
     <script src='https://www.google.com/recaptcha/api.js?hl=th'></script>
-    
+
 
     @endsection
 
     @section('scripts')
-    
+
         <script>
 
 $(document).on('click','#btnSendData',function (event) {
       event.preventDefault();
-      
+
       var form = $('#contactForm')[0];
       var formData = new FormData(form);
       var name = document.getElementById("name").value;
@@ -426,7 +426,7 @@ $(document).on('click','#btnSendData',function (event) {
     if(name == '' || msg == '' || email == '' || phone == ''){
       swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
     }else{
-      
+
       $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="token"]').attr('value')
@@ -453,7 +453,7 @@ $(document).on('click','#btnSendData',function (event) {
                 //    window.location.replace("{{url('clients/success_payment/')}}/"+data.data.value);
               }, 3000);
               }else{
-                
+
                 swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
               }
           },
@@ -462,7 +462,7 @@ $(document).on('click','#btnSendData',function (event) {
       });
     }
     });
-    
+
         </script>
-    
+
     @stop('scripts')

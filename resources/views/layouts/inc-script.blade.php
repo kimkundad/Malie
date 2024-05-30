@@ -1,4 +1,4 @@
-    
+
     <!-- LOAD JQUERY -->
     <script type="text/javascript" src="{{ url('home/js/lib/jquery-1.11.0.min.js') }}"></script>
     <script type="text/javascript" src="{{ url('home/js/lib/jquery-ui.min.js') }}"></script>
@@ -21,11 +21,22 @@
     <script type="text/javascript" src="{{ url('home/js/scripts.js') }}?v{{time()}}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XQCZD9Y3CN">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XQCZD9Y3CN');
+</script>
+
     <script>
 
         $(document).on('click','#get_subscribe',function (event) {
               event.preventDefault();
-              
+
               var form = $('#subscribeForm')[0];
               var formData = new FormData(form);
               var email = document.getElementById("subscribeForm_email").value;
@@ -52,9 +63,9 @@
               if(data.data.status == 200){
                 swal("Good job!", "The system has successfully sent the message.!", "success");
                 $("#subscribeForm_email").val('');
-            
+
               }else{
-                
+
                 swal(data.data.msg);
               }
           },
@@ -69,4 +80,3 @@
 
             </script>
 
-    

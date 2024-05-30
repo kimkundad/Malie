@@ -647,20 +647,18 @@
                 </div>
 
 
-
-
             </div>
             <br>
             <!-- GALLERY CONTENT -->
             <div class="container">
-            <div class="row vertical-align">
-                <div class="col-xs-6 ">
+            <div class="row ">
+                <div class="col-xs-12 col-md-6">
                     @if((get_youtube() !== null))
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ get_youtube() }}" title="YouTube Shorts Video" frameborder="0" allowfullscreen></iframe>
+                    <iframe style="width:100%" width="560" height="315" src="https://www.youtube.com/embed/{{ get_youtube() }}" title="YouTube Shorts Video" frameborder="0" allowfullscreen></iframe>
                     @endif
                 </div>
-                <div class="col-xs-6 ">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/2QmQb_O7ZxM?si=2wVY2wVB8U-plAeR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="col-xs-12 col-md-6">
+                <iframe style="width:100%" width="560" height="315" src="https://www.youtube.com/embed/2QmQb_O7ZxM?si=2wVY2wVB8U-plAeR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
             </div>
