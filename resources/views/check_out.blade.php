@@ -27,6 +27,44 @@
 .bg-9 {
     background-image: url({{ url('home/images/banner/bg_top_gallery.jpg') }});
 }
+/* Submitting state for PLACE ORDER */
+.btn-order.is-loading {
+    pointer-events: none;
+    opacity: .7;
+    cursor: not-allowed;
+}
+.order-loading {
+    display: none;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 99999;
+    background: rgba(255, 255, 255, .75);
+    text-align: center;
+}
+.order-loading.is-active {
+    display: block;
+}
+.order-loading__inner {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.order-loading__spinner {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 14px;
+    border: 4px solid #e5d3b3;
+    border-top-color: #b8924a;
+    border-radius: 50%;
+    animation: order-spin .8s linear infinite;
+}
+@keyframes order-spin {
+    to { transform: rotate(360deg); }
+}
     </style>
 
     @stop('stylesheet')
@@ -161,6 +199,17 @@
     </section>
     <!-- END / ABOUT -->
 
+    <div class="order-loading" id="order_loading" aria-live="polite" aria-busy="true">
+        <div class="order-loading__inner">
+            <div class="order-loading__spinner"></div>
+            @if(session()->get('locale') == 'en')
+            Sending your booking, please wait...
+            @else
+            กำลังส่งข้อมูลการจอง กรุณารอสักครู่...
+            @endif
+        </div>
+    </div>
+
   
 
 
@@ -171,10 +220,22 @@
         <script src="https://www.google.com/recaptcha/api.js?hl={{ session()->get('locale') == 'en' ? 'en' : 'th' }}" async defer></script>
         <script>
 
+var isSubmittingOrder = false;
+
+function setOrderLoading(loading) {
+      isSubmittingOrder = loading;
+      $('#btn_submitx').toggleClass('is-loading', loading).attr('aria-disabled', loading);
+      $('#order_loading').toggleClass('is-active', loading);
+}
 
 $(document).on('click','#btn_submitx',function (event) {
       event.preventDefault();
-      
+
+      // Ignore repeat clicks while a request is in flight (or after success, before redirect).
+      if (isSubmittingOrder) {
+        return;
+      }
+
       var form = $('#contactFormxx')[0];
       var formData = new FormData(form);
       var first_name = document.getElementById("first_name").value;
@@ -197,6 +258,8 @@ $(document).on('click','#btn_submitx',function (event) {
       swal("Please confirm that you are not a robot.");
     }else{
 
+      setOrderLoading(true);
+
         $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="token"]').attr('value')
@@ -209,13 +272,13 @@ $(document).on('click','#btn_submitx',function (event) {
           processData: false,
           contentType: false,
           cache:false,
+          timeout: 60000,
           type: 'POST',
           success: function (data) {
           //  console.log(data.data.status)
               if(data.data.status == 200){
-                setTimeout(function(){
-                    $.LoadingOverlay("hide");
-                }, 0);
+                // Hide the overlay but keep the button locked until the redirect below.
+                $('#order_loading').removeClass('is-active');
 
                 swal("Good job!", "The system has successfully sent the message.!", "success");
        
@@ -229,11 +292,13 @@ $(document).on('click','#btn_submitx',function (event) {
                         window.location.replace("{{url('/')}}");
                 }, 4000);
               }else{
+                setOrderLoading(false);
                 grecaptcha.reset();
                 swal(data.data.msg || "Please enter information completely.");
               }
           },
           error: function () {
+              setOrderLoading(false);
               grecaptcha.reset();
               swal("Sorry, something went wrong. Please try again or contact us directly.");
           }
