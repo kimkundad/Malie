@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    // Google reCAPTCHA v2 ("I'm not a robot") used on contact & check-out forms.
+    'recaptcha' => [
+        'site_key' => env('RECAPTCHA_SITE_KEY', '6LdQnlkUAAAAAOfsIz7o-U6JSgrSMseulLvu7lI8'),
+        'secret' => env('reCAPTCHA'),
+    ],
+
 ];

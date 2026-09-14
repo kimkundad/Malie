@@ -26,7 +26,7 @@ class SendMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Email From Villamaliesamui.com')
+        return $this->subject('Your booking request at Villa Malie Samui')
                     ->view('emails.email1');
     }
 

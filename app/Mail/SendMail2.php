@@ -26,8 +26,16 @@ class SendMail2 extends Mailable
 
     public function build()
     {
-        return $this->subject('Email From Villamaliesamui.com')
+        $name = trim(($this->details['first_name'] ?? '').' '.($this->details['last_name'] ?? ''));
+
+        $mail = $this->subject('New booking request from '.$name)
                     ->view('emails.email2');
+
+        if (filter_var($this->details['email'] ?? null, FILTER_VALIDATE_EMAIL)) {
+            $mail->replyTo($this->details['email'], $name);
+        }
+
+        return $mail;
     }
 
 }

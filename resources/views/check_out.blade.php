@@ -124,8 +124,8 @@
                             <div class="checkout_cartinfo">
                                 <p><span>วันที่จอง:</span> {{ $arrive }} - {{ $departure }}</p>
                                 <p><span>จำนวนคน:</span> {{ $adults }}</p>
-                                <p><span>เด็ก:</span> {{ $adults }}</p>
-                                <p><span>สัตว์เลี้ยง:</span> {{ $adults }}</p>
+                                <p><span>เด็ก:</span> {{ $children }}</p>
+                                <p><span>สัตว์เลี้ยง:</span> {{ $pets }}</p>
                             </div>
                             @endif
                             
@@ -144,6 +144,9 @@
                                         
                                     </li>
                                 </ul>
+                            </div>
+                            <div style="margin: 20px 0;">
+                                <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
                             </div>
                             <div class="checkout_btn">
                                 <a id="btn_submitx" class="awe-btn awe-btn-13 btn-order">PLACE ORDER</a>
@@ -164,7 +167,8 @@
     @endsection
 
     @section('scripts')
-    
+
+        <script src="https://www.google.com/recaptcha/api.js?hl={{ session()->get('locale') == 'en' ? 'en' : 'th' }}" async defer></script>
         <script>
 
 
@@ -183,9 +187,14 @@ $(document).on('click','#btn_submitx',function (event) {
       var adults = document.getElementById("adults").value;
       var children = document.getElementById("children").value;
       var pets = document.getElementById("pets").value;
+      // The widget sits outside #contactFormxx, so add its token explicitly.
+      var captcha = (typeof grecaptcha !== 'undefined') ? grecaptcha.getResponse() : '';
+      formData.set('g-recaptcha-response', captcha);
 
       if(first_name == '' || last_name == '' || phone == '' || email == '' || arrive == ''){
       swal("Please enter information completely.");
+    }else if(captcha == ''){
+      swal("Please confirm that you are not a robot.");
     }else{
 
         $.ajaxSetup({
@@ -220,11 +229,13 @@ $(document).on('click','#btn_submitx',function (event) {
                         window.location.replace("{{url('/')}}");
                 }, 4000);
               }else{
-               
-                swal("กรูณา ป้อนข้อมูลให้ครบถ้วน");
+                grecaptcha.reset();
+                swal(data.data.msg || "Please enter information completely.");
               }
           },
           error: function () {
+              grecaptcha.reset();
+              swal("Sorry, something went wrong. Please try again or contact us directly.");
           }
       });
 

@@ -372,7 +372,7 @@ iframe {
                                         <br>
                                     </div>
                                     <div class="col-sm-12">
-                                        <div class="g-recaptcha" data-sitekey="6LdQnlkUAAAAAOfsIz7o-U6JSgrSMseulLvu7lI8"></div>
+                                        <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>
                                     </div>
                                     <div class="col-sm-12">
                                         <textarea cols="30" rows="10" name="message"  class="field-textarea" id='massage' placeholder="Please write to us with any questions, we are here to help."></textarea>

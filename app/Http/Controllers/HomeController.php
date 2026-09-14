@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\contact;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use App\Models\news;
 use App\Models\slideshow;
 use App\Models\subscribe;
@@ -77,6 +79,14 @@ class HomeController extends Controller
 
     public function add_myorders(Request $request){
 
+           if (!$this->verifyRecaptcha($request)) {
+             return response()->json([
+               'data' => [
+                 'status' => 100,
+                 'msg' => 'Please confirm that you are not a robot.'
+               ]
+             ]);
+           }
 
            $objs = new order();
            $objs->first_name = $request['first_name'];
@@ -90,28 +100,6 @@ class HomeController extends Controller
            $objs->children = $request['children'];
            $objs->pets = $request['pets'];
            $objs->save();
-
-           $message = "ลูกค้าติดต่อจองที่พัก ชื่อ : ". $request['first_name'] ." นามสกุล : ".$request['last_name'].", ".$request['email'].", ".$request['phone'].", ในวันที่ : ".$request['arrive'];
-          $lineapi = env('line_token');
-
-          $mms =  trim($message);
-          $chOne = curl_init();
-          curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
-          curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
-          curl_setopt($chOne, CURLOPT_SSL_VERIFYPEER, 0);
-          curl_setopt($chOne, CURLOPT_POST, 1);
-          curl_setopt($chOne, CURLOPT_POSTFIELDS, "message=$mms");
-          curl_setopt($chOne, CURLOPT_FOLLOWLOCATION, 1);
-          $headers = array('Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$lineapi.'',);
-          curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
-          curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
-          $result = curl_exec($chOne);
-          if(curl_error($chOne)){
-          echo 'error:' . curl_error($chOne);
-          }else{
-          $result_ = json_decode($result, true);
-          }
-          curl_close($chOne);
 
           $details = [
             'first_name' => $request['first_name'],
@@ -128,8 +116,17 @@ class HomeController extends Controller
 
            $my_email = 'contact@villamaliesamui.com';
 
-          \Mail::to($request['email'])->send(new \App\Mail\SendMail($details));
-          \Mail::to($my_email)->send(new \App\Mail\SendMail2($details));
+          // The booking is already saved, so a mail failure must not break the response.
+          try {
+            \Mail::to($request['email'])->send(new \App\Mail\SendMail($details));
+          } catch (\Throwable $e) {
+            Log::error('Booking mail to customer failed: '.$e->getMessage());
+          }
+          try {
+            \Mail::to($my_email)->send(new \App\Mail\SendMail2($details));
+          } catch (\Throwable $e) {
+            Log::error('Booking mail to admin failed: '.$e->getMessage());
+          }
 
 
            return response()->json([
@@ -289,22 +286,7 @@ class HomeController extends Controller
 
     public function add_contact(Request $request){
 
-
-
-        $secret=env('reCAPTCHA');
-    //  $response = $request['captcha'];
-
-      $captcha = "";
-      if (isset($request["g-recaptcha-response"]))
-        $captcha = $request["g-recaptcha-response"];
-
-    //  $verify=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response");
-      $response = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$_SERVER["REMOTE_ADDR"]), true);
-      //$captcha_success=json_decode($verify);
-
-    //  dd($captcha_success);
-
-    if($response["success"] == false) {
+    if(!$this->verifyRecaptcha($request)) {
 
         return response()->json([
           'data' => [
@@ -323,32 +305,6 @@ class HomeController extends Controller
            $objs->messenger = $request['massage'];
            $objs->save();
 
-
-        $message = "ข้อความจากหน้าติดต่อ หัวข้อติดต่อ : ชื่อผู้ติดต่อ : ".$request['name'].", ".$request['email'].", ".$request['type']." ".$request['phone'].", ข้อความ : ".$request['massage'];
-        $lineapi = env('line_token');
-
-        $mms =  trim($message);
-        $chOne = curl_init();
-        curl_setopt($chOne, CURLOPT_URL, "https://notify-api.line.me/api/notify");
-        curl_setopt($chOne, CURLOPT_SSL_VERIFYHOST, 0);
-        curl_setopt($chOne, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($chOne, CURLOPT_POST, 1);
-        curl_setopt($chOne, CURLOPT_POSTFIELDS, "message=$mms");
-        curl_setopt($chOne, CURLOPT_FOLLOWLOCATION, 1);
-        $headers = array('Content-type: application/x-www-form-urlencoded', 'Authorization: Bearer '.$lineapi.'',);
-        curl_setopt($chOne, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($chOne, CURLOPT_RETURNTRANSFER, 1);
-        $result = curl_exec($chOne);
-        if(curl_error($chOne)){
-        echo 'error:' . curl_error($chOne);
-        }else{
-        $result_ = json_decode($result, true);
-    //    echo "status : ".$result_['status'];
-    //    echo "message : ". $result_['message'];
-        }
-        curl_close($chOne);
-
-
         return response()->json([
             'data' => [
               'status' => 200,
@@ -356,5 +312,30 @@ class HomeController extends Controller
             ]
           ]);
             }
+    }
+
+    /**
+     * Verify a reCAPTCHA v2 token (g-recaptcha-response) with Google.
+     */
+    private function verifyRecaptcha(Request $request)
+    {
+      $token = $request->input('g-recaptcha-response');
+
+      if (empty($token)) {
+        return false;
+      }
+
+      try {
+        $response = Http::asForm()->timeout(10)->post('https://www.google.com/recaptcha/api/siteverify', [
+          'secret' => config('services.recaptcha.secret'),
+          'response' => $token,
+          'remoteip' => $request->ip(),
+        ]);
+
+        return $response->successful() && $response->json('success') === true;
+      } catch (\Throwable $e) {
+        Log::warning('reCAPTCHA verify error: '.$e->getMessage());
+        return false;
+      }
     }
 }
