@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\SpaceKim;
 use Illuminate\Http\Request;
 use App\Models\news;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -52,7 +53,7 @@ class NewConController extends Controller
           $constraint->aspectRatio();
           });
             $img->stream();
-            Storage::disk('do_spaces')->put('malie/news/'.$image->hashName(), $img, 'public');
+            SpaceKim::upload('malie/news', $image->hashName(), (string) $img);
 
         echo url('images/malie/news/'.$image->hashName());
       }
@@ -119,7 +120,7 @@ class NewConController extends Controller
           $constraint->aspectRatio();
           });
         $img->stream();
-        Storage::disk('do_spaces')->put('malie/news/'.$image->hashName(), $img, 'public');
+        SpaceKim::upload('malie/news', $image->hashName(), (string) $img);
 
         $status = 0;
         if(isset($request['status'])){
@@ -219,15 +220,14 @@ class NewConController extends Controller
           ->where('id', $id)
           ->first();
 
-          $storage = Storage::disk('do_spaces');
-          $storage->delete('malie/news/' . $img->image, 'public');
+          SpaceKim::delete('malie/news/' . $img->image);
 
           $img = Image::make($image->getRealPath());
           $img->resize(1568, 1045, function ($constraint) {
           $constraint->aspectRatio();
           });
         $img->stream();
-        Storage::disk('do_spaces')->put('malie/news/'.$image->hashName(), $img, 'public');
+        SpaceKim::upload('malie/news', $image->hashName(), (string) $img);
      
            $objs = news::find($id);
            $objs->title = $request['title'];
@@ -261,8 +261,7 @@ class NewConController extends Controller
             ->first();
 
             if(isset($objs->image)){
-                $storage = Storage::disk('do_spaces');
-                $storage->delete('malie/news/' . $objs->image, 'public');
+                SpaceKim::delete('malie/news/' . $objs->image);
             }
 
         $obj = news::find($id);

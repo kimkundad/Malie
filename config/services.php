@@ -37,4 +37,9 @@ return [
         'secret' => env('reCAPTCHA'),
     ],
 
+    'space_kim' => [
+        'url' => env('SPACE_KIM_URL', 'https://space.learnsbuy.com'),
+        'key' => env('SPACE_KIM_KEY'),
+    ],
+
 ];

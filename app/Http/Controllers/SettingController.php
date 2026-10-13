@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\SpaceKim;
 use Illuminate\Http\Request;
 use App\Models\setting;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -41,7 +42,7 @@ class SettingController extends Controller
               $constrainta->aspectRatio();
               });
               $imga->stream();
-              Storage::disk('do_spaces')->put('malie/setting/'.$img_a->hashName(), $imga, 'public');
+              SpaceKim::upload('malie/setting', $img_a->hashName(), (string) $imga);
   
               $objs = setting::find($id);
               $objs->img_a = $img_a->hashName();
@@ -55,7 +56,7 @@ class SettingController extends Controller
               $constraintb->aspectRatio();
               });
               $imgb->stream();
-              Storage::disk('do_spaces')->put('malie/setting/'.$img_b->hashName(), $imgb, 'public');
+              SpaceKim::upload('malie/setting', $img_b->hashName(), (string) $imgb);
   
               $objs = setting::find($id);
               $objs->img_b = $img_b->hashName();
@@ -68,7 +69,7 @@ class SettingController extends Controller
               $constraintc->aspectRatio();
               });
               $imgc->stream();
-              Storage::disk('do_spaces')->put('malie/setting/'.$img_c->hashName(), $imgc, 'public');
+              SpaceKim::upload('malie/setting', $img_c->hashName(), (string) $imgc);
   
               $objs = setting::find($id);
               $objs->img_c = $img_c->hashName();
@@ -81,7 +82,7 @@ class SettingController extends Controller
               $constraintd->aspectRatio();
               });
               $imgd->stream();
-              Storage::disk('do_spaces')->put('malie/setting/'.$img_d->hashName(), $imgd, 'public');
+              SpaceKim::upload('malie/setting', $img_d->hashName(), (string) $imgd);
   
               $objs = setting::find($id);
               $objs->img_d = $img_d->hashName();
@@ -96,7 +97,7 @@ class SettingController extends Controller
               $constraint->aspectRatio();
               });
               $img->stream();
-              Storage::disk('do_spaces')->put('malie/setting/'.$image->hashName(), $img, 'public');
+              SpaceKim::upload('malie/setting', $image->hashName(), (string) $img);
   
 
               $objs = setting::find($id);

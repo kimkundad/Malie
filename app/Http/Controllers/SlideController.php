@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\SpaceKim;
 use Illuminate\Http\Request;
 use App\Models\slideshow;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -90,7 +91,7 @@ class SlideController extends Controller
           $constraint->aspectRatio();
           });
         $img->stream();
-        Storage::disk('do_spaces')->put('malie/slide/'.$image->hashName(), $img, 'public');
+        SpaceKim::upload('malie/slide', $image->hashName(), (string) $img);
      
            $objs = new slideshow();
            $objs->title = $request['title'];
@@ -180,15 +181,14 @@ class SlideController extends Controller
           ->where('id', $id)
           ->first();
 
-          $storage = Storage::disk('do_spaces');
-          $storage->delete('malie/slide/' . $img->image, 'public');
+          SpaceKim::delete('malie/slide/' . $img->image);
 
           $img = Image::make($image->getRealPath());
           $img->resize(2560, 1704, function ($constraint) {
           $constraint->aspectRatio();
           });
         $img->stream();
-        Storage::disk('do_spaces')->put('malie/slide/'.$image->hashName(), $img, 'public');
+        SpaceKim::upload('malie/slide', $image->hashName(), (string) $img);
      
            $objs = slideshow::find($id);
            $objs->title = $request['title'];
@@ -220,8 +220,7 @@ class SlideController extends Controller
             ->first();
 
             if(isset($objs->image)){
-                $storage = Storage::disk('do_spaces');
-                $storage->delete('malie/slide/' . $objs->image, 'public');
+                SpaceKim::delete('malie/slide/' . $objs->image);
             }
 
         $obj = slideshow::find($id);

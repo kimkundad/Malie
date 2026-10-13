@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\SpaceKim;
 use Illuminate\Http\Request;
 use App\Models\review;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -65,7 +66,7 @@ class ReviewController extends Controller
           $constraint->aspectRatio();
           });
         $img->stream();
-        Storage::disk('do_spaces')->put('malie/review/'.$image->hashName(), $img, 'public');
+        SpaceKim::upload('malie/review', $image->hashName(), (string) $img);
 
            $objs = new review();
            $objs->name = $request['name'];
@@ -148,15 +149,14 @@ class ReviewController extends Controller
 
         //   dd($img->image);
 
-          $storage = Storage::disk('do_spaces');
-          $storage->delete('malie/review/' . $img->image, 'public');
+          SpaceKim::delete('malie/review/' . $img->image);
 
           $img = Image::make($image->getRealPath());
           $img->resize(500, 500, function ($constraint) {
           $constraint->aspectRatio();
           });
         $img->stream();
-        Storage::disk('do_spaces')->put('malie/review/'.$image->hashName(), $img, 'public');
+        SpaceKim::upload('malie/review', $image->hashName(), (string) $img);
 
           $objs = review::find($id);
           $objs->name = $request['name'];
@@ -185,8 +185,7 @@ class ReviewController extends Controller
             ->first();
 
             if(isset($objs->image)){
-                $storage = Storage::disk('do_spaces');
-                $storage->delete('malie/review/' . $objs->image, 'public');
+                SpaceKim::delete('malie/review/' . $objs->image);
             }
 
         $obj = review::find($id);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Support\SpaceKim;
 use Illuminate\Http\Request;
 use App\Models\images;
 use App\Models\category;
@@ -70,7 +71,7 @@ class GalleryController extends Controller
             $constraint->aspectRatio();
             });
             $img->stream();
-            Storage::disk('do_spaces')->put('malie/gallery/'.$image->hashName(), $img, 'public');
+            SpaceKim::upload('malie/gallery', $image->hashName(), (string) $img);
 
             $status = 0;
             if(isset($request['status'])){
@@ -162,15 +163,14 @@ class GalleryController extends Controller
             ->where('id', $id)
             ->first();
   
-            $storage = Storage::disk('do_spaces');
-            $storage->delete('malie/gallery/' . $img->image, 'public');
+            SpaceKim::delete('malie/gallery/' . $img->image);
   
             $img = Image::make($image->getRealPath());
             $img->resize(2000, 2000, function ($constraint) {
             $constraint->aspectRatio();
             });
             $img->stream();
-            Storage::disk('do_spaces')->put('malie/gallery/'.$image->hashName(), $img, 'public');
+            SpaceKim::upload('malie/gallery', $image->hashName(), (string) $img);
 
             $objs = images::find($id);
             $objs->cat_id = $request['cat_id'];
@@ -201,8 +201,7 @@ class GalleryController extends Controller
             ->first();
 
             if(isset($objs->image)){
-                $storage = Storage::disk('do_spaces');
-                $storage->delete('malie/gallery/' . $objs->image, 'public');
+                SpaceKim::delete('malie/gallery/' . $objs->image);
             }
 
         $obj = images::find($id);

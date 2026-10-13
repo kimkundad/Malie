@@ -38,14 +38,7 @@ Route::post('/api/add_subscribe', [App\Http\Controllers\HomeController::class, '
 Route::post('/api/add_contact', [App\Http\Controllers\HomeController::class, 'add_contact']);
 
 Route::get('/images/{file}', function ($file) {
-	$url = Storage::disk('do_spaces')->temporaryUrl(
-	  $file,
-	  date('Y-m-d H:i:s', strtotime("+5 min"))
-	);
-	if ($url) {
-	   return Redirect::to($url);
-	}
-	return abort(404);
+	return Redirect::to(App\Support\SpaceKim::url($file, 300));
   })->where('file', '.+');
 
 
