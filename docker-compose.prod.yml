@@ -1,0 +1,26 @@
+services:
+  nginx:
+    image: ${NGINX_IMAGE}:${IMAGE_TAG}
+    container_name: malie-nginx
+    ports:
+      # Loopback only: the host nginx proxies here. Docker's published ports
+      # skip ufw, so 0.0.0.0 would let anyone bypass the host nginx.
+      - "127.0.0.1:8088:80"
+    volumes:
+      # Editor uploads land in public/media; keep them outside the image so a
+      # deploy doesn't wipe them.
+      - ./uploads/media:/var/www/app/public/media:ro
+    depends_on:
+      - php
+    restart: unless-stopped
+
+  php:
+    image: ${APP_IMAGE}:${IMAGE_TAG}
+    container_name: malie-php
+    volumes:
+      - ./.env:/var/www/app/.env:ro
+      - ./storage:/var/www/app/storage
+      - ./uploads/media:/var/www/app/public/media
+    environment:
+      TZ: Asia/Bangkok
+    restart: unless-stopped
